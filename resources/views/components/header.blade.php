@@ -5,16 +5,16 @@
         <div class="flex items-center justify-between">
             <!-- Logo -->
             <div class="pt-2 ">
-                <img src="{{ asset('images/logos.png') }}" class="block" alt="">
+                <img src="{{ asset('images/elhrayfi-logo.png') }}" class="block" width="180" height="100" alt="">
             </div>
             <!-- Menu Item -->
             <div class="hidden md:flex space-x-6">
-                <a href="#hero" class="text-p-color">Acceuill</a>
-                <a href="#about" class="text-p-color">À propos</a>
-                <a href="#services" class="text-p-color">Jobs List</a>
-                <a href="#services" class="text-p-color">Artisans</a>
-                <a href="#" class="text-p-color">Blog</a>
-                <a href="#contact" class="text-p-color">Contact</a>
+                <a href="/" class="text-p-color">Acceuill</a>
+                <a href="{{ Route('about.index') }}" class="text-p-color">À propos</a>
+                <a href="{{ Route('joblist.index') }}" class="text-p-color">Jobs List</a>
+                <a href="{{ Route('artisans.index') }}" class="text-p-color">Artisans</a>
+                <a href="{{ Route('blog.index') }}" class="text-p-color">Blog</a>
+                <a href="{{ Route('contact.index') }}" class="text-p-color">Contact</a>
             </div>
             <!-- Button -->
             <button aria-label="theme-toggle" id="theme-toggle" type="button" class="text-gray-500  hover:bg-gray-100  focus:outline-none focus:ring-4 focus:ring-gray-200  rounded-lg text-sm p-2.5">
@@ -28,18 +28,19 @@
                 <span class="hamburger-bottom bg-black "></span>
             </button>
             <div class="space-x-4">
-                <a href="#" class="bg-green-600 border-2 border-green-600 p-3 rounded text-white hover:scale-110 transition-all ">Login</a>
-                <a href="#" class="border-2 border-green-600 p-3 rounded hover:bg-green-600 hover:text-white transition-all">Sign Up</a>
+                <a href="#" class="bg-emerald-600 border-2 border-green-600 p-3 rounded text-white hover:scale-110 transition-all ">Login</a>
+                <a href="#" class="border-2 border-emerald-600 p-3 rounded hover:bg-emerald-600 hover:text-white transition-all">Sign Up</a>
             </div>
         </div>
         <!-- Mobile Menu -->
         <div class="md:hidden">
             <div id="menu" class="absolute flex-col items-center hidden  self-end py-8 mt-10 space-y-6 font-bold bg-white  sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
-                <a href="#" class="text-p-color">Home</a>
-                <a href="#about" class="text-p-color">À propos</a>
-                <a href="#services" class="text-p-color">Services</a>
-                <a href="#" class="text-p-color">Teams</a>
-                <a href="#contact" class="text-p-color">Contact</a>
+                <a href="/" class="text-p-color">Acceuill</a>
+                <a href="{{ Route('about.index') }}" class="text-p-color">À propos</a>
+                <a href="{{ Route('joblist.index') }}" class="text-p-color">Jobs List</a>
+                <a href="{{ Route('artisans.index') }}" class="text-p-color">Artisans</a>
+                <a href="{{ Route('blog.index') }}" class="text-p-color">Blog</a>
+                <a href="{{ Route('contact.index') }}" class="text-p-color">Contact</a>
             </div>
         </div>
         {{-- Sign Up & Login Btn --}}

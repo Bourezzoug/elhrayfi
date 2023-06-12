@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html{
+    scroll-behavior: smooth;
+}
 .hamburger {
     cursor: pointer;
     width: 24px;
@@ -77,11 +80,7 @@
     opacity: .7; /* Adjust the opacity by changing the value between 0 and 1 */
     z-index: -1;
 }
-.gradient-text {
-    background: -webkit-linear-gradient(#38a745, #4cce5b);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+
 .feature-component::after{
     content:'';
     position: absolute;
@@ -128,11 +127,4 @@
 /* Blog instagram hover effect */
 .insta-card:hover .insta-overlay{
     height: 100%;
-}
-footer{
-    background-image: url('../../public/images/footer-bg.png');
-    background-size: cover;
-    /* background-position: center center; */
-    /* background-position: center center; */
-    background-repeat: no-repeat;
 }

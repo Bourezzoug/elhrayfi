@@ -7,3 +7,15 @@ btn.addEventListener('click',() => {
     nav.classList.toggle('flex')
     nav.classList.toggle('hidden')
 })
+
+const popup = document.getElementById('popup');
+window.addEventListener('scroll',function() {
+    if(this.window.scrollY > 100) {
+        popup.classList.remove('hidden')
+        popup.classList.add('flex')
+    }
+    else{
+        popup.classList.add('hidden')
+        popup.classList.remove('flex')
+    }
+})

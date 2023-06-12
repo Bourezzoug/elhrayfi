@@ -3,21 +3,19 @@
 @section('meta_description', 'description')
 @section('content')
 @include('components.header')
-<section id="hero" class="w-full h-[90vh] bg-cover bg-center relative">
+<section id="hero" class="w-full h-screen bg-cover bg-center relative">
     <div class="flex flex-col items-center justify-center h-full space-y-10">
         <div>
-            <h1 class="text-6xl text-white font-semibold">Find Your <span class="text-green-600">Desire</span> Job</h1>
-            <p class="text-xl text-white font-normal text-center">Jobs, Employment & Future Career Opportunities</p>
+            <h1 class="text-6xl text-white font-semibold">Découvrez l'<span class="text-emerald-600">Artisan</span> qui vous convient</h1>
+            <p class="text-xl text-white font-normal text-center">Emplois, opportunités professionnelles et carrières futures.</p>
         </div>
         <div class="grid grid-cols-10 bg-black w-10/12 h-20 rounded-full overflow-hidden content relative" style=" border: 10px solid rgba(255, 255, 255, 0.5)">
             <div class="col-span-3 relative">
                 <input type="text" placeholder="Job Title" class="h-full pl-10 w-full">
-                <i class="fa-solid fa-magnifying-glass gradient-text  absolute right-5 top-1/2 -translate-y-1/2 text-xl icon"></i>
-                {{-- <i class="fi fi-rr-search "></i>
-                <i class="fi fi-rs-square-right">sat</i> --}}
+                <i class="fa-solid fa-magnifying-glass  text-emerald-600 absolute right-5 top-1/2 -translate-y-1/2 text-xl icon"></i>
+
             </div>
             <div class="col-span-3 relative">
-                {{-- <input type="text" placeholder="Ville" class="h-full pl-10 w-full"> --}}
                 <select name="" id="" class="h-full pl-10 w-full">
                     <option value="" readonly="true" hidden="true"
                     selected>Choisir votre ville</option>
@@ -25,47 +23,83 @@
                     <option value="{{ $ville['ville'] }}">{{ $ville['ville'] }}</option>
                     @endforeach
                 </select>
-                <i class="fa-solid fa-location-dot gradient-text  absolute right-0 top-1/2 -translate-y-1/2 text-xl icon"></i>
+                <i class="fa-solid fa-location-dot text-emerald-600  absolute right-0 top-1/2 -translate-y-1/2 text-xl icon"></i>
             </div>
             <div class="col-span-3 relative">
                 <input type="text" placeholder="Categorie" class="h-full pl-10 w-full">
-                <i class="fa-solid fa-tag gradient-text  absolute right-5 top-1/2 -translate-y-1/2 text-xl icon"></i>
+                <i class="fa-solid fa-tag  text-emerald-600 absolute right-5 top-1/2 -translate-y-1/2 text-xl icon"></i>
             </div>
-            <div class="col-span-1 flex items-center justify-center bg-gradient-to-r from-[#38a745] to-[#4cce5b]">
+            <div class="col-span-1 flex items-center justify-center bg-emerald-600">
                 <button aria-label="send" class="text-white">Envoyer</button>
             </div>
         </div>
         <div class="md:pt-10">
-            <a href="#" class="bg-gradient-to-r from-[#38a745] to-[#4cce5b] text-white py-3 px-4 rounded text-xl hover:scale-110 transition-transform inline-block">Créer votre profil</a>
+            <a href="#" class="bg-emerald-600 text-white py-3 px-4 rounded text-xl hover:scale-110 transition-transform inline-block">Créer votre profil</a>
         </div>
         
     </div>
 </section>
-<section id="features" class="bg-gradient-to-r from-[#38a745] to-[#4cce5b]">
-    <div class="container px-32 py-6 mx-auto flex justify-around items-center">
-        <div class="flex flex-col items-center space-y-2" >
-            <div class="feature-component relative" style=" border: 10px solid rgba(255, 255, 255, 0.4)">
-                <img src="{{ asset('images/register.png') }}" class="p-3 w-16 bg-white" alt="">
-            </div>
-            <p class="text-md text-white font-semibold">Inscrivez-vous</p>
-        </div>
-        <div class="flex flex-col items-center space-y-2" >
-            <div class="feature-component relative" style=" border: 10px solid rgba(255, 255, 255, 0.4)">
-                <img src="{{ asset('images/resume.png') }}" class="p-3 w-16 bg-white" alt="">
-            </div>
-            <p class="text-md text-white font-semibold">Téléchargez votre CV</p>
-        </div>
-        <div class="flex flex-col items-center space-y-2" >
-            <div style=" border: 10px solid rgba(255, 255, 255, 0.4)">
-                <img src="{{ asset('images/job.png') }}" class="p-3 w-16 bg-white" alt="">
-            </div>
-            <p class="text-md text-white font-semibold">Commencer à postuler</p>
-        </div>
 
-    </div>
+<section id="features" class="relative md:py-24 py-16">
+    <div class="container mx-auto p-6">
+        <div class="grid grid-cols-1 pb-8 text-center">
+            <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Comment ça marche?</h3>
+
+            <p class="text-slate-400 max-w-xl mx-auto">Elhrayfi : Votre parcours vers le succès en 3 étapes simples pour créer votre compte</p>
+        </div><!--end grid-->
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 mt-6 gap-[30px]">
+            <div class="p-6 hover:shadow-xl hover:shadow-gray-100 dark:hover:shadow-gray-800 transition duration-500 rounded-2xl mt-6 text-center">
+                <div class="w-14 h-14 bg-emerald-600/5 text-emerald-600 rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm dark:shadow-gray-800">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="content mt-7">
+                    <a href="" class="title h5 text-lg font-semibold hover:text-emerald-600">Créer un compte</a>
+                    <p class="text-slate-400 mt-3">Créez votre compte pour débloquer l'accès aux fonctionnalités et avantages de notre plateforme.</p>
+                    
+                    <div class="mt-5">
+                    </div>
+                </div>
+            </div><!--end content-->
+
+            <div class="p-6 shadow-xl shadow-gray-100 dark:shadow-gray-800 transition duration-500 rounded-2xl mt-6 text-center">
+                <div class="w-14 h-14 bg-emerald-600/5 text-emerald-600 rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm dark:shadow-gray-800">
+                    <i class="fa-solid fa-list-ol"></i>
+                </div>
+
+                <div class="content mt-7">
+                    <a href="" class="title h5 text-lg font-semibold hover:text-emerald-600">Complétez votre profil</a>
+                    <p class="text-slate-400 mt-3">Complétez votre profil avec les détails essentiels pour améliorer votre recherche d'emploi ou d'embauche.</p>
+                    
+                    <div class="mt-5">
+                    </div>
+                </div>
+            </div><!--end content-->
+
+            <div class="p-6 hover:shadow-xl hover:shadow-gray-100 dark:hover:shadow-gray-800 transition duration-500 rounded-2xl mt-6 text-center">
+                <div class="w-14 h-14 bg-emerald-600/5 text-emerald-600 rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm dark:shadow-gray-800">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+
+                <div class="content mt-7">
+                    <a href="" class="title h5 text-lg font-semibold hover:text-emerald-600">Postulez à des emplois</a>
+                    <p class="text-slate-400 mt-3">Postulez à des emplois ou trouvez des candidats idéaux pour donner un coup de pouce à votre parcours professionnel.</p>
+                    
+                    <div class="mt-5">
+                    </div>
+                </div>
+            </div><!--end content-->
+        </div><!--end grid-->
+    </div><!--end container-->
 </section>
+
 <section id="categories" class="my-10">
-    <h2 class="text-3xl text-center font-semibold py-10">Choose Your Desire Category</h2>
+    <div class="grid grid-cols-1 pb-8 text-center">
+        <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Categories</h3>
+
+        <p class="text-slate-400 max-w-xl mx-auto">Elhrayfi : Une plateforme complète couvrant une diversité de catégories pour votre réussite professionnelle</p>
+    </div><!--end grid-->
     <div class="grid grid-cols-4 container mx-auto p-6 ">
         <div class="col-span-1 py-10 border-r border-b border-gray-200 transition-all space-y-2 flex flex-col justify-center items-center">
             <img src="{{ asset('images/plumber.png') }}" class="w-16 mx-auto bg-[#cfe6d2] p-2 rounded" alt="">
@@ -101,8 +135,13 @@
         </div>
     </div>
 </section>
+
 <section id="about" class="my-10">
-    <h2 class="text-3xl text-center font-semibold py-10">Pourquoi nous choisir?</h2>
+    <div class="grid grid-cols-1 pb-8 text-center">
+        <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Pourquoi nous choisir?</h3>
+
+        <p class="text-slate-400 max-w-xl mx-auto">Faites le bon choix en optant pour notre plateforme : une expérience unique vous attend</p>
+    </div><!--end grid-->
     <div class="container mx-auto p-6">
         <div class="grid grid-cols-2 gap-7">
             <div class="col-span-1">
@@ -153,8 +192,12 @@
     </div>
 </section>
 <section id="annoce">
-    <h2 class="text-3xl text-center font-semibold py-10">Les dernières annonces</h2>
-        <div class="container mx-auto p-6">
+    <div class="grid grid-cols-1 pb-8 text-center">
+        <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Des nouveaux offres</h3>
+
+        <p class="text-slate-400 max-w-xl mx-auto">Elhrayfi : Découvrez chaque jour une multitude d'offres d'emploi postées par des entreprises et des particuliers passionnés</p>
+    </div><!--end grid-->
+        {{-- <div class="container mx-auto p-6">
             <div class="grid grid-cols-3">
                 <div class="col-span-1">
                     <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -226,219 +269,378 @@
             <a href="{{ Route('blog.index') }}" class="inline-flex items-center p-3 text-sm font-medium text-center text-white bg-gradient-to-r from-[#38a745] to-[#4cce5b] rounded-lg ">
                 Voir Tous les annonces
             </a>
-        </div>
-</section>
-<section id="stats" class="my-10 bg-gradient-to-r from-[#38a745] to-[#4cce5b]">
-    <div class="container mx-auto px-6 py-16">
-        <div class="grid grid-cols-4 gap-5">
-            <div class="col-span-1 flex flex-col items-center">
-                <div>
-                    <img src="{{ asset('images/artisans.png') }}" class="w-16" alt="">
-                </div>
-                <div>
-                    <p class="text-5xl text-white font-semibold text-center pt-3">10+</p>
-                    <p class="text-xl text-white font-semibold text-center pt-3">Artisans</p>
-                </div>
-            </div>
-            <div class="col-span-1 flex flex-col items-center">
-                <div>
-                    <img src="{{ asset('images/cv.png') }}" class="w-16" alt="">
-                </div>
-                <div>
-                    <p class="text-5xl text-white font-semibold text-center pt-3">10+</p>
-                    <p class="text-xl text-white font-semibold text-center pt-3">CV</p>
-                </div>
-            </div>
-            <div class="col-span-1 flex flex-col items-center">
-                <div>
-                    <img src="{{ asset('images/job-seeker.png') }}" class="w-16" alt="">
-                </div>
-                <div>
-                    <p class="text-5xl text-white font-semibold text-center pt-3">10+</p>
-                    <p class="text-xl text-white font-semibold text-center pt-3">Annonces</p>
-                </div>
-            </div>
-            <div class="col-span-1 flex flex-col items-center">
-                <div>
-                    <img src="{{ asset('images/satisfaction.png') }}" class="w-16" alt="">
-                </div>
-                <div>
-                    <p class="text-5xl text-white font-semibold text-center pt-3">99%</p>
-                    <p class="text-xl text-white font-semibold text-center pt-3">Clients Satisfaction</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="products" class="py-10">
-    <div class="flex items-center justify-center flex-col concept">
-      <h2 class="text-2xl sm:text-3xl md:text-header my-8 font-Lato uppercase relative">Featured Profile</h2>
-    </div>
+        </div> --}}
     <div class="container mx-auto p-6">
-      <div class="products  owl-carousel owl-theme">
-          {{-- <div class="left-scroll mt-24 cursor-pointer">
-              <img src="{{ asset('images/eye.png') }}" class="w-16" alt="">
-          </div>  --}}
-              <div class="grid-cols-1 card w-72">
-                  <div class="card-img relative transition-all">
-                      <a href="#">
-                      <div class="bg h-full opacity-0 w-full absolute top-0 left-0 transition-all"></div>
-                      </a>
-                      <a href="#">
-                          <img src="{{ asset('images/profile-01.png') }}" class="w-56 h-72 object-cover" alt="">
-                      </a>
-                      <div class="icons  gap-3 items-center absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 hidden z-30">
-                          <a href="#">
-                              <span class="w-8 border border-gray-200 p-2 text-center hover:bg-black hover:border-black hover:text-white">
-                                  <i class="fa-solid fa-plus"></i>
-                              </span>
-                          </a>
-                          <a href="#">
-                              <span class="w-8 border border-gray-200 p-2 text-center hover:bg-black hover:border-black hover:text-white">
-                                  <i class="fa-solid fa-eye"></i>
-                              </span>
-                          </a>
-                          <a href="#">
-                              <span class="w-8 border border-gray-200 p-2 text-center hover:bg-black hover:border-black hover:text-white">
-                                  <i class="fa-regular fa-heart"></i>
-                              </span>
-                          </a>
-                      </div>
-                  </div>
-                  <div class="card-title">
-                    <h4 class=" pt-3 text-lg uppercase font-Lato">Ibrahim</h4>
-                    <p class=" text-gray-400 font-cormorant mt-2">Peintre</p>
-                    <a href="#" class="font-cormorant text-sm flex items-center mt-2 bg-gradient-to-r from-[#38a745] to-[#4cce5b] text-white w-fit p-2 rounded">
-                      Voir Plus
-                      <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                  </a>
+        <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
+            <div class="group relative overflow-hidden bg-white dark:bg-slate-900 shadow hover:shadow-md dark:shadow-gray-700 dark:hover:shadow-gray-700 hover:-mt-2 rounded-md transition-all duration-500 h-fit">
+                <div class="p-6">
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 min-w-[56px] flex items-center justify-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
+                            <img src="{{ asset('images/avatar-02.png') }}" class="h-8 w-8" alt="">
+                        </div>
+
+                        <div class="ms-3">
+                            <a href="job-detail-three.html" class="inline-block text-[16px] font-semibold hover:text-emerald-600 transition-all duration-500 me-1">Menuisier</a>
+                            <span class="inline-block text-sm text-slate-400">2 days ago</span>
+                            <div>
+                                <span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">Part Time</span>
+                                <span class="text-sm font-medium inline-block me-1">Est. time: <span class="text-slate-400">1 to 3 months</span></span>
+                                <span class="text-sm font-medium inline-block me-1">Type: <span class="text-slate-400">Personnel</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-400 py-3">Bonjour, je cherche quelqu'un pour raboter 2 portes en urgence et boucher au mieux le plafond suivant la photo svp. J'ai besoin pour demain...</p>
 
                 </div>
-              </div>
-              <div class="grid-cols-1 card w-72">
-                  <div class="card-img relative transition-all">
-                      <a href="#">
-                      <div class="bg h-full opacity-0 w-full absolute top-0 left-0 transition-all"></div>
-                      </a>
-                      <a href="#">
-                          <img src="{{ asset('images/profile-02.jpeg') }}" class="w-56 h-72 object-cover" alt="">
-                      </a>
-                      <div class="icons  gap-3 items-center absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 hidden z-30">
-                          <a href="#">
-                              <span class="w-8 border border-gray-200 p-2 text-center hover:bg-black hover:border-black hover:text-white">
-                                  <i class="fa-solid fa-plus"></i>
-                              </span>
-                          </a>
-                          <a href="#">
-                              <span class="w-8 border border-gray-200 p-2 text-center hover:bg-black hover:border-black hover:text-white">
-                                  <i class="fa-solid fa-eye"></i>
-                              </span>
-                          </a>
-                          <a href="#">
-                              <span class="w-8 border border-gray-200 p-2 text-center hover:bg-black hover:border-black hover:text-white">
-                                  <i class="fa-regular fa-heart"></i>
-                              </span>
-                          </a>
-                      </div>
-                  </div>
-                  <div class="card-title">
-                      <h4 class=" pt-3 text-lg uppercase font-Lato">Ibrahim</h4>
-                      <p class=" text-gray-400 font-cormorant mt-2">Menuisier</p>
-                      <a href="#" class="font-cormorant text-sm flex items-center mt-2 bg-gradient-to-r from-[#38a745] to-[#4cce5b] text-white w-fit p-2 rounded">
-                        Voir Plus
-                        <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                    </a>
 
-                  </div>
-              </div>
-              <div class="grid-cols-1 card w-72">
-                  <div class="card-img relative transition-all">
-                      <a href="#">
-                      <div class="bg h-full opacity-0 w-full absolute top-0 left-0 transition-all"></div>
-                      </a>
-                      <a href="#">
-                          <img src="{{ asset('images/profile-03.jpeg') }}" class="w-56 h-72 object-cover" class="w-full h-full" alt="">
-                      </a>
-                      <div class="icons  gap-3 items-center absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 hidden z-30">
-                          <a href="#">
-                              <span class="w-8 border border-gray-200 p-2 text-center hover:bg-black hover:border-black hover:text-white">
-                                  <i class="fa-solid fa-plus"></i>
-                              </span>
-                          </a>
-                          <a href="#">
-                              <span class="w-8 border border-gray-200 p-2 text-center hover:bg-black hover:border-black hover:text-white">
-                                  <i class="fa-solid fa-eye"></i>
-                              </span>
-                          </a>
-                          <a href="#">
-                              <span class="w-8 border border-gray-200 p-2 text-center hover:bg-black hover:border-black hover:text-white">
-                                  <i class="fa-regular fa-heart"></i>
-                              </span>
-                          </a>
-                      </div>
-                  </div>
-                  <div class="card-title">
-                    <h4 class=" pt-3 text-lg uppercase font-Lato">Ibrahim</h4>
-                    <p class=" text-gray-400 font-cormorant mt-2">Forgeron</p>
-                    <a href="#" class="font-cormorant text-sm flex items-center mt-2 bg-gradient-to-r from-[#38a745] to-[#4cce5b] text-white w-fit p-2 rounded">
-                      Voir Plus
-                      <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                  </a>
+                <div class="px-6 py-2 bg-slate-50 dark:bg-slate-800 lg:flex justify-between items-center">
+                    <div class="lg:inline-block flex justify-between">
+                        <span class="inline-block me-1 text-slate-400"><i class="fa-solid fa-location-dot text-[18px] text-slate-900 dark:text-white me-1"></i>Agadir</span>
+                    </div>
+
+                    <a href="job-apply.html" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Apply Now</a>
+                </div>
+
+            </div><!--end content-->
+            <div class="group relative overflow-hidden bg-white dark:bg-slate-900 shadow hover:shadow-md dark:shadow-gray-700 dark:hover:shadow-gray-700 hover:-mt-2 rounded-md transition-all duration-500 h-fit">
+                <div class="p-6">
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 min-w-[56px] flex items-center justify-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Logo_Lydec_2010.jpg" class="h-8 w-8" alt="">
+                        </div>
+
+                        <div class="ms-3">
+                            <a href="job-detail-three.html" class="inline-block text-[16px] font-semibold hover:text-emerald-600 transition-all duration-500 me-1">Plombier</a>
+                            <span class="inline-block text-sm text-slate-400">2 days ago</span>
+                            <div>
+                                <span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">Full Time</span>
+                                <span class="text-sm font-medium inline-block me-1">Est. time: <span class="text-slate-400">1 to 3 months</span></span>
+                                <span class="text-sm font-medium inline-block me-1">Type: <span class="text-slate-400">Entreprise</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-400 py-3">Bonjour, je cherche quelqu'un pour raboter 2 portes en urgence et boucher au mieux le plafond suivant la photo svp. J'ai besoin pour demain...</p>
 
                 </div>
-              </div>
-              <div class="grid-cols-1 card w-72">
-                  <div class="card-img relative transition-all">
-                      <a href="#">
-                      <div class="bg h-full opacity-0 w-full absolute top-0 left-0 transition-all"></div>
-                      </a>
-                      <a href="#">
-                          <img src="{{ asset('images/profile-04.jpeg') }}" class="w-56 h-72 object-cover" alt="">
-                      </a>
-                      <div class="icons  gap-3 items-center absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 hidden z-30">
-                          <a href="#">
-                              <span class="w-8 border border-gray-200 p-2 text-center hover:bg-black hover:border-black hover:text-white">
-                                  <i class="fa-solid fa-plus"></i>
-                              </span>
-                          </a>
-                          <a href="#">
-                              <span class="w-8 border border-gray-200 p-2 text-center hover:bg-black hover:border-black hover:text-white">
-                                  <i class="fa-solid fa-eye"></i>
-                              </span>
-                          </a>
-                          <a href="#">
-                              <span class="w-8 border border-gray-200 p-2 text-center hover:bg-black hover:border-black hover:text-white">
-                                  <i class="fa-regular fa-heart"></i>
-                              </span>
-                          </a>
-                      </div>
-                  </div>
-                  <div class="card-title">
-                    <h4 class=" pt-3 text-lg uppercase font-Lato">Ibrahim</h4>
-                    <p class=" text-gray-400 font-cormorant mt-2">Electricien</p>
-                    <a href="#" class="font-cormorant text-sm flex items-center mt-2 bg-gradient-to-r from-[#38a745] to-[#4cce5b] text-white w-fit p-2 rounded">
-                      Voir Plus
-                      <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                  </a>
+
+                <div class="px-6 py-2 bg-slate-50 dark:bg-slate-800 lg:flex justify-between items-center">
+                    <div class="lg:inline-block flex justify-between">
+                        <span class="inline-block me-1 text-slate-400"><i class="fa-solid fa-location-dot text-[18px] text-slate-900 dark:text-white me-1"></i>Rabat</span>
+                    </div>
+
+                    <a href="job-apply.html" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Apply Now</a>
+                </div>
+
+            </div><!--end content-->
+            <div class="group relative overflow-hidden bg-white dark:bg-slate-900 shadow hover:shadow-md dark:shadow-gray-700 dark:hover:shadow-gray-700 hover:-mt-2 rounded-md transition-all duration-500 h-fit">
+                <div class="p-6">
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 min-w-[56px] flex items-center justify-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
+                            <img src="https://www.colorado.ma/sites/all/themes/colorado_commercial/img/logo.png" class="h-8 w-8" alt="">
+                        </div>
+
+                        <div class="ms-3">
+                            <a href="job-detail-three.html" class="inline-block text-[16px] font-semibold hover:text-emerald-600 transition-all duration-500 me-1">Peintre</a>
+                            <span class="inline-block text-sm text-slate-400">2 days ago</span>
+                            <div>
+                                <span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">Full Time</span>
+                                <span class="text-sm font-medium inline-block me-1">Est. time: <span class="text-slate-400">1 to 3 months</span></span>
+                                <span class="text-sm font-medium inline-block me-1">Type: <span class="text-slate-400">Entreprise</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-400 py-3">Bonjour, je cherche quelqu'un pour raboter 2 portes en urgence et boucher au mieux le plafond suivant la photo svp. J'ai besoin pour demain...</p>
 
                 </div>
-              </div>
-  
-  
-  
-          <!-- Other Products -->
-  
-          <!-- <div class="left-scroll mt-24 cursor-pointer">
-              <img src="images/right_arrow.png" class="w-16" alt="">
-          </div> -->
+
+                <div class="px-6 py-2 bg-slate-50 dark:bg-slate-800 lg:flex justify-between items-center">
+                    <div class="lg:inline-block flex justify-between">
+                        <span class="inline-block me-1 text-slate-400"><i class="fa-solid fa-location-dot text-[18px] text-slate-900 dark:text-white me-1"></i>Marrakech</span>
+                    </div>
+
+                    <a href="job-apply.html" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Apply Now</a>
+                </div>
+
+            </div><!--end content-->
+            <div class="group relative overflow-hidden bg-white dark:bg-slate-900 shadow hover:shadow-md dark:shadow-gray-700 dark:hover:shadow-gray-700 hover:-mt-2 rounded-md transition-all duration-500 h-fit">
+                <div class="p-6">
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 min-w-[56px] flex items-center justify-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-700 rounded-md">
+                            <img src="{{ asset('images/avatar-03.png') }}" class="h-8 w-8" alt="">
+                        </div>
+
+                        <div class="ms-3">
+                            <a href="job-detail-three.html" class="inline-block text-[16px] font-semibold hover:text-emerald-600 transition-all duration-500 me-1">Electricien</a>
+                            <span class="inline-block text-sm text-slate-400">2 days ago</span>
+                            <div>
+                                <span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">Part Time</span>
+                                <span class="text-sm font-medium inline-block me-1">Est. time: <span class="text-slate-400">1 to 3 months</span></span>
+                                <span class="text-sm font-medium inline-block me-1">Type: <span class="text-slate-400">Personnel</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-400 py-3">Bonjour, je cherche quelqu'un pour raboter 2 portes en urgence et boucher au mieux le plafond suivant la photo svp. J'ai besoin pour demain...</p>
+
+                </div>
+
+                <div class="px-6 py-2 bg-slate-50 dark:bg-slate-800 lg:flex justify-between items-center">
+                    <div class="lg:inline-block flex justify-between">
+                        <span class="inline-block me-1 text-slate-400"><i class="fa-solid fa-location-dot text-[18px] text-slate-900 dark:text-white me-1"></i>Casablanca</span>
+                    </div>
+
+                    <a href="job-apply.html" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Apply Now</a>
+                </div>
+
+            </div><!--end content-->
+
+
+
+        </div>
+
+    </div>
+    <div class="flex justify-center lg:my-10">
+        <a href="job-apply.html" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Voir tous les annonces</a>
+    </div> 
+</section>
+
+<section id="stats" class="bg-emerald-600 my-10">
+    <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <div class="grid grid-cols-2 row-gap-8 md:grid-cols-4">
+        <div class="text-center md:border-r">
+            <div class="flex justify-center">
+                <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white" data-target="76">0</h6><span class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white">+</span>
+            </div>
+          <p class="text-sm font-medium tracking-widest text-white uppercase lg:text-base">
+            Artisans
+          </p>
+        </div>
+        <div class="text-center md:border-r">
+        <div class="flex justify-center">
+            <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white" data-target="20">0</h6><span class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white">+</span>
+        </div>
+          <p class="text-sm font-medium tracking-widest text-white uppercase lg:text-base">
+            Clients
+          </p>
+        </div>
+        <div class="text-center md:border-r">
+            <div class="flex justify-center">
+                <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white" data-target="45">0</h6><span class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white">+</span>
+            </div>
+          <p class="text-sm font-medium tracking-widest text-white uppercase lg:text-base">
+            Annonces
+          </p>
+        </div>
+        <div class="text-center">
+            <div class="flex justify-center">
+                <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white" data-target="99">0%</h6><span class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white">%</span>
+            </div>
+          <p class="text-sm font-medium tracking-widest text-white uppercase lg:text-base">
+            Satisfaction
+          </p>
+        </div>
       </div>
+    </div>
+  </section>
+  
+  <script>
+    function animateCounters() {
+      const counters = document.querySelectorAll('[data-target]');
+      const windowHeight = window.innerHeight;
+  
+      function animateCounter(counter) {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 1000; // Duration in milliseconds
+        let current = 0;
+        const step = Math.ceil(target / (duration / 10));
+  
+        const timer = setInterval(function() {
+          current += step;
+          counter.textContent = current;
+  
+          if (current >= target) {
+            clearInterval(timer);
+          }
+        }, 10);
+      }
+  
+      function handleScroll() {
+        counters.forEach(counter => {
+          const counterPosition = counter.getBoundingClientRect().top;
+          if (counterPosition <= windowHeight * 0.8) { // Adjust the threshold as needed
+            animateCounter(counter);
+            window.removeEventListener('scroll', handleScroll); // Remove the scroll listener after counting once
+          }
+        });
+      }
+  
+      window.addEventListener('scroll', handleScroll);
+    }
+  
+    animateCounters();
+  </script>
+  
+  
+<section id="artisans" class="py-10">
+    <div class="grid grid-cols-1 pb-8 text-center">
+        <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Candidats</h3>
+
+        <p class="text-slate-400 max-w-xl mx-auto">Elhrayfi : Découvrez nos artisans talentueux et passionnés pour des réalisations exceptionnelles</p>
+    </div><!--end grid-->
+    <div class="container mx-auto p-6">
+
+                <div class="container mx-auto p-6 ">
+                <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[30px]">
+                    
+                    <div class="group bg-white dark:bg-slate-900 relative overflow-hidden rounded-md shadow-lg dark:shadow-gray-700 text-center p-6">
+                        <img src="{{ asset('images/profile-01.jpeg') }}" class="h-20 w-20 rounded-full shadow dark:shadow-gray-700 mx-auto" alt="">
+                        
+                        <div class="mt-2">
+                            <a href="candidate-detail.html" class="hover:text-emerald-600 font-semibold text-lg">Mari Harrington</a>
+                            <p class="text-sm text-slate-400">Plombier</p>
+                        </div>
+
+
+                        <div class="flex items-center justify-center ml-2 my-2">
+                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <p class="ml-1 text-sm font-bold text-gray-900 dark:text-white">4.95</p>
+                            <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                            <a href="#" class="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">73 reviews</a>
+                        </div>
+
+                        <div class="flex flex-col space-y-2 justify-between my-2">
+                            <div class="block">
+                                <span class="text-slate-400">Lieu</span>
+                                <span class="block text-sm font-semibold">Casablanca</span>
+                            </div>
+                            <div class="block">
+                                <span class="text-slate-400">Experience:</span>
+                                <span class="block text-sm font-semibold">2 Years</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <a href="candidate-detail.html" class="btn btn-sm bg-emerald-600 hover:bg-emerald-700 border-emerald-600 dark:border-emerald-600 text-white rounded-md p-2">Profile</a>
+                        </div>
+                        
+                        <span class="absolute top-[10px] end-4">
+                            <a href="javascript:void(0)" class="text-slate-100 dark:text-slate-700 focus:text-red-600 dark:focus:text-red-600 hover:text-red-600 dark:hover:text-red-600 text-2xl"><i class="mdi mdi-heart"></i></a>
+                        </span>
+                    </div><!--end content-->
+                    <div class="group bg-white dark:bg-slate-900 relative overflow-hidden rounded-md shadow-lg dark:shadow-gray-700 text-center p-6">
+                        <img src="{{ asset('images/profile-02.jpeg') }}" class="h-20 w-20 rounded-full shadow dark:shadow-gray-700 mx-auto" alt="">
+                        
+                        <div class="mt-2">
+                            <a href="candidate-detail.html" class="hover:text-emerald-600 font-semibold text-lg">Mari Harrington</a>
+                            <p class="text-sm text-slate-400">Menuisier</p>
+                        </div>
+
+
+                        <div class="flex items-center justify-center ml-2 my-2">
+                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <p class="ml-1 text-sm font-bold text-gray-900 dark:text-white">4.95</p>
+                            <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                            <a href="#" class="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">73 reviews</a>
+                        </div>
+
+                        <div class="flex flex-col space-y-2 justify-between my-2">
+                            <div class="block">
+                                <span class="text-slate-400">Lieu</span>
+                                <span class="block text-sm font-semibold">Casablanca</span>
+                            </div>
+                            <div class="block">
+                                <span class="text-slate-400">Experience:</span>
+                                <span class="block text-sm font-semibold">2 Years</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <a href="candidate-detail.html" class="btn btn-sm bg-emerald-600 hover:bg-emerald-700 border-emerald-600 dark:border-emerald-600 text-white rounded-md p-2">Profile</a>
+                        </div>
+                        
+                        <span class="absolute top-[10px] end-4">
+                            <a href="javascript:void(0)" class="text-slate-100 dark:text-slate-700 focus:text-red-600 dark:focus:text-red-600 hover:text-red-600 dark:hover:text-red-600 text-2xl"><i class="mdi mdi-heart"></i></a>
+                        </span>
+                    </div><!--end content-->
+                    <div class="group bg-white dark:bg-slate-900 relative overflow-hidden rounded-md shadow-lg dark:shadow-gray-700 text-center p-6">
+                        <img src="{{ asset('images/profile-03.jpeg') }}" class="h-20 w-20 rounded-full shadow dark:shadow-gray-700 mx-auto" alt="">
+                        
+                        <div class="mt-2">
+                            <a href="candidate-detail.html" class="hover:text-emerald-600 font-semibold text-lg">Mari Harrington</a>
+                            <p class="text-sm text-slate-400">Forgeron</p>
+                        </div>
+
+
+                        <div class="flex items-center justify-center ml-2 my-2">
+                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <p class="ml-1 text-sm font-bold text-gray-900 dark:text-white">4.95</p>
+                            <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                            <a href="#" class="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">73 reviews</a>
+                        </div>
+
+                        <div class="flex flex-col space-y-2 justify-between my-2">
+                            <div class="block">
+                                <span class="text-slate-400">Lieu</span>
+                                <span class="block text-sm font-semibold">Casablanca</span>
+                            </div>
+                            <div class="block">
+                                <span class="text-slate-400">Experience:</span>
+                                <span class="block text-sm font-semibold">2 Years</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <a href="candidate-detail.html" class="btn btn-sm bg-emerald-600 hover:bg-emerald-700 border-emerald-600 dark:border-emerald-600 text-white rounded-md p-2">Profile</a>
+                        </div>
+                        
+
+                    </div><!--end content-->
+                    <div class="group bg-white dark:bg-slate-900 relative overflow-hidden rounded-md shadow-lg dark:shadow-gray-700 text-center p-6">
+                        <img src="{{ asset('images/profile-04.jpeg') }}" class="h-20 w-20 rounded-full shadow dark:shadow-gray-700 mx-auto" alt="">
+                        
+                        <div class="mt-2">
+                            <a href="candidate-detail.html" class="hover:text-emerald-600 font-semibold text-lg">Mari Harrington</a>
+                            <p class="text-sm text-slate-400">Electricien</p>
+                        </div>
+
+
+                        <div class="flex items-center justify-center ml-2 my-2">
+                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <p class="ml-1 text-sm font-bold text-gray-900 dark:text-white">4.95</p>
+                            <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
+                            <a href="#" class="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">73 reviews</a>
+                        </div>
+
+                        <div class="flex flex-col space-y-2 justify-between my-2">
+                            <div class="block">
+                                <span class="text-slate-400">Lieu</span>
+                                <span class="block text-sm font-semibold">Casablanca</span>
+                            </div>
+                            <div class="block">
+                                <span class="text-slate-400">Experience:</span>
+                                <span class="block text-sm font-semibold">2 Years</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <a href="candidate-detail.html" class="btn btn-sm bg-emerald-600 hover:bg-emerald-700 border-emerald-600 dark:border-emerald-600 text-white rounded-md p-2">Profile</a>
+                        </div>
+                        
+                    </div><!--end content-->
+                </div><!--end grid-->
+            </div><!--end container-->
     </div>
 </section>
 <section id="blogs">
-    <div class="flex items-center justify-center flex-col concept">
-        <h2 class="text-2xl sm:text-3xl md:text-header my-8 font-Lato uppercase relative">Our Latest Blogs</h2>
-      </div>
-    <div class="container mx-auto p-6">
+    <div class="grid grid-cols-1 pb-8 text-center">
+        <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Our Latest Blog</h3>
+
+        <p class="text-slate-400 max-w-xl mx-auto">Le Blog Elhrayfi : Votre source d'inspiration incontournable pour les clients exigeants et les artisans talentueux en quête de perfectionnement</p>
+    </div><!--end grid-->
+    {{-- <div class="container mx-auto p-6">
         <div class="grid grid-cols-3 gap-10">
             <div class="col-span-1">
                 <!-- component -->
@@ -501,9 +703,87 @@
                 </div>
             </div>
         </div>
+    </div> --}}
+    <div class="container mx-auto p-6">
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[30px]">
+            <div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-700">
+                <div class="relative overflow-hidden">
+                    <img src="https://artisansofmorocco.files.wordpress.com/2014/04/artisans-2048-shot-2-1.jpg" class="scale-110 group-hover:scale-100 transition-all duration-500" alt="">
+                </div>
+
+                <div class="relative p-6">
+                    <div class="absolute start-6 -top-4">
+                        <span class="bg-emerald-600 text-white text-[12px] px-2.5 py-1 font-semibold rounded-full h-5">Arts</span>
+                    </div>
+
+                    <div class="">
+                        <div class="flex mb-4">
+                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 dark:text-white me-2"></i>20th May, 2023</span>
+                        </div>
+
+                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">11 Tips to Help You Get New Clients Through Cold Calling</a>
+                        
+                        <div class="flex justify-between items-center mt-3">
+                            <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end content-->
+            
+            <div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-700">
+                <div class="relative overflow-hidden">
+                    <img src="https://artisansofmorocco.files.wordpress.com/2014/04/artisans-2048-shot-2-1.jpg" class="scale-110 group-hover:scale-100 transition-all duration-500" alt="">
+                </div>
+
+                <div class="relative p-6">
+                    <div class="absolute start-6 -top-4">
+                        <span class="bg-emerald-600 text-white text-[12px] px-2.5 py-1 font-semibold rounded-full h-5">Illustration</span>
+                    </div>
+
+                    <div class="">
+                        <div class="flex mb-4">
+                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 dark:text-white me-2"></i>20th May, 2023</span>
+                        </div>
+
+                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">DigitalOcean launches first Canadian data centre in Toronto</a>
+                        
+                        <div class="flex justify-between items-center mt-3">
+                            <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end content-->
+            
+            <div class="group relative overflow-hidden bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-700">
+                <div class="relative overflow-hidden">
+                    <img src="https://artisansofmorocco.files.wordpress.com/2014/04/artisans-2048-shot-2-1.jpg" class="scale-110 group-hover:scale-100 transition-all duration-500" alt="">
+                </div>
+
+                <div class="relative p-6">
+                    <div class="absolute start-6 -top-4">
+                        <span class="bg-emerald-600 text-white text-[12px] px-2.5 py-1 font-semibold rounded-full h-5">Music</span>
+                    </div>
+
+                    <div class="">
+                        <div class="flex mb-4">
+                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 dark:text-white me-2"></i>20th May, 2023</span>
+                        </div>
+
+                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">Using Banner Stands To Increase Trade Show Traffic</a>
+                        
+                        <div class="flex justify-between items-center mt-3">
+                            <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end content-->
+        </div>
     </div>
 </section>
-<section id='newsletter' class="items-center mt-10 max-w-screen-xl px-4 gap-4 md:flex xl:px-8 xl:gap-12 bg-gradient-to-l from-green-500 to-green-700 py-14 rounded-xl container mx-auto p-6">  
+<section id='newsletter' class="items-center mt-10 max-w-screen-xl px-4 gap-4 md:flex xl:px-8 xl:gap-12 bg-gradient-to-l from-emerald-500 to-emerald-700 py-14 rounded-xl container mx-auto p-6">  
     <div class="flex-1 space-y-4 text-center md:text-left">
       <h1 class="text-2xl text-gray-100 font-semibold lg:text-3xl">
         Subscribe to our newsletter
@@ -515,9 +795,9 @@
     <div class="mt-5 md:mt-0 flex-1 px-0 sm:px-4">
       <form class="items-center justify-center sm:flex">
         <input type="email" placeholder="Enter e-mail"
-          class="text-gray-500 w-full p-2 rounded-md border outline-none focus:border-green-800" />
+          class="text-gray-500 w-full p-2 rounded-md border outline-none focus:border-emerald-800" />
         <button aria-label="subscribe"
-          class="w-full mt-3 px-5 py-2 rounded-md text-white bg-green-700 hover:bg-green-800 outline-none shadow-md focus:shadow-none focus:ring-2 ring-offset-2 ring-indigo-600 sm:mt-0 sm:ml-3 sm:w-auto">
+          class="w-full mt-3 px-5 py-2 rounded-md text-white bg-emerald-700 hover:bg-emerald-800 outline-none shadow-md focus:shadow-none focus:ring-2 ring-offset-2 ring-indigo-600 sm:mt-0 sm:ml-3 sm:w-auto">
           Subscribe
         </button>
       </form>
@@ -526,64 +806,9 @@
         Read our <a class="text-gray-100 hover:text-gray-50 underline" href="#"> Privacy Policy </a>
       </p>  
     </div>
-  </section>
-{{-- <footer class="mt-20 bg-gradient-to-r from-[#38a745] to-[#4cce5b] relative ">
-    
-</footer> --}}
-<footer class="mt-20" style="-webkit-font-smoothing: antialiased;">
-    {{-- <img src="images/logo.png" class="h-20 mx-auto pt-8" alt=""> --}}
-    <div class="flex flex-col md:flex-row container mx-auto px-6 text-white justify-between md:items-center pt-16">
-        <div>
-            <img src="images/logo.png" class="h-16" alt="">
-            <p class="font-cormorant py-1 mt-1 text-[1rem]  max-w-md">
-                Gardenia Secret sélectionne soigneusement des produits de beauté pour vous faire découvrir de nouvelles marques et vous aider à vous sentir belle et confiante o tahte le texte dir les logo reseaux sociaux
-            </p>
-            <div class="flex items-center my-2 gap-2">
-              <a href="#" class=" bg-[#e9b5a8] px-3.5 py-2 border cursor-pointer  border-none rounded-full transition-all">
-                <i class="fa-brands fa-facebook-f"></i>
-              </a>
-              <a href="https://www.instagram.com/gardenia.secret/" target="_blank" class="px-3 py-2 border cursor-pointer  bg-[#e9b5a8] border-none rounded-full transition-all">
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-              <a href="#" class="px-2.5 py-2 border cursor-pointer  bg-[#e9b5a8] border-none rounded-full transition-all">
-                <i class="fa-brands fa-youtube"></i>
-              </a>
-              <a href="#" class="px-3 py-2 border cursor-pointer  bg-[#e9b5a8] border-none rounded-full transition-all">
-                <i class="fa-brands fa-tiktok"></i>
-              </a>
-            </div>
-        </div>
-        <div class="mt-5 md:mt-0">
-            <h4 class="uppercase text-xl font-Lato">Concept</h4>
-            <p class="font-cormorant py-1 mt-1 "><a href="">Notre concept</a></p>
-            <p class="font-cormorant py-1 "><a href="mailto:biagiottitheme@gmail.com">Activer une carte cadeau</a></p>
-            <p class="font-cormorant py-1 "><a href="tel:+ 99 411 725 39 12">Magazine</a></p>
-            <p class="font-cormorant py-1 "><a href="tel:+ 99 411 725 39 12">E-boutique</a></p>
-            <p class="font-cormorant py-1 "><a href="tel:+ 99 411 725 39 12">Contactez-nous</a></p>
-          </div>
-        <div class="lg:mr-24 mt-5 md:mt-0">
-          <h4 class="uppercase text-xl font-Lato">Support</h4>
-          <p class="font-cormorant py-1 mt-1  "><a href="">Suivi de commande</a></p>
-          <p class="font-cormorant py-1 "><a href="mailto:biagiottitheme@gmail.com">Services clients</a></p>
-          <p class="font-cormorant py-1 "><a href="tel:+ 99 411 725 39 12">Livraison et retour</a></p>
-          <p class="font-cormorant py-1 "><a href="tel:+ 99 411 725 39 12">Question et réponse</a></p>
-          <p class="font-cormorant py-1 "><a href="tel:+ 99 411 725 39 12">Plan de site</a></p>
-        </div>
-    </div>
-    <div class="container mx-auto p-6 flex items-center justify-between nav-footer py-3 text-white border-t border-white mt-12">
+</section>
 
+@include('components.scrollUp')
 
-        <div class="  py-3 flex justify-around text-sm text-white">
-            <p>&copy; {{ date('Y',strtotime(now())) }} Elhrayfi. tous droits réservés </p>
-        </div>
-
-    <div class="  py-3 flex flex-col md:flex-row  text-sm  ">
-        <a href="#" class="uppercase font-Lato text-xs mr-6">Privacy Policy</a>
-        <a href="#" class="uppercase font-Lato text-xs">Terms & Conditions</a>
-      </div>
-
-
-    </div>
-
-</footer>
+@include('components.footer')
 @endsection
