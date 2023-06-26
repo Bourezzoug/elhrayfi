@@ -1,4 +1,12 @@
 import './bootstrap';
+
+import Alpine from 'alpinejs';
+import focus from '@alpinejs/focus';
+window.Alpine = Alpine;
+
+Alpine.plugin(focus);
+
+Alpine.start();
 const btn = document.getElementById('menu-btn');
 const nav = document.getElementById('menu');
 

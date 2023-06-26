@@ -19,7 +19,7 @@
 
             <div class="lg:col-span-5 md:col-span-6">
                 <div class="lg:ms-5">
-                    <div class="bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-700 p-6">
+                    <div class="bg-white rounded-md shadow p-6">
                         <h3 class="mb-6 text-2xl leading-normal font-semibold">Get in touch !</h3>
 
                         <form method="post" name="myForm" id="myForm" onsubmit="return validateForm()">
@@ -28,19 +28,19 @@
                             <div class="grid lg:grid-cols-12 lg:gap-6">
                                 <div class="lg:col-span-6 mb-5">
                                     <label for="name" class="font-semibold">Your Name:</label>
-                                    <input name="name" id="name" type="text" class="border border-slate-100 dark:border-slate-800 block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]" placeholder="Name :">
+                                    <input name="name" id="name" type="text" class="border border-slate-100 block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]" placeholder="Name :">
                                 <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div></div>
 
                                 <div class="lg:col-span-6 mb-5">
                                     <label for="email" class="font-semibold">Your Email:</label>
-                                    <input name="email" id="email" type="email" class="border border-slate-100 dark:border-slate-800 block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]" placeholder="Email :">
+                                    <input name="email" id="email" type="email" class="border border-slate-100 block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]" placeholder="Email :">
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1">
                                 <div class="mb-5">
                                     <label for="subject" class="font-semibold">Your Question:</label>
-                                    <input name="subject" id="subject" class="border border-slate-100 dark:border-slate-800 block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]" placeholder="Subject :">
+                                    <input name="subject" id="subject" class="border border-slate-100 block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]" placeholder="Subject :">
                                 </div>
 
                                 <div class="mb-5">
@@ -60,7 +60,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-[30px]">
             <div class="text-center px-6">
                 <div class="relative text-transparent">
-                    <div class="w-14 h-14 bg-emerald-600/5 text-emerald-600 rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm dark:shadow-gray-800">
+                    <div class="w-14 h-14 bg-emerald-600/5 text-emerald-600 rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm">
                         <i class="fa-solid fa-phone"></i>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
 
             <div class="text-center px-6">
                 <div class="relative text-transparent">
-                    <div class="w-14 h-14 bg-emerald-600/5 text-emerald-600 rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm dark:shadow-gray-800">
+                    <div class="w-14 h-14 bg-emerald-600/5 text-emerald-600 rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm">
                         <i class="fa-solid fa-envelope"></i>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
 
             <div class="text-center px-6">
                 <div class="relative text-transparent">
-                    <div class="w-14 h-14 bg-emerald-600/5 text-emerald-600 rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm dark:shadow-gray-800">
+                    <div class="w-14 h-14 bg-emerald-600/5 text-emerald-600 rounded-xl text-2xl flex align-middle justify-center items-center mx-auto shadow-sm">
                         <i class="fa-solid fa-location-dot"></i>
                     </div>
                 </div>

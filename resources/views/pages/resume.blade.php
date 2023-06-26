@@ -194,22 +194,22 @@
 <section class="relative ">
     <div class="lg:container container-fluid mx-auto p-6">
         <div class="relative shrink-0">
-            <img src="https://img.freepik.com/premium-photo/top-view-colorful-aquarelle-with-copy-space_23-2148419543.jpg?w=2000" class="h-64 w-full object-cover lg:rounded-xl shadow dark:shadow-gray-700" alt="">
+            <img src="https://img.freepik.com/premium-photo/top-view-colorful-aquarelle-with-copy-space_23-2148419543.jpg?w=2000" class="h-64 w-full object-cover lg:rounded-xl shadow" alt="">
         </div>
 
         <div class="md:flex ms-4 -mt-12">
             <div class="md:w-full">
                 <div class="relative flex items-end">
-                    <img src="https://media.istockphoto.com/id/668562118/fr/photo/visage-heureux-jeune-homme-africain-beau-sourire.jpg?s=170667a&w=0&k=20&c=oMzg_18lLvD-lT6EEFMV7u5uiq5FADDKGk5_bl8YpUo=" class="h-28 w-28 rounded-full shadow dark:shadow-gray-800 ring-4 ring-slate-50 dark:ring-slate-800 object-cover" alt="">
+                    <img src="https://media.istockphoto.com/id/668562118/fr/photo/visage-heureux-jeune-homme-africain-beau-sourire.jpg?s=170667a&w=0&k=20&c=oMzg_18lLvD-lT6EEFMV7u5uiq5FADDKGk5_bl8YpUo=" class="h-28 w-28 rounded-full shadow ring-4 ring-slate-50 object-cover" alt="">
                     <div class="ms-4">
                         <h5 class="text-lg font-semibold">Mr. Calvin carlo</h5>
                         <div class="text-slate-400 flex">Peintre
 
                             <div class="flex items-center ml-2">
                                 <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                                <p class="ml-1 text-sm font-bold text-gray-900 dark:text-white">4.95</p>
-                                <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400"></span>
-                                <a href="#" class="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">73 reviews</a>
+                                <p class="ml-1 text-sm font-bold text-gray-900">4.95</p>
+                                <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full"></span>
+                                <a href="#" class="text-sm font-medium text-gray-900 underline hover:no-underline">73 reviews</a>
                             </div>
                             
                         </div>
@@ -290,7 +290,7 @@
             </div><!--end col-->
 
             <div class="lg:col-span-4 md:col-span-5">
-                <div class="bg-slate-50 dark:bg-slate-800 rounded-md shadow dark:shadow-gray-700 p-6 sticky top-20">
+                <div class="bg-slate-50 rounded-md shadow p-6 sticky top-20">
                     <h5 class="text-lg font-semibold">Personal Detail:</h5>
                     <ul class="list-none mt-4">
                         <li class="flex justify-between mt-3 items-center font-medium">
@@ -326,7 +326,7 @@
 
 
                         <li class="mt-3 w-full  py-4 rounded-md ">
-                            <a href="assets/images/calvin-carlo-resume.pdf" class="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 dark:border-emerald-600 text-white rounded-md w-full p-2 my-2" download=""><i class="uil uil-file-download-alt"></i> Download CV</a>
+                            <a href="assets/images/calvin-carlo-resume.pdf" class="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 text-white rounded-md w-full p-2 my-2" download=""><i class="uil uil-file-download-alt"></i> Download CV</a>
                         </li>
                     </ul>
                 </div>

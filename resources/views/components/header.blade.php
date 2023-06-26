@@ -28,8 +28,8 @@
                 <span class="hamburger-bottom bg-black "></span>
             </button>
             <div class="space-x-4">
-                <a href="#" class="bg-emerald-600 border-2 border-green-600 p-3 rounded text-white hover:scale-110 transition-all ">Login</a>
-                <a href="#" class="border-2 border-emerald-600 p-3 rounded hover:bg-emerald-600 hover:text-white transition-all">Sign Up</a>
+                <a href="{{ Route('register') }}"  class="border-2 border-emerald-600 p-3 rounded hover:bg-emerald-600 hover:text-white transition-all">Sign Up</a>
+                <a href="{{ Route('login') }}"  class="bg-emerald-600 border-2 border-green-600 p-3 rounded text-white hover:scale-110 transition-all ">Login</a>
             </div>
         </div>
         <!-- Mobile Menu -->

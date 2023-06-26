@@ -16,10 +16,10 @@
             <div class="lg:col-span-5 md:col-span-6">
                 <div class="relative">
                     <div class="relative">
-                        <img src="{{ asset('images/about-img-01.jpeg') }}" class="lg:w-[400px] w-[280px] rounded-md shadow dark:shadow-gray-700" alt="">
+                        <img src="{{ asset('images/about-img-01.jpeg') }}" class="lg:w-[400px] w-[280px] rounded-md shadow" alt="">
                     </div>
                     <div class="absolute md:-end-5 end-0 -bottom-16">
-                        <img src="{{ asset('images/about-img-02.jpeg') }}" class="lg:w-[280px] w-[200px] border-8 border-white dark:border-slate-900 rounded-md shadow dark:shadow-gray-700" alt="">
+                        <img src="{{ asset('images/about-img-02.jpeg') }}" class="lg:w-[280px] w-[200px] border-8 border-white rounded-md shadow" alt="">
                     </div>
                 </div>
             </div>
@@ -52,8 +52,8 @@
         </div><!--end grid-->
 
         <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
-            <div class="group p-6 shadow dark:shadow-gray-700 rounded-md bg-white hover:bg-emerald-600/5 dark:bg-slate-900 dark:hover:bg-emerald-600/10 text-center transition-all duration-500">
-                <div class="w-16 h-16 flex items-center justify-center mx-auto bg-emerald-600/5 group-hover:bg-emerald-600 dark:bg-emerald-600/10 dark:group-hover:bg-emerald-600 shadow dark:shadow-gray-700 rounded-lg transition-all duration-500">
+            <div class="group p-6 shadow rounded-md bg-white hover:bg-emerald-600/5 text-center transition-all duration-500">
+                <div class="w-16 h-16 flex items-center justify-center mx-auto bg-emerald-600/5 group-hover:bg-emerald-600 shadow rounded-lg transition-all duration-500">
                     <i class="fa-solid fa-headset text-[30px] text-emerald-600 group-hover:text-white"></i>
                 </div>
 
@@ -65,8 +65,8 @@
                 </div>
             </div><!--end content-->
             
-            <div class="group p-6 shadow dark:shadow-gray-700 rounded-md bg-white hover:bg-emerald-600/5 dark:bg-slate-900 dark:hover:bg-emerald-600/10 text-center transition-all duration-500">
-                <div class="w-16 h-16 flex items-center justify-center mx-auto bg-emerald-600/5 group-hover:bg-emerald-600 dark:bg-emerald-600/10 dark:group-hover:bg-emerald-600 shadow dark:shadow-gray-700 rounded-lg transition-all duration-500">
+            <div class="group p-6 shadow rounded-md bg-white hover:bg-emerald-600/5 text-center transition-all duration-500">
+                <div class="w-16 h-16 flex items-center justify-center mx-auto bg-emerald-600/5 group-hover:bg-emerald-600 shadow rounded-lg transition-all duration-500">
                     <i class="fa-solid fa-bullhorn text-[30px] text-emerald-600 group-hover:text-white"></i>
                 </div>
 
@@ -78,8 +78,8 @@
                 </div>
             </div><!--end content-->
             
-            <div class="group p-6 shadow dark:shadow-gray-700 rounded-md bg-white hover:bg-emerald-600/5 dark:bg-slate-900 dark:hover:bg-emerald-600/10 text-center transition-all duration-500">
-                <div class="w-16 h-16 flex items-center justify-center mx-auto bg-emerald-600/5 group-hover:bg-emerald-600 dark:bg-emerald-600/10 dark:group-hover:bg-emerald-600 shadow dark:shadow-gray-700 rounded-lg transition-all duration-500">
+            <div class="group p-6 shadow rounded-md bg-white hover:bg-emerald-600/5 text-center transition-all duration-500">
+                <div class="w-16 h-16 flex items-center justify-center mx-auto bg-emerald-600/5 group-hover:bg-emerald-600 shadow rounded-lg transition-all duration-500">
                     <i class="fa-solid fa-bolt text-[30px] text-emerald-600 group-hover:text-white"></i>
                 </div>
 
@@ -91,8 +91,8 @@
                 </div>
             </div><!--end content-->
             
-            <div class="group p-6 shadow dark:shadow-gray-700 rounded-md bg-white hover:bg-emerald-600/5 dark:bg-slate-900 dark:hover:bg-emerald-600/10 text-center transition-all duration-500">
-                <div class="w-16 h-16 flex items-center justify-center mx-auto bg-emerald-600/5 group-hover:bg-emerald-600 dark:bg-emerald-600/10 dark:group-hover:bg-emerald-600 shadow dark:shadow-gray-700 rounded-lg transition-all duration-500">
+            <div class="group p-6 shadow rounded-md bg-white hover:bg-emerald-600/5 text-center transition-all duration-500">
+                <div class="w-16 h-16 flex items-center justify-center mx-auto bg-emerald-600/5 group-hover:bg-emerald-600 shadow rounded-lg transition-all duration-500">
                     <i class="fa-solid fa-hourglass-half text-[30px] text-emerald-600 group-hover:text-white"></i>
                 </div>
 
