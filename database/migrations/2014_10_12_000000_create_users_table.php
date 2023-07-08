@@ -14,6 +14,15 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('age');
+            $table->string('ville');
+            $table->string('addresse');
+            $table->string('artisan_job_category')->nullable();
+            $table->string('artisan_cv')->nullable();
+            $table->string('artisan_portfolio')->nullable();
+            $table->string('client_type')->nullable();
+            $table->string('client_website')->nullable();
+            $table->integer('user_type')->default(1)->comment('1 admin,2 artisan, 3 client');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

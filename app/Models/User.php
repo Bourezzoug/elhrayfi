@@ -27,6 +27,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'age',
+        'addresse',
+        'ville',
+        'user_type',
+        'artisan_job_category',
+        'profile_photo_path',
+        'client_type',
+        'client_website'
     ];
 
     /**
@@ -58,4 +66,8 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function offreTravail() {
+        return $this->hasMany(OffreTravail::class);
+    }
 }

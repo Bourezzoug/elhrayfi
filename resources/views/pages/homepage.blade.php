@@ -196,207 +196,46 @@
         <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Des nouveaux offres</h3>
 
         <p class="text-slate-400 max-w-xl mx-auto">Elhrayfi : Découvrez chaque jour une multitude d'offres d'emploi postées par des entreprises et des particuliers passionnés</p>
-    </div><!--end grid-->
-        {{-- <div class="container mx-auto p-6">
-            <div class="grid grid-cols-3">
-                <div class="col-span-1">
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <div class="flex items-center ml-5">
-                            <img class="w-20 h-20 mb-3 mt-6 rounded-full shadow-lg" src="{{ asset('images/avatar.png') }}" alt="Bonnie image"/>
-                            <div class="ml-5">
-                                <h5 class="mb-1 text-xl font-medium text-gray-900">Bonnie Green</h5>
-                                <span class="text-sm text-gray-500">Visual Designer</span>
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <a href="#">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Cherche Menuiserie - Huisserie - Agencement</h5>
-                            </a>
-                            <p class="mb-3 font-normal text-gray-700">Bonjour, je cherche quelqu'un pour raboter 2 portes en urgence et boucher au mieux le plafond suivant la photo svp. J'ai besoin pour demain...</p>
-                            <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gradient-to-r from-[#38a745] to-[#4cce5b] rounded-lg ">
-                                Voir plus
-                                <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-1">
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <div class="flex items-center ml-5">
-                            <img class="w-20 h-20 mb-3 mt-6 rounded-full shadow-lg" src="{{ asset('images/avatar-02.png') }}" alt="Bonnie image"/>
-                            <div class="ml-5">
-                                <h5 class="mb-1 text-xl font-medium text-gray-900">Bonnie Green</h5>
-                                <span class="text-sm text-gray-500">Visual Designer</span>
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <a href="#">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Cherche Menuiserie - Huisserie - Agencement</h5>
-                            </a>
-                            <p class="mb-3 font-normal text-gray-700">Bonjour, je cherche quelqu'un pour raboter 2 portes en urgence et boucher au mieux le plafond suivant la photo svp. J'ai besoin pour demain...</p>
-                            <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gradient-to-r from-[#38a745] to-[#4cce5b] rounded-lg ">
-                                Voir plus
-                                <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-1">
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-                        <div class="flex items-center ml-5">
-                            <img class="w-20 h-20 mb-3 mt-6 rounded-full shadow-lg" src="{{ asset('images/avatar-03.png') }}" alt="Bonnie image"/>
-                            <div class="ml-5">
-                                <h5 class="mb-1 text-xl font-medium text-gray-900">Bonnie Green</h5>
-                                <span class="text-sm text-gray-500">Visual Designer</span>
-                            </div>
-                        </div>
-                        <div class="p-5">
-                            <a href="#">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">Cherche Menuiserie - Huisserie - Agencement</h5>
-                            </a>
-                            <p class="mb-3 font-normal text-gray-700">Bonjour, je cherche quelqu'un pour raboter 2 portes en urgence et boucher au mieux le plafond suivant la photo svp. J'ai besoin pour demain...</p>
-                            <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-gradient-to-r from-[#38a745] to-[#4cce5b] rounded-lg ">
-                                Voir plus
-                                <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="flex justify-center">
-            <a href="{{ Route('blog.index') }}" class="inline-flex items-center p-3 text-sm font-medium text-center text-white bg-gradient-to-r from-[#38a745] to-[#4cce5b] rounded-lg ">
-                Voir Tous les annonces
-            </a>
-        </div> --}}
+    </div>
     <div class="container mx-auto p-6">
         <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
+
+
+            @forelse ($offres as $offre)
             <div class="group relative overflow-hidden bg-white shadow hover:shadow-md hover:-mt-2 rounded-md transition-all duration-500 h-fit">
                 <div class="p-6">
                     <div class="flex items-center">
                         <div class="w-14 h-14 min-w-[56px] flex items-center justify-center bg-white shadow rounded-md">
-                            <img src="{{ asset('images/avatar-02.png') }}" class="h-8 w-8" alt="">
+                            {{-- <img src="{{ $offre->user->profile_photo_path }}" class="h-8 w-8" alt=""> --}}
                         </div>
 
                         <div class="ms-3">
-                            <a href="job-detail-three.html" class="inline-block text-[16px] font-semibold hover:text-emerald-600 transition-all duration-500 me-1">Menuisier</a>
-                            <span class="inline-block text-sm text-slate-400">2 days ago</span>
+                            <a href="job-detail-three.html" class="inline-block text-[16px] font-semibold hover:text-emerald-600 transition-all duration-500 me-1">{{ $offre->catégorie }}</a>
+                            <span class="inline-block text-sm text-slate-400">{{ $offre->formattedTime }}</span>
                             <div>
-                                <span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">Part Time</span>
-                                <span class="text-sm font-medium inline-block me-1">Est. time: <span class="text-slate-400">1 to 3 months</span></span>
+                                <span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">Temps {{ $offre->type_travail }}</span>
+                                <span class="text-sm font-medium inline-block me-1">Durée: <span class="text-slate-400">{{ $offre->travail_periode }}</span></span>
                                 <span class="text-sm font-medium inline-block me-1">Type: <span class="text-slate-400">Personnel</span></span>
                             </div>
                         </div>
                     </div>
 
-                    <p class="text-slate-400 py-3">Bonjour, je cherche quelqu'un pour raboter 2 portes en urgence et boucher au mieux le plafond suivant la photo svp. J'ai besoin pour demain...</p>
+                    <p class="text-slate-400 py-3">{{ $offre->title }}</p>
 
                 </div>
 
                 <div class="px-6 py-2 bg-slate-50 lg:flex justify-between items-center">
                     <div class="lg:inline-block flex justify-between">
-                        <span class="inline-block me-1 text-slate-400"><i class="fa-solid fa-location-dot text-[18px] text-slate-900 me-1"></i>Agadir</span>
+                        <span class="inline-block me-1 text-slate-400"><i class="fa-solid fa-location-dot text-[18px] text-slate-900 me-1"></i>{{ $offre->ville }}</span>
                     </div>
 
                     <a href="job-apply.html" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Apply Now</a>
                 </div>
 
             </div><!--end content-->
-            <div class="group relative overflow-hidden bg-white shadow hover:shadow-md hover:-mt-2 rounded-md transition-all duration-500 h-fit">
-                <div class="p-6">
-                    <div class="flex items-center">
-                        <div class="w-14 h-14 min-w-[56px] flex items-center justify-center bg-white shadow rounded-md">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Logo_Lydec_2010.jpg" class="h-8 w-8" alt="">
-                        </div>
-
-                        <div class="ms-3">
-                            <a href="job-detail-three.html" class="inline-block text-[16px] font-semibold hover:text-emerald-600 transition-all duration-500 me-1">Plombier</a>
-                            <span class="inline-block text-sm text-slate-400">2 days ago</span>
-                            <div>
-                                <span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">Full Time</span>
-                                <span class="text-sm font-medium inline-block me-1">Est. time: <span class="text-slate-400">1 to 3 months</span></span>
-                                <span class="text-sm font-medium inline-block me-1">Type: <span class="text-slate-400">Entreprise</span></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p class="text-slate-400 py-3">Bonjour, je cherche quelqu'un pour raboter 2 portes en urgence et boucher au mieux le plafond suivant la photo svp. J'ai besoin pour demain...</p>
-
-                </div>
-
-                <div class="px-6 py-2 bg-slate-50 lg:flex justify-between items-center">
-                    <div class="lg:inline-block flex justify-between">
-                        <span class="inline-block me-1 text-slate-400"><i class="fa-solid fa-location-dot text-[18px] text-slate-900 me-1"></i>Rabat</span>
-                    </div>
-
-                    <a href="job-apply.html" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Apply Now</a>
-                </div>
-
-            </div><!--end content-->
-            <div class="group relative overflow-hidden bg-white shadow hover:shadow-md hover:-mt-2 rounded-md transition-all duration-500 h-fit">
-                <div class="p-6">
-                    <div class="flex items-center">
-                        <div class="w-14 h-14 min-w-[56px] flex items-center justify-center bg-white shadow rounded-md">
-                            <img src="https://www.colorado.ma/sites/all/themes/colorado_commercial/img/logo.png" class="h-8 w-8" alt="">
-                        </div>
-
-                        <div class="ms-3">
-                            <a href="job-detail-three.html" class="inline-block text-[16px] font-semibold hover:text-emerald-600 transition-all duration-500 me-1">Peintre</a>
-                            <span class="inline-block text-sm text-slate-400">2 days ago</span>
-                            <div>
-                                <span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">Full Time</span>
-                                <span class="text-sm font-medium inline-block me-1">Est. time: <span class="text-slate-400">1 to 3 months</span></span>
-                                <span class="text-sm font-medium inline-block me-1">Type: <span class="text-slate-400">Entreprise</span></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p class="text-slate-400 py-3">Bonjour, je cherche quelqu'un pour raboter 2 portes en urgence et boucher au mieux le plafond suivant la photo svp. J'ai besoin pour demain...</p>
-
-                </div>
-
-                <div class="px-6 py-2 bg-slate-50 lg:flex justify-between items-center">
-                    <div class="lg:inline-block flex justify-between">
-                        <span class="inline-block me-1 text-slate-400"><i class="fa-solid fa-location-dot text-[18px] text-slate-900 me-1"></i>Marrakech</span>
-                    </div>
-
-                    <a href="job-apply.html" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Apply Now</a>
-                </div>
-
-            </div><!--end content-->
-            <div class="group relative overflow-hidden bg-white shadow hover:shadow-md hover:-mt-2 rounded-md transition-all duration-500 h-fit">
-                <div class="p-6">
-                    <div class="flex items-center">
-                        <div class="w-14 h-14 min-w-[56px] flex items-center justify-center bg-white shadow rounded-md">
-                            <img src="{{ asset('images/avatar-03.png') }}" class="h-8 w-8" alt="">
-                        </div>
-
-                        <div class="ms-3">
-                            <a href="job-detail-three.html" class="inline-block text-[16px] font-semibold hover:text-emerald-600 transition-all duration-500 me-1">Electricien</a>
-                            <span class="inline-block text-sm text-slate-400">2 days ago</span>
-                            <div>
-                                <span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">Part Time</span>
-                                <span class="text-sm font-medium inline-block me-1">Est. time: <span class="text-slate-400">1 to 3 months</span></span>
-                                <span class="text-sm font-medium inline-block me-1">Type: <span class="text-slate-400">Personnel</span></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p class="text-slate-400 py-3">Bonjour, je cherche quelqu'un pour raboter 2 portes en urgence et boucher au mieux le plafond suivant la photo svp. J'ai besoin pour demain...</p>
-
-                </div>
-
-                <div class="px-6 py-2 bg-slate-50 lg:flex justify-between items-center">
-                    <div class="lg:inline-block flex justify-between">
-                        <span class="inline-block me-1 text-slate-400"><i class="fa-solid fa-location-dot text-[18px] text-slate-900 me-1"></i>Casablanca</span>
-                    </div>
-
-                    <a href="job-apply.html" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Apply Now</a>
-                </div>
-
-            </div><!--end content-->
-
+            @empty
+                
+            @endforelse
 
 
         </div>
@@ -856,24 +695,27 @@
 <section id='newsletter' class="items-center mt-10 max-w-screen-xl px-4 gap-4 md:flex xl:px-8 xl:gap-12 bg-gradient-to-l from-emerald-500 to-emerald-700 py-14 rounded-xl container mx-auto p-6">  
     <div class="flex-1 space-y-4 text-center md:text-left">
       <h1 class="text-2xl text-gray-100 font-semibold lg:text-3xl">
-        Subscribe to our newsletter
+        Abonnez-vous à notre newsletter.
       </h1>
       <p class="text-gray-200 leading-relaxed text-center text-sm md:text-justify md:pr-12">
-        We'll send you best of our blog just once a month. We promise.
+        
+        Nous vous enverrons le meilleur de notre blog une fois par mois. Nous le promettons.
       </p>
     </div>
     <div class="mt-5 md:mt-0 flex-1 px-0 sm:px-4">
-      <form class="items-center justify-center sm:flex">
-        <input type="email" placeholder="Enter e-mail"
+      <form action="{{ Route('email.store') }}"  id="sssssss" method="POST" class="items-center justify-center sm:flex">
+        @csrf
+        <input type="email" name="email" placeholder="Enter e-mail"
           class="text-gray-500 w-full p-2 rounded-md border outline-none focus:border-emerald-800" />
-        <button aria-label="subscribe"
+        <button  type="submit"
           class="w-full mt-3 px-5 py-2 rounded-md text-white bg-emerald-700 hover:bg-emerald-800 outline-none shadow-md focus:shadow-none focus:ring-2 ring-offset-2 ring-indigo-600 sm:mt-0 sm:ml-3 sm:w-auto">
           Subscribe
         </button>
       </form>
       <p class="mt-3 text-xs text-gray-200">
-        Product updates, announcements, and discounts.
-        Read our <a class="text-gray-100 hover:text-gray-50 underline" href="#"> Privacy Policy </a>
+        Mises à jour de produits, annonces et réductions.
+        
+        Lisez notre <a class="text-gray-100 hover:text-gray-50 underline" href="#"> politique de confidentialité. </a>
       </p>  
     </div>
 </section>
