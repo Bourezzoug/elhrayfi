@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Inscrit;
 use App\Models\OffreTravail;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Carbon\Carbon;
@@ -17,7 +18,7 @@ class HomeController extends Controller
         $url = 'https://raw.githubusercontent.com/alaouy/sql-moroccan-cities/master/json/ville.json';
         $cities = json_decode(file_get_contents($url), true);
     
-        $offres = OffreTravail::orderBy('created_at','desc')->get();
+        $offres = OffreTravail::orderBy('created_at','desc')->take(4)->get();
     
         foreach ($offres as $offre) {
             $offre->formattedTime = Carbon::parse($offre->created_at)->diffForHumans();
@@ -26,6 +27,7 @@ class HomeController extends Controller
         return view('pages.homepage', [
             'cities' => $cities,
             'offres' => $offres,
+            'artisans'  =>  User::where('user_type','2')->orderBy('created_at','desc')->take(4)->get()
         ]);
     }
     

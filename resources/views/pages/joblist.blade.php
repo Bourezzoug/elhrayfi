@@ -110,110 +110,38 @@
 
             <div class="lg:col-span-8 md:col-span-6">
                 <div class="grid grid-cols-1 gap-[30px]">
+                    @forelse ($offres as $offre)
                     <div class="group relative overflow-hidden lg:flex justify-between items-center rounded shadow hover:shadow-md transition-all duration-500 p-5">
                         <div class="flex items-center">
                             <div class="w-14 h-14 flex items-center justify-center bg-white shadow rounded-md">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Logo_Lydec_2010.jpg" class="h-8 w-8" alt="">
+                                <img src="http://127.0.0.1:8001/storage/{{ $offre->client->profile_photo_path }}" class="h-8 w-8" alt="">
                             </div>
-                            <a href="job-detail-three.html" class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[150px]">Plombier</a>
+                            <a href="job-detail-three.html" class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[150px]">{{ $offre->catégorie }}</a>
                         </div>
 
-                        <div class="lg:block flex justify-between lg:mt-0 mt-4">
-                            <span class="block"><span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">Full Time</span></span>
-                            <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i> 20th Feb 2023</span>
+                        <div class="lg:block flex justify-between lg:mt-0 mt-4 text-center">
+                            <span class="block"><span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">{{ $offre->travail_periode }}</span></span>
+                            <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i>Il y a {{ $offre->created_at->diffForHumans(null, true) }}</span>
                         </div>
 
                         <div class="lg:block flex justify-between lg:mt-0 mt-2">
-                            <span class="text-emerald-600 bg-emerald-600/10 p-2 rounded-full"><i class="uil uil-map-marker"></i> Marrakech</span>
+                            <span class="text-emerald-600 bg-emerald-600/10 p-2 rounded-full"><i class="uil uil-map-marker"></i> {{ $offre->ville }}</span>
                         </div>
 
                         <div class="lg:mt-0 mt-4">
-                            <a href="job-apply.html" class="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto p-2">Apply Now</a>
+                            <a href="/listes-offres/{{ $offre->id }}" class="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto p-2">Apply Now</a>
                         </div>
 
                     </div><!--end content-->
-                    
-                    <div class="group relative overflow-hidden lg:flex justify-between items-center rounded shadow hover:shadow-md transition-all duration-500 p-5">
-                        <div class="flex items-center">
-                            <div class="w-14 h-14 flex items-center justify-center bg-white shadow rounded-md">
-                                <img src="https://www.colorado.ma/sites/all/themes/colorado_commercial/img/logo.png" class="h-8 w-8" alt="">
-                            </div>
-                            <a href="job-detail-three.html" class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[150px]">Peintre</a>
-                        </div>
-
-                        <div class="lg:block flex justify-between lg:mt-0 mt-4">
-                            <span class="block"><span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">Part Time</span></span>
-                            <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i> 20th Feb 2023</span>
-                        </div>
-
-                        <div class="lg:block flex justify-between lg:mt-0 mt-2">
-                            <span class="text-emerald-600 bg-emerald-600/10 p-2 rounded-full"><i class="uil uil-map-marker"></i> Casablanca</span>
-                        </div>
-
-
-                        <div class="lg:mt-0 mt-4">
-                            <a href="job-apply.html" class="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto p-2">Apply Now</a>
-                        </div>
-                    </div><!--end content-->
-                    
-                    <div class="group relative overflow-hidden lg:flex justify-between items-center rounded shadow hover:shadow-md transition-all duration-500 p-5">
-                        <div class="flex items-center">
-                            <div class="w-14 h-14 flex items-center justify-center bg-white shadow rounded-md">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Logo_Lydec_2010.jpg" class="h-8 w-8" alt="">
-                            </div>
-                            <a href="job-detail-three.html" class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[150px]">Electricien</a>
-                        </div>
-
-                        <div class="lg:block flex justify-between lg:mt-0 mt-4">
-                            <span class="block"><span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">Remote</span></span>
-                            <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i> 20th Feb 2023</span>
-                        </div>
-
-                        <div class="lg:block flex justify-between lg:mt-0 mt-2">
-                            <span class="text-emerald-600 bg-emerald-600/10 p-2 rounded-full"><i class="uil uil-map-marker"></i> Casablanca</span>
-                        </div>
-
-
-                        <div class="lg:mt-0 mt-4">
-                            <a href="job-apply.html" class="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto p-2">Apply Now</a>
-                        </div>
-                    </div><!--end content-->
-
+                    @empty
+                        
+                    @endforelse
                 </div><!--end grid-->
+                <div class="pt-10">
+                    {{ $offres->links() }} 
+                </div>
 
-                <div class="grid md:grid-cols-12 grid-cols-1 mt-8">
-                    <div class="md:col-span-12 text-center">
-                        <nav aria-label="Page navigation example">
-                            <ul class="inline-flex items-center -space-x-px">
-                                <li>
-                                    <a href="#" class="w-[40px] h-[40px] inline-flex justify-center items-center text-slate-400 bg-white rounded-s-3xl hover:text-white border border-gray-100 hover:border-emerald-600 hover:bg-emerald-600">
-                                        <i class="uil uil-angle-left text-[20px] rtl:rotate-180 rtl:-mt-1"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="w-[40px] h-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white border border-gray-100 hover:border-emerald-600 hover:bg-emerald-600">1</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="w-[40px] h-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white border border-gray-100 hover:border-emerald-600 hover:bg-emerald-600">2</a>
-                                </li>
-                                <li>
-                                    <a href="#" aria-current="page" class="z-10 w-[40px] h-[40px] inline-flex justify-center items-center text-white bg-emerald-600 border border-emerald-600">3</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="w-[40px] h-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white border border-gray-100 hover:border-emerald-600 hover:bg-emerald-600">4</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="w-[40px] h-[40px] inline-flex justify-center items-center text-slate-400 hover:text-white bg-white border border-gray-100 hover:border-emerald-600 hover:bg-emerald-600">5</a>
-                                </li>
-                                <li>
-                                    <a href="#" class="w-[40px] h-[40px] inline-flex justify-center items-center text-slate-400 bg-white rounded-e-3xl hover:text-white border border-gray-100 hover:border-emerald-600 hover:bg-emerald-600">
-                                        <i class="uil uil-angle-right text-[20px] rtl:rotate-180 rtl:-mt-1"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div><!--end col-->
-                </div><!--end grid-->
+
             </div><!--end col-->
         </div><!--end grid-->
     </div><!--end container-->

@@ -19,8 +19,7 @@ class AuthClient
             return $next($request);
         }
         else{
-            session()->flush();
-            return redirect()->route('login');
+            return abort(403);
         }
         return $next($request);
     }

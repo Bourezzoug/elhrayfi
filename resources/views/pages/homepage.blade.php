@@ -9,14 +9,16 @@
             <h1 class="text-6xl text-white font-semibold">Découvrez <span class="text-emerald-600">Elhrayfi</span> qui vous convient</h1>
             <p class="text-xl text-white font-normal text-center">Emplois, opportunités professionnelles et carrières futures.</p>
         </div>
-        <div class="grid grid-cols-10 bg-black w-10/12 h-20 rounded-full overflow-hidden content relative" style=" border: 10px solid rgba(255, 255, 255, 0.5)">
+        <form action="{{ Route('artisan.liste') }}" method="GET" class="grid grid-cols-10 bg-black w-10/12 h-20 rounded-full overflow-hidden content relative" style=" border: 10px solid rgba(255, 255, 255, 0.5)">
+            @csrf
             <div class="col-span-3 relative">
-                <input type="text" placeholder="Job Title" class="h-full pl-10 w-full border-none">
+                <input name="name" type="text" placeholder="Nom" class="h-full pl-10 w-full border-none">
+
                 <i class="fa-solid fa-magnifying-glass  text-emerald-600 absolute right-5 top-1/2 -translate-y-1/2 text-xl icon"></i>
 
             </div>
             <div class="col-span-3 relative">
-                <select name="" id="" class="h-full pl-10 w-full border border-[#eee]">
+                <select name="ville" id="" class="h-full pl-10 w-full border border-[#eee]">
                     <option value="" readonly="true" hidden="true"
                     selected>Choisir votre ville</option>
                     @foreach ($cities as $ville)
@@ -26,15 +28,27 @@
                 <i class="fa-solid fa-location-dot text-emerald-600  absolute right-[13px] top-1/2 -translate-y-1/2 text-xl icon"></i>
             </div>
             <div class="col-span-3 relative">
-                <input type="text" placeholder="Categorie" class="h-full pl-10 w-full border-none">
-                <i class="fa-solid fa-tag  text-emerald-600 absolute right-5 top-1/2 -translate-y-1/2 text-xl icon"></i>
+                {{-- <input type="text" placeholder="Categorie" class="h-full pl-10 w-full border-none"> --}}
+                <x-select name="catégorie" class="h-full pl-10 w-full border-none rounded-none">
+                    <option value="" readonly="true" hidden="true"
+                    selected>Catégorie que vous cherchez</option>
+                    <option value="Plombier">Plombier</option>
+                    <option value="Electricien">Electricien</option>
+                    <option value="Jardinier">Jardinier</option>
+                    <option value="Mécanicien">Mécanicien</option>
+                    <option value="Menuisier">Menuisier</option>
+                    <option value="Peintre">Peintre</option>
+                    <option value="Constructeur">Constructeur</option>
+                    <option value="Forgeron">Forgeron</option>
+                </x-select>
+                <i class="fa-solid fa-tag  text-emerald-600 absolute right-2.5 top-1/2 -translate-y-1/2 text-xl icon"></i>
             </div>
-            <div class="col-span-1 flex items-center justify-center bg-emerald-600">
-                <button aria-label="send" class="text-white">Envoyer</button>
-            </div>
-        </div>
+            {{-- <div class="col-span-1 flex items-center justify-center bg-emerald-600"> --}}
+                <button aria-label="send" class="text-white col-span-1 flex items-center justify-center bg-emerald-600">Envoyer</button>
+            {{-- </div> --}}
+        </form>
         <div class="md:pt-10">
-            <a href="#" class="bg-emerald-600 text-white py-3 px-4 rounded text-xl hover:scale-110 transition-transform inline-block">Créer votre profil</a>
+            <a href="{{ Route('register') }}" class="bg-emerald-600 text-white py-3 px-4 rounded text-xl hover:scale-110 transition-transform inline-block">Créer votre profil</a>
         </div>
         
     </div>
@@ -191,6 +205,9 @@
         </div>
     </div>
 </section>
+{{-- @if (Route::has('login'))
+@auth
+@if (Auth::user()->user_type == 2) --}}
 <section id="annoce">
     <div class="grid grid-cols-1 pb-8 text-center">
         <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Des nouveaux offres</h3>
@@ -206,7 +223,9 @@
                 <div class="p-6">
                     <div class="flex items-center">
                         <div class="w-14 h-14 min-w-[56px] flex items-center justify-center bg-white shadow rounded-md">
-                            {{-- <img src="{{ $offre->user->profile_photo_path }}" class="h-8 w-8" alt=""> --}}
+                            <a href="/company/{{ $offre->client->name }}">
+                                <img src="http://127.0.0.1:8000/storage/{{ $offre->client->profile_photo_path }}" class="h-8 w-8" alt="">
+                            </a>
                         </div>
 
                         <div class="ms-3">
@@ -215,7 +234,7 @@
                             <div>
                                 <span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">Temps {{ $offre->type_travail }}</span>
                                 <span class="text-sm font-medium inline-block me-1">Durée: <span class="text-slate-400">{{ $offre->travail_periode }}</span></span>
-                                <span class="text-sm font-medium inline-block me-1">Type: <span class="text-slate-400">Personnel</span></span>
+                                {{-- <span class="text-sm font-medium inline-block me-1">Type: <span class="text-slate-400">Personnel</span></span> --}}
                             </div>
                         </div>
                     </div>
@@ -229,7 +248,7 @@
                         <span class="inline-block me-1 text-slate-400"><i class="fa-solid fa-location-dot text-[18px] text-slate-900 me-1"></i>{{ $offre->ville }}</span>
                     </div>
 
-                    <a href="job-apply.html" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Apply Now</a>
+                    <a href="/offre/{{ $offre->id }}" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Apply Now</a>
                 </div>
 
             </div><!--end content-->
@@ -242,9 +261,13 @@
 
     </div>
     <div class="flex justify-center lg:my-10">
-        <a href="job-apply.html" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Voir tous les annonces</a>
+        <a href="{{ Route('liste.offre') }}" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Voir tous les annonces</a>
     </div> 
 </section>
+{{-- @endif
+@endauth
+@endif --}}
+
 
 <section id="stats" class="bg-emerald-600 my-10">
     <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -333,13 +356,17 @@
 
                 <div class="container mx-auto p-6 ">
                 <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[30px]">
-                    
+
+
+
+                    @forelse ($artisans as $artisan)
+                                            
                     <div class="group bg-white relative overflow-hidden rounded-md shadow-lg text-center p-6">
-                        <img src="{{ asset('images/profile-01.jpeg') }}" class="h-20 w-20 rounded-full shadow mx-auto" alt="">
+                        <img src="storage/{{ $artisan->profile_photo_path }}" class="h-20 w-20 rounded-full shadow mx-auto" alt="">
                         
                         <div class="mt-2">
-                            <a href="candidate-detail.html" class="hover:text-emerald-600 font-semibold text-lg">Mari Harrington</a>
-                            <p class="text-sm text-slate-400">Plombier</p>
+                            <a href="candidate-detail.html" class="hover:text-emerald-600 font-semibold text-lg">{{ $artisan->name }}</a>
+                            <p class="text-sm text-slate-400">{{ $artisan->artisan_job_category }}</p>
                         </div>
 
 
@@ -353,122 +380,26 @@
                         <div class="flex flex-col space-y-2 justify-between my-2">
                             <div class="block">
                                 <span class="text-slate-400">Lieu</span>
-                                <span class="block text-sm font-semibold">Casablanca</span>
+                                <span class="block text-sm font-semibold">{{ $artisan->ville }}</span>
                             </div>
                             <div class="block">
                                 <span class="text-slate-400">Experience:</span>
-                                <span class="block text-sm font-semibold">2 Years</span>
+                                <span class="block text-sm font-semibold">{{ $artisan->artisan_experience }}</span>
                             </div>
                         </div>
 
                         <div class="mt-4">
-                            <a href="candidate-detail.html" class="btn btn-sm bg-emerald-600 hover:bg-emerald-700 border-emerald-600 text-white rounded-md p-2">Profile</a>
+                            <a href="/artisan/{{ $artisan->name }}" class="btn btn-sm bg-emerald-600 hover:bg-emerald-700 border-emerald-600 text-white rounded-md p-2">Profile</a>
                         </div>
                         
                         <span class="absolute top-[10px] end-4">
                             <a href="javascript:void(0)" class="text-slate-100 focus:text-red-600 hover:text-red-600 text-2xl"><i class="mdi mdi-heart"></i></a>
                         </span>
                     </div><!--end content-->
-                    <div class="group bg-white relative overflow-hidden rounded-md shadow-lg text-center p-6">
-                        <img src="{{ asset('images/profile-02.jpeg') }}" class="h-20 w-20 rounded-full shadow mx-auto" alt="">
+                    @empty
                         
-                        <div class="mt-2">
-                            <a href="candidate-detail.html" class="hover:text-emerald-600 font-semibold text-lg">Mari Harrington</a>
-                            <p class="text-sm text-slate-400">Menuisier</p>
-                        </div>
+                    @endforelse
 
-
-                        <div class="flex items-center justify-center ml-2 my-2">
-                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <p class="ml-1 text-sm font-bold text-gray-900">4.95</p>
-                            <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full"></span>
-                            <a href="#" class="text-sm font-medium text-gray-900 underline hover:no-underline">73 reviews</a>
-                        </div>
-
-                        <div class="flex flex-col space-y-2 justify-between my-2">
-                            <div class="block">
-                                <span class="text-slate-400">Lieu</span>
-                                <span class="block text-sm font-semibold">Casablanca</span>
-                            </div>
-                            <div class="block">
-                                <span class="text-slate-400">Experience:</span>
-                                <span class="block text-sm font-semibold">2 Years</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="candidate-detail.html" class="btn btn-sm bg-emerald-600 hover:bg-emerald-700 border-emerald-600 text-white rounded-md p-2">Profile</a>
-                        </div>
-                        
-                        <span class="absolute top-[10px] end-4">
-                            <a href="javascript:void(0)" class="text-slate-100 focus:text-red-600 hover:text-red-600 text-2xl"><i class="mdi mdi-heart"></i></a>
-                        </span>
-                    </div><!--end content-->
-                    <div class="group bg-white relative overflow-hidden rounded-md shadow-lg text-center p-6">
-                        <img src="{{ asset('images/profile-03.jpeg') }}" class="h-20 w-20 rounded-full shadow mx-auto" alt="">
-                        
-                        <div class="mt-2">
-                            <a href="candidate-detail.html" class="hover:text-emerald-600 font-semibold text-lg">Mari Harrington</a>
-                            <p class="text-sm text-slate-400">Forgeron</p>
-                        </div>
-
-
-                        <div class="flex items-center justify-center ml-2 my-2">
-                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <p class="ml-1 text-sm font-bold text-gray-900">4.95</p>
-                            <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full"></span>
-                            <a href="#" class="text-sm font-medium text-gray-900 underline hover:no-underline">73 reviews</a>
-                        </div>
-
-                        <div class="flex flex-col space-y-2 justify-between my-2">
-                            <div class="block">
-                                <span class="text-slate-400">Lieu</span>
-                                <span class="block text-sm font-semibold">Casablanca</span>
-                            </div>
-                            <div class="block">
-                                <span class="text-slate-400">Experience:</span>
-                                <span class="block text-sm font-semibold">2 Years</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="candidate-detail.html" class="btn btn-sm bg-emerald-600 hover:bg-emerald-700 border-emerald-600 text-white rounded-md p-2">Profile</a>
-                        </div>
-                        
-
-                    </div><!--end content-->
-                    <div class="group bg-white relative overflow-hidden rounded-md shadow-lg text-center p-6">
-                        <img src="{{ asset('images/profile-04.jpeg') }}" class="h-20 w-20 rounded-full shadow mx-auto" alt="">
-                        
-                        <div class="mt-2">
-                            <a href="candidate-detail.html" class="hover:text-emerald-600 font-semibold text-lg">Mari Harrington</a>
-                            <p class="text-sm text-slate-400">Electricien</p>
-                        </div>
-
-
-                        <div class="flex items-center justify-center ml-2 my-2">
-                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                            <p class="ml-1 text-sm font-bold text-gray-900">4.95</p>
-                            <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full"></span>
-                            <a href="#" class="text-sm font-medium text-gray-900 underline hover:no-underline">73 reviews</a>
-                        </div>
-
-                        <div class="flex flex-col space-y-2 justify-between my-2">
-                            <div class="block">
-                                <span class="text-slate-400">Lieu</span>
-                                <span class="block text-sm font-semibold">Casablanca</span>
-                            </div>
-                            <div class="block">
-                                <span class="text-slate-400">Experience:</span>
-                                <span class="block text-sm font-semibold">2 Years</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="candidate-detail.html" class="btn btn-sm bg-emerald-600 hover:bg-emerald-700 border-emerald-600 text-white rounded-md p-2">Profile</a>
-                        </div>
-                        
-                    </div><!--end content-->
                 </div><!--end grid-->
             </div><!--end container-->
     </div>
@@ -480,8 +411,8 @@
         <p class="text-slate-400 max-w-xl mx-auto">Elhrayfi : Profitez de tarifs avantageux. Solutions abordables, adaptées à vos besoins. Premier mois gratuit, sans carte de crédit requise.</p>
     </div>
     <div class="container mx-auto p-6">
-        <div class="grid md:grid-cols-3 grid-cols-1 gap-[30px]">
-            <div class="group border border-transparent relative shadow hover:shadow-md rounded-md bg-white transition-all duration-500">
+        <div class="grid md:grid-cols-2 grid-cols-1 gap-[30px] justify-center">
+            {{-- <div class="group border border-transparent relative shadow hover:shadow-md rounded-md bg-white transition-all duration-500">
                 <div class="p-6 py-8">
                     <h6 class="text-lg font-bold uppercase mb-5 text-emerald-600">Particuliers</h6>
 
@@ -499,7 +430,7 @@
                     </ul>
                     <a href="" class="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white rounded-md block w-fit mt-5 p-2">S'inscrire</a>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="group border border-emerald-600 relative shadow hover:shadow-md rounded-md z-2 bg-gray-50 transition-all duration-500">
                 <div class="p-6 py-8">

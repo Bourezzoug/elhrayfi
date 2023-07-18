@@ -44,7 +44,7 @@ class OffreCreate extends Component
 
         OffreTravail::create($data);
         $this->emit('refreshParent');
-        return Redirect::to('/client/offre')->with('success', 'Post created successfully');
+        return Redirect::to('/offre')->with('success', 'Post created successfully');
     }
     public function render()
     {

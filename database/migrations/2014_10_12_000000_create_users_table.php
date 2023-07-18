@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('client_type')->nullable();
             $table->string('client_website')->nullable();
             $table->integer('user_type')->default(1)->comment('1 admin,2 artisan, 3 client');
+            $table->text('description');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

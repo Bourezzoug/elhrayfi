@@ -9,11 +9,11 @@
         <div class="grid grid-cols-1">
             <div class="md:flex justify-between items-center shadow-xl rounded-md p-6 bg-white">
                 <div class="flex items-center">
-                    <img src="https://www.colorado.ma/sites/all/themes/colorado_commercial/img/logo.png" class="h-20 w-20 p-3 shadow rounded-md bg-slate-50" alt="">
+                    <img src="http://127.0.0.1:8001/storage/{{ $jobDetail->client->profile_photo_path }}" class="h-20 w-20 p-3 shadow rounded-md bg-slate-50" alt="">
 
                     <div class="ms-4">
-                        <h5 class="text-xl font-bold">Colorado</h5>
-                        <h6 class="text-base text-slate-400">Entreprise</h6>
+                        <h5 class="text-xl font-bold">{{ $jobDetail->client->name }}</h5>
+                        {{-- <h6 class="text-base text-slate-400">Entreprise</h6> --}}
                     </div>
                 </div>
             </div>
@@ -24,8 +24,7 @@
         <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
             <div class="lg:col-span-8 md:col-span-7">
                 <h5 class="text-xl font-semibold">Description du travail</h5>
-                <p class="text-slate-400 mt-4">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed.</p>
-                <p class="text-slate-400 mt-2">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage.</p>
+                <p class="text-slate-400 mt-4">{{ $jobDetail->description }}</p>
 
                 <div class="p-6 rounded-md shadow mt-8">
                     <h5 class="text-xl font-semibold">Postulez:</h5>
@@ -77,23 +76,32 @@
 
                     <ul class="list-none mt-4">
                         <li class="flex justify-between mt-2">
-                            <span class="text-slate-400 font-medium">Type:</span>
-                            <span class="font-medium">Temps plein</span>
+                            <span class="text-slate-400 font-medium">Type du travail:</span>
+                            <span class="font-medium">{{ $jobDetail->type_travail }}</span>
                         </li>
 
                         <li class="flex justify-between mt-2">
-                            <span class="text-slate-400 font-medium">Address:</span>
-                            <span class="font-medium">Casablanca</span>
+                            <span class="text-slate-400 font-medium">Ville:</span>
+                            <span class="font-medium">{{ $jobDetail->ville }}</span>
+                        </li>
+                        <li class="flex justify-between mt-2">
+                            <span class="text-slate-400 font-medium">Addresse:</span>
+                            <span class="font-medium">{{ $jobDetail->address }}</span>
                         </li>
 
                         <li class="flex justify-between mt-2">
                             <span class="text-slate-400 font-medium">Durée:</span>
-                            <span class="font-medium">3 mois</span>
+                            <span class="font-medium">{{ $jobDetail->travail_periode }}</span>
+                        </li>
+
+                        <li class="flex justify-between mt-2">
+                            <span class="text-slate-400 font-medium">Type du Paiment:</span>
+                            <span class="font-medium">{{ $jobDetail->salaire_type }}</span>
                         </li>
 
                         <li class="flex justify-between mt-2">
                             <span class="text-slate-400 font-medium">Salaire:</span>
-                            <span class="font-medium">À discuter</span>
+                            <span class="font-medium">{{ $jobDetail->salaire_montant }}</span>
                         </li>
 
                     </ul>
@@ -112,75 +120,26 @@
         </div><!--end grid-->
 
         <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-[30px] mt-8">
+            @forelse ($relatedJob as $relatedJob)
             <div class="group relative p-6 rounded-md shadow mt-6">
                 <div class="w-14 h-14 flex items-center justify-center bg-white shadow-md rounded-md relative -mt-12">
-                    <img src="{{ asset('images/avatar-02.png') }}" class="h-8 w-8" alt="">
+                    <img src="http://127.0.0.1:8001/storage/{{ $relatedJob->client->profile_photo_path }}" class="h-8 w-8" alt="">
                 </div>
 
                 <div class="mt-4 flex justify-between items-center">
-                    <a href="" class="text-lg hover:text-emerald-600 font-semibold">Ibrahim</a>
+                    <a href="" class="text-lg hover:text-emerald-600 font-semibold">{{ $relatedJob->client->name }}</a>
                     <p class="text-slate-400 mt-2">Particulier</p>
                 </div>
-                <p class="text-slate-400 mt-4">À la recherche d'un plombier</p>
+                <p class="text-slate-400 mt-4">{{ $relatedJob->title }}</p>
 
                 <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between">
-                    <span class="text-slate-400"> Agadir</span>
-                    <span class="block font-medium text-emerald-600">Voir plus <i class="fa-solid fa-arrow-right"></i></span>
+                    <span class="text-slate-400"> {{ $relatedJob->ville }}</span>
+                    <a href="/listes-offres/{{ $relatedJob->id }}"  class="block font-medium text-emerald-600">Voir plus <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </div><!--end content-->
-            
-            <div class="group relative p-6 rounded-md shadow mt-6">
-                <div class="w-14 h-14 flex items-center justify-center bg-white shadow-md rounded-md relative -mt-12">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Logo_Lydec_2010.jpg" class="h-8 w-8" alt="">
-                </div>
-
-                <div class="mt-4 flex justify-between items-center">
-                    <a href="" class="text-lg hover:text-emerald-600 font-semibold">Lydec</a>
-                    <p class="text-slate-400 mt-2">Entreprise</p>
-                </div>
-                <p class="text-slate-400 mt-4">À la recherche d'un plombier</p>
-
-
-                <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between">
-                    <span class="text-slate-400"> Marrakech</span>
-                    <span class="block font-medium text-emerald-600">Voir plus <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-            </div><!--end content-->
-            
-            <div class="group relative p-6 rounded-md shadow mt-6">
-                <div class="w-14 h-14 flex items-center justify-center bg-white shadow-md rounded-md relative -mt-12">
-                    <img src="https://www.colorado.ma/sites/all/themes/colorado_commercial/img/logo.png" class="h-8 w-8" alt="">
-                </div>
-
-                <div class="mt-4 flex justify-between items-center">
-                    <a href="" class="text-lg hover:text-emerald-600 font-semibold">Lydec</a>
-                    <p class="text-slate-400 mt-2">Entreprise</p>
-                </div>
-                <p class="text-slate-400 mt-4">À la recherche d'un plombier</p>
-
-                <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between">
-                    <span class="text-slate-400"> Tangier</span>
-                    <span class="block font-medium text-emerald-600">Voir plus <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-            </div><!--end content-->
-            
-            <div class="group relative p-6 rounded-md shadow mt-6">
-                <div class="w-14 h-14 flex items-center justify-center bg-white shadow-md rounded-md relative -mt-12">
-                    <img src="{{ asset('images/avatar-03.png') }}" class="h-8 w-8" alt="">
-                </div>
-
-                <div class="mt-4 flex justify-between items-center">
-                    <a href="" class="text-lg hover:text-emerald-600 font-semibold">Saad</a>
-                    <p class="text-slate-400 mt-2">Particulier</p>
-                </div>
-                <p class="text-slate-400 mt-4">À la recherche d'un electricien</p>
-
-
-                <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between">
-                    <span class="text-slate-400"> Rabat</span>
-                    <span class="block font-medium text-emerald-600">Voir plus <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-            </div><!--end content-->
+            @empty
+                
+            @endforelse
         </div><!--end grid-->
     </div><!--end container-->
 

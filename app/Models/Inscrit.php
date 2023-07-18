@@ -9,4 +9,9 @@ class Inscrit extends Model
 {
     use HasFactory;
     protected $fillable = ['email'];
+    public function scopeSearch($query, $term){
+        $query->where(function ($query) use ($term){
+            $query->where('email','like', "%$term%");
+        });
+    }
 }

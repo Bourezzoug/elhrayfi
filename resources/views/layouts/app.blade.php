@@ -37,17 +37,9 @@
 
             <!-- Page Content -->
             <main>
-                <div class="flex bg-white">
-                    @include('admin.components.sidebar')
-                
-                    <div class="w-full flex flex-col h-screen ml-56">
-                
-                
-                        @include('admin.components.header')
-                
-                        @yield('test') @if( isset($slot) ) {{ $slot }} @endif
-
-                    </div>
+                {{-- {{ $slot }} --}}
+                <div class="w-full flex flex-col h-screen">
+                    @yield('test') @if( isset($slot) ) {{ $slot }} @endif
                 </div>
             </main>
         </div>

@@ -15,10 +15,26 @@
                 
                     <!-- Step 1: Basic Information -->
                     <div x-data="{role_id: 2}">
-                        <div>
-                            <x-label for="name" value="{{ __('Nom Complet') }}" />
-                            <x-input id="name" class="block mt-1 w-full" type="text" name="name"  :value="old('name')" required autofocus autocomplete="name" />
+
+                        <div class="mt-4">
+                            <x-label for="role_id" value="{{ __('Vous êtes :') }}" />
+                            <select name="role_id" x-model="role_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                                <option value="" disabled selected>Select Role</option>
+                                <option value="2">Artisan</option>
+                                <option value="3">Client</option>
+                            </select>
                         </div>
+
+                        <div class="mt-4" >
+                            <x-label for="name" value="{{ __('Nom Complet') }}" x-show="role_id == 2" />
+                            <x-label for="name" value="{{ __('Nom Entreprise') }}" x-show="role_id == 3" />
+                            <x-input id="name" class="block mt-1 w-full" type="text" name="name"  :value="old('name')" required  autocomplete="name" />
+                        </div>
+
+                        {{-- <div class="mt-4" x-show="role_id == 3">
+                            <label for="name" >Nom d'Entreprise</label>
+                            <x-input id="name" class="block mt-1 w-full" type="text" name="name"  :value="old('name')" required  autocomplete="name" />
+                        </div> --}}
                 
                         <div class="mt-4">
                             <x-label for="email" value="{{ __('Email') }}" />
@@ -35,9 +51,9 @@
                             <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
                         </div>
                 
-                        <div class="mt-4">
+                        <div class="mt-4" x-show="role_id == 2">
                             <x-label for="age" value="{{ __('Age') }}" />
-                            <x-input id="age" class="block mt-1 w-full" type="text" name="age"  :value="old('age')" required autofocus autocomplete="name" />
+                            <x-input id="age" class="block mt-1 w-full" type="text" name="age"  :value="old('age')" required   />
                         </div>
 
                         <div class="mt-4">
@@ -50,22 +66,9 @@
                             <x-input id="address" class="block mt-1 w-full" type="text" :value="old('address')" name="address"   />
                         </div>
                 
-                        <div class="mt-4" >
-                            <x-label for="role_id" value="{{ __('Vous êtes :') }}" />
-                            <select name="role_id" x-model="role_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                                <option value="" disabled selected>Select Role</option>
-                                <option value="2">Artisan</option>
-                                <option value="3">Client</option>
-                            </select>
-                        </div>
+
                         
-                        <div class="mt-4" x-show="role_id == 3">
-                            <x-label for="client_type" value="{{ __('Vous êtes :') }}" />
-                            <select name="client_type" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                                <option value="Particulier">Particulier</option>
-                                <option value="Entreprise">Entreprise</option>
-                            </select>
-                        </div>
+
                         
                         <div class="flex items-center justify-end mt-4">
                             <x-button type="submit">

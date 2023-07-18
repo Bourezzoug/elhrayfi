@@ -67,7 +67,26 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function offreTravail() {
-        return $this->hasMany(OffreTravail::class);
+    public function offers()
+    {
+        return $this->hasMany(OffreTravail::class,'client_id');
+    }
+    
+
+    public function experiences() {
+        return $this->hasMany(Experience::class, 'artisan_id', 'id');
+    }
+
+    public function educations() {
+        return $this->hasMany(Education::class, 'artisan_id', 'id');
+    }
+
+    public function scopeSearch($query, $term){
+        $query->where(function ($query) use ($term){
+            $query->where('name','like', "%$term%")
+                ->orWhere('email','like', "%$term%")
+                ->orWhere('ville','like', "%$term%")
+                ->orWhere('artisan_job_category','like', "%$term%");
+        });
     }
 }

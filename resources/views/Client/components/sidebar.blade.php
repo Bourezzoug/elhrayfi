@@ -12,21 +12,26 @@
                 <i class="fa-solid fa-store mr-3"></i>
                 Produits
             </a> --}}
-            @if (Auth::user()->user_id == 1)
-                <a href="{{ Route('blog.index') }}" class="flex items-center text-black opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                    <i class="fa-regular fa-newspaper mr-3"></i>
-                    Articles
-                </a>
-                <a href="{{ Route('inscrit.index') }}" class="flex items-center  opacity-75 text-black hover:opacity-100 py-4 pl-6 nav-item">
-                    <i class="fa-solid fa-users mr-3"></i>
-                    Inscrits
-                </a>
-            @elseif(Auth::user()->user_type == 3)
+
                 <a href="{{ Route('offre.index') }}" class="flex items-center  opacity-75 text-black hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fa-solid fa-users mr-3"></i>
                     Offres du travail
                 </a>
-            @endif
+                <a href="{{ Route('offre.index') }}" class="flex items-center  opacity-75 text-black hover:opacity-100 py-4 pl-6 nav-item">
+                    <i class="fa-regular fa-credit-card mr-3"></i>
+                    Abonnement
+                </a>
+                <a href="{{ Route('client.profile') }}" class="flex items-center  opacity-75 text-black hover:opacity-100 py-4 pl-6 nav-item">
+                    <i class="fa-solid fa-user mr-3"></i>
+                    Mon Profile
+                </a>
+                <a href="{{ Route('experience.index') }}" class="flex items-center text-black opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                    <span class="inline-block relative">
+                        <i class="fa-regular fa-comment-dots mr-3"></i>
+                        <span class="text-[10px] rounded-full text-white bg-[#FA3E3E] h-4 w-4 flex items-center justify-center absolute -top-1 left-2">1</span>
+                    </span>
+                    Mes Messages
+                </a>
         </nav>
     </aside>
 </div>
