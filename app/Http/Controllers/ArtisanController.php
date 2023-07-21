@@ -49,7 +49,7 @@ class ArtisanController extends Controller
             $query->where('artisan_job_category', $category);
         }
     
-        $artisans = $query->get();
+        $artisans = $query->paginate(9);
     
 
         $url = 'https://raw.githubusercontent.com/alaouy/sql-moroccan-cities/master/json/ville.json';

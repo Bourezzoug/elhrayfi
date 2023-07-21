@@ -107,27 +107,13 @@
                         <p class="mb-0" id="error-msg"></p>
                         <h5 class="text-xl font-semibold mb-4">Message:</h5>
                         <div class="grid grid-cols-12 gap-2">
-                            <div class="md:col-span-6 col-span-12">
-                                {{-- <label for="name" class="font-semibold">Your Name:</label> --}}
-                                <x-input name="name" id="name" type="text" class="h-10 w-full rounded border bg-transparent py-2 px-3 text-[14px] mt-2" placeholder="Name :" />
-                            <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div></div>
-
-                            <div class="md:col-span-6 col-span-12">
-                                {{-- <label for="email" class="font-semibold">Your Email:</label> --}}
-                                <x-input name="email" id="email" type="email" class="h-10 w-full rounded border bg-transparent py-2 px-3 text-[14px] mt-2" placeholder="Email :" />
-                            </div>
-
-                            <div class="col-span-12">
-                                {{-- <label for="subject" class="font-semibold">Your Question:</label> --}}
-                                <x-input name="subject" id="subject" class="h-10 w-full rounded border bg-transparent py-2 px-3 text-[14px] mt-2" placeholder="Subject :" />
-                            </div>
 
                             <div class="col-span-12">
                                 {{-- <label for="comments" class="font-semibold">Your Comment:</label> --}}
                                 <textarea name="comments" id="comments" class="h-32 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-2" placeholder="Message :"></textarea>
                             </div>
                         </div>
-                        <button type="submit" id="submit" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md p-2 mt-2">Send Message</button>
+                        <button type="submit" id="submit" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md p-2 mt-2">Contactez</button>
                     </form>
                 </div>
                 @endif

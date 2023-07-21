@@ -27,25 +27,25 @@
                             <div id="simple-msg"></div>
                             <div class="grid lg:grid-cols-12 lg:gap-6">
                                 <div class="lg:col-span-6 mb-5">
-                                    <label for="name" class="font-semibold">Your Name:</label>
+                                    <label for="name" class="font-semibold">Nom Complet :</label>
                                     <input name="name" id="name" type="text" class="border border-slate-100 block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]" placeholder="Name :">
                                 <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div></div>
 
                                 <div class="lg:col-span-6 mb-5">
-                                    <label for="email" class="font-semibold">Your Email:</label>
+                                    <label for="email" class="font-semibold">Email :</label>
                                     <input name="email" id="email" type="email" class="border border-slate-100 block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]" placeholder="Email :">
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1">
                                 <div class="mb-5">
-                                    <label for="subject" class="font-semibold">Your Question:</label>
+                                    <label for="subject" class="font-semibold">Sujet :</label>
                                     <input name="subject" id="subject" class="border border-slate-100 block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]" placeholder="Subject :">
                                 </div>
 
                                 <div class="mb-5">
-                                    <label for="comments" class="font-semibold">Your Comment:</label>
-                                    <textarea name="comments" id="comments" class="h-32 w-full rounded border bg-transparent py-2 px-3 text-[14px] mt-2" placeholder="Message :"></textarea>
+                                    <label for="comments" class="font-semibold">Message :</label>
+                                    <textarea name="comments" id="comments" class="h-32 w-full rounded border border-slate-100 bg-transparent py-2 px-3 text-[14px] mt-2" placeholder="Message :"></textarea>
                                 </div>
                             </div>
                             <button type="submit" id="submit" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md p-3">Send Message</button>

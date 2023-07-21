@@ -37,7 +37,7 @@
                     </ul>
                 
                     <div class="mt-6">
-                        <a href="contact.html" class="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white mt-2 rounded-md p-3"><i class="fa-regular fa-envelope"></i> Contactez-nous</a>
+                        <a href="{{ Route('contact.index') }}" class="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white mt-2 rounded-md p-3"><i class="fa-regular fa-envelope"></i> Contactez-nous</a>
                     </div>
                 </div>
             </div>

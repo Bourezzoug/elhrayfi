@@ -18,7 +18,9 @@
                         <h6 class="text-base text-slate-400"><i class="uil uil-map-marker"></i> {{ $offers->client->ville }}</h6>
                     </div>
                 </div>
-                <a href="{{ Route('login') }}" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md p-2 mt-2">Contactez</a>
+                @guest
+                    <a href="{{ Route('login') }}" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md p-2 mt-2">Contactez</a>
+                @endguest
 
             </div>
         </div><!--end grid-->
@@ -44,7 +46,7 @@
                 <h5 class="text-xl font-semibold mt-6">Emploi associé:</h5>
 
                 <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-6">
-                    {{-- @foreach($offers as $offer)
+                    @foreach($relatedOffers as $offer)
                     <div class="group relative overflow-hidden rounded-md shadow dark:shadow-gray-800">
                         <div class="p-6">
                             <a href="" class="title h5 text-lg font-semibold hover:text-emerald-600">{{ $offer->catégorie }}</a>
@@ -69,36 +71,18 @@
                             <a href="{{ Route('login') }}" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md p-2 mt-2">Postulez</a>
                         </div>
                     </div><!--end content-->
-                    @endforeach --}}
+                    @endforeach
                 
 
                 </div>
                 @if(Auth::check())
                 @if(Auth::user()->user_type == 2)
                 <div class="p-6 rounded-md shadow dark:shadow-gray-800 mt-8">
-                    <h5 class="text-xl font-semibold">Votre Message:</h5>
+                    <h5 class="text-xl font-semibold">Contactez:</h5>
 
-                    <form class="mt-8">
-                        <div class="grid lg:grid-cols-12 lg:gap-6">
-                            <div class="lg:col-span-6 mb-5">
-                                <div class="text-left">
-                                    {{-- <label for="name" class="font-semibold">Your Name:</label> --}}
-                                    <div class="form-icon relative mt-2">
-                                        <x-input name="name" id="name" type="text" class="h-10 w-full rounded border bg-transparent py-2 px-3 text-[14px] mt-2" placeholder="Name :" />
-                                    <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div></div>
-                                </div>
-                            </div>
-
-                            <div class="lg:col-span-6 mb-5">
-                                <div class="text-left">
-                                    {{-- <label for="email" class="font-semibold">Your Email:</label> --}}
-                                    <div class="form-icon relative mt-2">
-                                        <x-input name="email" id="email" type="email" class="h-10 w-full rounded border bg-transparent py-2 px-3 text-[14px] mt-2" placeholder="Email :" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                    <form action="{{ Route('contact.client') }}" method="POST" class="mt-8">
+                        @csrf
+                        <input type="hidden" name="job_offer_id" value="{{ $offers->id }}"> 
                         <div class="grid grid-cols-1">
                             <div class="mb-5">
                                 <div class="text-left">
@@ -171,11 +155,11 @@
             @forelse ($relatedJob as $relatedJob)
             <div class="group relative p-6 rounded-md shadow mt-6">
                 <div class="w-14 h-14 flex items-center justify-center bg-white shadow-md rounded-md relative -mt-12">
-                    <img src="http://127.0.0.1:8001/storage/{{ $relatedJob->client->profile_photo_path }}" class="h-8 w-8" alt="">
+                    <img src="http://127.0.0.1:8000/storage/{{ $relatedJob->client->profile_photo_path }}" class="h-8 w-8" alt="">
                 </div>
 
                 <div class="mt-4 flex justify-between items-center">
-                    <a href="" class="text-lg hover:text-emerald-600 font-semibold">{{ $relatedJob->client->name }}</a>
+                    <a href="/company/{{ $relatedJob->client->name }}" class="text-lg hover:text-emerald-600 font-semibold">{{ $relatedJob->client->name }}</a>
                     <p class="text-slate-400 mt-2">Particulier</p>
                 </div>
                 <p class="text-slate-400 mt-4">{{ $relatedJob->title }}</p>

@@ -16,26 +16,35 @@
         <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
             <div class="lg:col-span-4 md:col-span-6 ">
                 <div class="shadow p-6 rounded-md bg-white sticky top-16">
-                    <form>
+                    <form action="{{ Route('joblist.index') }}" method="GET">
                         <div class="grid grid-cols-1 gap-3">
                             <div class="my-2">
-                                <label for="searchname" class="font-semibold">Search Company</label>
+                                <label for="searchname" class="font-semibold">Nom d'Entreprise</label>
                                 <div class="relative mt-2">
                                     <i class="fa-solid fa-magnifying-glass absolute left-0 top-1/2 -translate-y-1/2 pl-1.5 text-gray-300"></i>
-                                    <input name="search" id="searchname" type="text" class=" form-input border border-slate-100 w-full h-[2.5rem] rounded pl-7 py-2 text-[14px]" placeholder="Search">
+                                    <input name="name" id="searchname" type="text" class=" form-input border border-slate-100 w-full h-[2.5rem] rounded pl-7 py-2 text-[14px]" placeholder="Search">
                                 </div>
                             </div>
                             
                             <div class="my-2">
                                 <label class="font-semibold">Categories</label>
-                                <select class="form-select form-input border border-slate-100 block w-full mt-1 h-[2.5rem] rounded px-2 py-2 text-[14px]">
-                                    <option value="WD">Plombier</option>
+                                <select name="catégorie" class="form-select form-input border border-slate-100 block w-full mt-1 h-[2.5rem] rounded px-2 py-2 text-[14px]">
+                                    <option value="" readonly="true" hidden="true"
+                                    selected>Catégorie que vous cherchez</option>
+                                    <option value="Plombier">Plombier</option>
+                                    <option value="Electricien">Electricien</option>
+                                    <option value="Jardinier">Jardinier</option>
+                                    <option value="Mécanicien">Mécanicien</option>
+                                    <option value="Menuisier">Menuisier</option>
+                                    <option value="Peintre">Peintre</option>
+                                    <option value="Constructeur">Constructeur</option>
+                                    <option value="Forgeron">Forgeron</option>
                                 </select>
                             </div>
 
                             <div class="my-2">
                                 <label class="font-semibold">Location</label>
-                                <select class="form-select form-input border border-slate-100 block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]">
+                                <select name="ville"  class="form-select form-input border border-slate-100 block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]">
                                     <option value="" readonly="true" hidden="true"
                                     selected>Choisir votre ville</option>
                                     @foreach ($cities as $ville)
@@ -114,9 +123,11 @@
                     <div class="group relative overflow-hidden lg:flex justify-between items-center rounded shadow hover:shadow-md transition-all duration-500 p-5">
                         <div class="flex items-center">
                             <div class="w-14 h-14 flex items-center justify-center bg-white shadow rounded-md">
-                                <img src="http://127.0.0.1:8001/storage/{{ $offre->client->profile_photo_path }}" class="h-8 w-8" alt="">
+                                <a href="/company/{{ $offre->client->name }}">
+                                    <img src="http://127.0.0.1:8000/storage/{{ $offre->client->profile_photo_path }}" class="h-8 w-8" alt="">
+                                </a>
                             </div>
-                            <a href="job-detail-three.html" class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[150px]">{{ $offre->catégorie }}</a>
+                            <a href="/offre/{{ $offre->id }}" class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[150px]">{{ $offre->catégorie }}</a>
                         </div>
 
                         <div class="lg:block flex justify-between lg:mt-0 mt-4 text-center">
@@ -129,7 +140,7 @@
                         </div>
 
                         <div class="lg:mt-0 mt-4">
-                            <a href="/listes-offres/{{ $offre->id }}" class="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto p-2">Apply Now</a>
+                            <a href="/offre/{{ $offre->id }}" class="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto p-2">Apply Now</a>
                         </div>
 
                     </div><!--end content-->

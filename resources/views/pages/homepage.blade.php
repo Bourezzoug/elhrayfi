@@ -3,14 +3,13 @@
 @section('meta_description', 'description')
 @section('content')
 @include('components.header')
-<section id="hero" class="w-full h-screen bg-cover bg-center relative">
+<section id="hero" class="w-full md:h-screen bg-cover bg-center relative">
     <div class="flex flex-col items-center justify-center h-full space-y-10">
         <div>
             <h1 class="text-6xl text-white font-semibold">Découvrez <span class="text-emerald-600">Elhrayfi</span> qui vous convient</h1>
             <p class="text-xl text-white font-normal text-center">Emplois, opportunités professionnelles et carrières futures.</p>
         </div>
         <form action="{{ Route('artisan.liste') }}" method="GET" class="grid grid-cols-10 bg-black w-10/12 h-20 rounded-full overflow-hidden content relative" style=" border: 10px solid rgba(255, 255, 255, 0.5)">
-            @csrf
             <div class="col-span-3 relative">
                 <input name="name" type="text" placeholder="Nom" class="h-full pl-10 w-full border-none">
 
@@ -229,7 +228,7 @@
                         </div>
 
                         <div class="ms-3">
-                            <a href="job-detail-three.html" class="inline-block text-[16px] font-semibold hover:text-emerald-600 transition-all duration-500 me-1">{{ $offre->catégorie }}</a>
+                            <a href="/offre/{{ $offre->id }}" class="inline-block text-[16px] font-semibold hover:text-emerald-600 transition-all duration-500 me-1">{{ $offre->catégorie }}</a>
                             <span class="inline-block text-sm text-slate-400">{{ $offre->formattedTime }}</span>
                             <div>
                                 <span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">Temps {{ $offre->type_travail }}</span>
@@ -271,10 +270,10 @@
 
 <section id="stats" class="bg-emerald-600 my-10">
     <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <div class="grid grid-cols-2 row-gap-8 md:grid-cols-4">
+      <div class="grid grid-cols-2 row-gap-8 md:grid-cols-3">
         <div class="text-center md:border-r">
             <div class="flex justify-center">
-                <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white" data-target="76">0</h6><span class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white">+</span>
+                <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white" data-target="{{ $artisansCount }}">0</h6><span class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white">+</span>
             </div>
           <p class="text-sm font-medium tracking-widest text-white uppercase lg:text-base">
             Artisans
@@ -282,28 +281,21 @@
         </div>
         <div class="text-center md:border-r">
         <div class="flex justify-center">
-            <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white" data-target="20">0</h6><span class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white">+</span>
+            <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white" data-target="{{ $clientsCount }}">0</h6><span class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white">+</span>
         </div>
           <p class="text-sm font-medium tracking-widest text-white uppercase lg:text-base">
             Clients
           </p>
         </div>
-        <div class="text-center md:border-r">
+        <div class="text-center ">
             <div class="flex justify-center">
-                <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white" data-target="45">0</h6><span class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white">+</span>
+                <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white" data-target="{{ $offresCount }}">0</h6><span class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white">+</span>
             </div>
           <p class="text-sm font-medium tracking-widest text-white uppercase lg:text-base">
             Annonces
           </p>
         </div>
-        <div class="text-center">
-            <div class="flex justify-center">
-                <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white" data-target="99">0%</h6><span class="text-4xl font-bold lg:text-5xl xl:text-6xl text-white">%</span>
-            </div>
-          <p class="text-sm font-medium tracking-widest text-white uppercase lg:text-base">
-            Satisfaction
-          </p>
-        </div>
+
       </div>
     </div>
   </section>
@@ -365,7 +357,7 @@
                         <img src="storage/{{ $artisan->profile_photo_path }}" class="h-20 w-20 rounded-full shadow mx-auto" alt="">
                         
                         <div class="mt-2">
-                            <a href="candidate-detail.html" class="hover:text-emerald-600 font-semibold text-lg">{{ $artisan->name }}</a>
+                            <a href="/artisan/{{ $artisan->name }}" class="hover:text-emerald-600 font-semibold text-lg">{{ $artisan->name }}</a>
                             <p class="text-sm text-slate-400">{{ $artisan->artisan_job_category }}</p>
                         </div>
 
@@ -443,10 +435,10 @@
                     </div>
 
                     <ul class="list-none text-slate-400 border-t border-gray-100 pt-5">
-                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Full Access</li>
-                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Source Files</li>
-                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Free Appointments</li>
-                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Enhanced Security</li>
+                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Visibilité accrue auprès des entreprises.</li>
+                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Offres régulièrement mises à jour.</li>
+                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Assistance 24H/7J</li>
+                        {{-- <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Enhanced Security</li> --}}
                     </ul>
                     <a href="" class="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white rounded-md block w-fit mt-5 p-2">S'inscrire</a>
                 </div>
@@ -463,10 +455,10 @@
                     </div>
 
                     <ul class="list-none text-slate-400 border-t border-gray-100 pt-5">
-                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Full Access</li>
-                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Source Files</li>
-                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Free Appointments</li>
-                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Enhanced Security</li>
+                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Accès facile à des artisans qualifiés.</li>
+                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Artisans régulièrement mises à jour.</li>
+                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Assistance 24H/7J</li>
+                        {{-- <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Enhanced Security</li> --}}
                     </ul>
                     <a href="" class="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white rounded-md mt-5 block w-fit p-2">S'inscrire</a>
                 </div>
@@ -476,7 +468,7 @@
 </div>
 <section id="blogs">
     <div class="grid grid-cols-1 pb-8 text-center">
-        <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Our Latest Blog</h3>
+        <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Nos Articles</h3>
 
         <p class="text-slate-400 max-w-xl mx-auto">Le Blog Elhrayfi : Votre source d'inspiration incontournable pour les clients exigeants et les artisans talentueux en quête de perfectionnement</p>
     </div><!--end grid-->
@@ -546,59 +538,12 @@
     </div> --}}
     <div class="container mx-auto p-6">
         <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[30px]">
+
+            @forelse ($blog as $blog)
+                            
             <div class="group relative overflow-hidden bg-white rounded-md shadow">
-                <div class="relative overflow-hidden">
-                    <img src="https://artisansofmorocco.files.wordpress.com/2014/04/artisans-2048-shot-2-1.jpg" class="scale-110 group-hover:scale-100 transition-all duration-500" alt="">
-                </div>
-
-                <div class="relative p-6">
-                    <div class="absolute start-6 -top-4">
-                        <span class="bg-emerald-600 text-white text-[12px] px-2.5 py-1 font-semibold rounded-full h-5">Arts</span>
-                    </div>
-
-                    <div class="">
-                        <div class="flex mb-4">
-                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 me-2"></i>20th May, 2023</span>
-                        </div>
-
-                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">11 Tips to Help You Get New Clients Through Cold Calling</a>
-                        
-                        <div class="flex justify-between items-center mt-3">
-                            <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end content-->
-            
-            <div class="group relative overflow-hidden bg-white rounded-md shadow">
-                <div class="relative overflow-hidden">
-                    <img src="https://artisansofmorocco.files.wordpress.com/2014/04/artisans-2048-shot-2-1.jpg" class="scale-110 group-hover:scale-100 transition-all duration-500" alt="">
-                </div>
-
-                <div class="relative p-6">
-                    <div class="absolute start-6 -top-4">
-                        <span class="bg-emerald-600 text-white text-[12px] px-2.5 py-1 font-semibold rounded-full h-5">Illustration</span>
-                    </div>
-
-                    <div class="">
-                        <div class="flex mb-4">
-                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 me-2"></i>20th May, 2023</span>
-                        </div>
-
-                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">DigitalOcean launches first Canadian data centre in Toronto</a>
-                        
-                        <div class="flex justify-between items-center mt-3">
-                            <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end content-->
-            
-            <div class="group relative overflow-hidden bg-white rounded-md shadow">
-                <div class="relative overflow-hidden">
-                    <img src="https://artisansofmorocco.files.wordpress.com/2014/04/artisans-2048-shot-2-1.jpg" class="scale-110 group-hover:scale-100 transition-all duration-500" alt="">
+                <div class="relative overflow-hidden h-72 bg-cover">
+                    <img src="{{ $blog->image }}" class="h-full bg-cover scale-110 group-hover:scale-100 transition-all duration-500" alt="">
                 </div>
 
                 <div class="relative p-6">
@@ -608,10 +553,10 @@
 
                     <div class="">
                         <div class="flex mb-4">
-                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 me-2"></i>20th May, 2023</span>
+                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 me-2"></i>{{ strftime('%A %e %B %Y', strtotime($blog->created_at)) }} </span>
                         </div>
 
-                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">Using Banner Stands To Increase Trade Show Traffic</a>
+                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">{{ $blog->title }}</a>
                         
                         <div class="flex justify-between items-center mt-3">
                             <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
@@ -620,6 +565,10 @@
                 </div>
             </div>
             <!--end content-->
+            @empty
+                
+            @endforelse
+
         </div>
     </div>
 </section>

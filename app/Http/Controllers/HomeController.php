@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Inscrit;
 use App\Models\OffreTravail;
 use App\Models\User;
@@ -15,6 +16,7 @@ class HomeController extends Controller
 
     public function index()
     {
+        setlocale(LC_TIME, 'fr_FR');
         $url = 'https://raw.githubusercontent.com/alaouy/sql-moroccan-cities/master/json/ville.json';
         $cities = json_decode(file_get_contents($url), true);
     
@@ -23,11 +25,17 @@ class HomeController extends Controller
         foreach ($offres as $offre) {
             $offre->formattedTime = Carbon::parse($offre->created_at)->diffForHumans();
         }
+
+        $blog = Blog::orderBy('created_at','desc')->take(3)->get();
     
         return view('pages.homepage', [
             'cities' => $cities,
             'offres' => $offres,
-            'artisans'  =>  User::where('user_type','2')->orderBy('created_at','desc')->take(4)->get()
+            'artisans'  =>  User::where('user_type','2')->orderBy('created_at','desc')->take(4)->get(),
+            'artisansCount'  =>  User::where('user_type','2')->count(),
+            'clientsCount'  =>  User::where('user_type','3')->count(),
+            'offresCount'  =>  OffreTravail::all()->count(),
+            'blog'  =>  $blog
         ]);
     }
     

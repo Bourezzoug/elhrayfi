@@ -18,8 +18,9 @@
                         <h6 class="text-base text-slate-400"><i class="uil uil-map-marker"></i> {{ $client->ville }}</h6>
                     </div>
                 </div>
-                <a href="{{ Route('login') }}" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md p-2 mt-2">Contactez</a>
-
+                @guest
+                    <a href="{{ Route('login') }}" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md p-2 mt-2">Contactez</a>
+                @endguest
             </div>
         </div><!--end grid-->
     </div><!--end container-->
@@ -66,7 +67,11 @@
                                     <span class="text-slate-400 text-sm">{{ $offer->client->ville }}</span>
                                 </div>
                             </div>
-                            <a href="{{ Route('login') }}" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md p-2 mt-2">Postulez</a>
+                            @if(!Auth::check())
+                                <a href="{{ Route('login') }}" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md p-2 mt-2">Postulez</a>
+                            @else
+                                <a href="/offre/{{ $offer->id }}" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md p-2 mt-2">Postulez</a>
+                            @endif
                         </div>
                     </div><!--end content-->
                 @endforeach
@@ -79,25 +84,7 @@
                     <h5 class="text-xl font-semibold">Votre Message:</h5>
 
                     <form class="mt-8">
-                        <div class="grid lg:grid-cols-12 lg:gap-6">
-                            <div class="lg:col-span-6 mb-5">
-                                <div class="text-left">
-                                    {{-- <label for="name" class="font-semibold">Your Name:</label> --}}
-                                    <div class="form-icon relative mt-2">
-                                        <x-input name="name" id="name" type="text" class="h-10 w-full rounded border bg-transparent py-2 px-3 text-[14px] mt-2" placeholder="Name :" />
-                                    <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div></div>
-                                </div>
-                            </div>
 
-                            <div class="lg:col-span-6 mb-5">
-                                <div class="text-left">
-                                    {{-- <label for="email" class="font-semibold">Your Email:</label> --}}
-                                    <div class="form-icon relative mt-2">
-                                        <x-input name="email" id="email" type="email" class="h-10 w-full rounded border bg-transparent py-2 px-3 text-[14px] mt-2" placeholder="Email :" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="grid grid-cols-1">
                             <div class="mb-5">
@@ -177,7 +164,7 @@
 
                 <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700 flex justify-between">
                     <span class="text-slate-400"><i class="uil uil-map-marker"></i> {{ $companie->ville }}</span>
-                    <span class="block font-semibold text-emerald-600">{{ $companie->offers->count() }} Postes</span>
+                    <span class="block font-semibold text-emerald-600">{{ $companie->offers->count() }} Offers</span>
                 </div>
             </div><!--end content-->
             @empty

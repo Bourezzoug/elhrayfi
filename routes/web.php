@@ -27,7 +27,7 @@ Route::get('/',[HomeController::class,'index']);
 // Route::post('/search-artisan',[HomeController::class,'searchArtisan'])->name('search.artisan');
 Route::post('/',[HomeController::class,'store'])->name('email.store');
 Route::get('/blog',[BlogController::class,'index'])->name('blog.index');
-Route::get('/joblist',[JoblistController::class,'index'])->name('joblist.index');
+Route::get('/joblist',[JoblistController::class,'display'])->name('joblist.index');
 Route::get('/artisans-listes',[ArtisanController::class,'index'])->name('artisans.index');
 
 // Test
@@ -70,6 +70,7 @@ Route::middleware(['auth:sanctum', 'verified','authclient'])->group(function () 
     Route::get('/offre',\App\Http\Livewire\Client\Offre\OffreIndex::class)->name('offre.index');
     Route::get('/offre/create',\App\Http\Livewire\Client\Offre\OffreCreate::class)->name('offre.create');
     Route::get('/client/profile',\App\Http\Livewire\Client\Profile\ProfileIndex::class)->name('client.profile');
+    Route::get('/client/messages',\App\Http\Livewire\Client\Message\MessagdeIndex::class)->name('client.message');
 
 
 });
@@ -82,11 +83,13 @@ Route::middleware(['auth:sanctum', 'verified','authartisan'])->group(function ()
     })->name('artisan.dashboard');
     Route::get('/listes-offres',[JoblistController::class,'index'])->name('liste.offre');
     Route::get('/offre/{id}',[OfferController::class,'index'])->name('job.detail');
+    Route::post('/contact-client',[OfferController::class,'contact'])->name('contact.client');
     Route::get('/artisan/profile',\App\Http\Livewire\Artisan\Profile\ProfileIndex::class)->name('artisan.profile');
     Route::get('/artisan/experiences',\App\Http\Livewire\Artisan\Experience\ExperienceIndex::class)->name('experience.index');
     Route::get('/artisan/experiences/create',\App\Http\Livewire\Artisan\Experience\ExperienceCreate::class)->name('experience.create');
     Route::get('/artisan/educations',\App\Http\Livewire\Artisan\Education\EducationIndex::class)->name('education.index');
     Route::get('/artisan/educations/create',\App\Http\Livewire\Artisan\Education\EducationCreate::class)->name('education.create');
+    Route::get('/artisan/messages',\App\Http\Livewire\Artisan\Message\MessageIndex::class)->name('message.index');
 
 });
 // Route for Admin
