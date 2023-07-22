@@ -15,7 +15,7 @@ class AuthArtisan
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(session('user_type') === 2) {
+        if(session('user_type') == 2) {
             return $next($request);
         }
         else{

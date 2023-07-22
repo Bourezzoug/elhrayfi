@@ -556,11 +556,11 @@
                             <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 me-2"></i>{{ strftime('%A %e %B %Y', strtotime($blog->created_at)) }} </span>
                         </div>
 
-                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">{{ $blog->title }}</a>
+                        <a href="/blog/{{ $blog->slug }}" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">{{ $blog->title }}</a>
                         
-                        <div class="flex justify-between items-center mt-3">
+                        {{-- <div class="flex justify-between items-center mt-3">
                             <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

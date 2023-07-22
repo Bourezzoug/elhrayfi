@@ -30,17 +30,18 @@ class CreateNewUser implements CreatesNewUsers
         $user =  User::create([
             'name' => $input['name'],
             'email' => $input['email'],
-            'age' =>  $input['age'] ?? null,
+            // 'age' =>  $input['age'] ?? null,
             'password' => Hash::make($input['password']),
             'user_type' =>  $input['role_id'],
-            'addresse' =>  $input['address'] ?? null,
-            'ville' =>  $input['ville'] ?? null,
-            'client_type'  =>  $input['client_type'] ?? null,
+            // 'addresse' =>  $input['address'] ?? null,
+            // 'ville' =>  $input['ville'] ?? null,
+            // 'client_type'  =>  $input['client_type'] ?? null,
         ]);
         // if (!empty($input['profile_photo_path'])) {
         //     $url = $input['profile_photo_path']->store('images','public');
         //     $user['profile_photo_path'] = '/storage/' . $url;
         // }
+        session(['user_type' => $input['role_id']]);
         return $user;
     }
 }

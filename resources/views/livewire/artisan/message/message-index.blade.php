@@ -3,7 +3,7 @@
     <div class="w-full flex flex-col h-screen ml-56">
         @include('artisan.components.header')
         <!-- component -->
-<div class="flex h-screen antialiased text-gray-800 ml-8 mt-14">
+<div class="flex h-[650px] antialiased text-gray-800 ml-8 mt-14">
     <div class="flex flex-row h-full w-full overflow-x-hidden">
       <div class="flex flex-col py-8 pl-6 pr-2 w-64 bg-white flex-shrink-0">
 
@@ -17,17 +17,20 @@
             >
           </div>
           <div class="flex flex-col space-y-1 mt-4 -mx-2 h-full overflow-y-auto">
-            @foreach ($messages as $contactId => $conversation)
+            @foreach ($formattedMessages as $messageData)
             @php
-                // Find the user model for the contact (sender or receiver)
-                $contactUser = $conversation->first()->sender_id == Auth::user()->id
-                    ? $conversation->first()->receiver
-                    : $conversation->first()->sender;
+                $contactId = $messageData['contactId'];
+                $contactUser = $messageData['contactUser'];
+                $newMessageCount = $messageData['unreadCount'];
             @endphp
-            <button wire:click="$set('selectedContact', {{ $contactId }})" class="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
+            <button wire:click="selectConversationAndMarkAsSeen({{ $contactId }})" class="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
                 <div class="flex items-center justify-center h-8 w-8  rounded-full bg-cover" style="background-image: url('http://127.0.0.1:8000/storage/{{ $contactUser->profile_photo_path }}')">
                 </div>
                 <div class="ml-2 text-sm font-semibold">{{ $contactUser->name }}</div>
+                {{-- Display the new message count here --}}
+                @if ($newMessageCount > 0)
+                    <span class="ml-2 bg-red-500 text-white text-xs py-[4px] px-[8px] rounded-full">{{ $newMessageCount }}</span>
+                @endif
             </button>
         @endforeach
         
@@ -84,6 +87,12 @@
                         </div>
                     </div>
                 @endforelse
+                <script>
+                  // Start polling for updates every 3 seconds (adjust the interval as needed)
+                  setInterval(function () {
+                      @this.call('refreshComponent');
+                  }, 1000);
+              </script>
             @endif
 
             

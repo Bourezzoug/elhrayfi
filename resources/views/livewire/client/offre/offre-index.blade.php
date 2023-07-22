@@ -154,7 +154,7 @@
             
                         <div class="flex gap-4">
 
-                            <a class="cursor-pointer" wire:click="selectedItem('update',{{ $offres->id }})"
+                            <a href="/offre/update/{{ $offres->id  }}" class="cursor-pointer" wire:click="selectedItem('update',{{ $offres->id }})"
                                         class="px-2">
                                 <x-svg.svg-update class="w-5 h-5 mr-2 transform hover:text-purple-500 hover:scale-110"/>
                             </a>

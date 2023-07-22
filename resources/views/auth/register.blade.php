@@ -51,20 +51,20 @@
                             <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
                         </div>
                 
-                        <div class="mt-4" x-show="role_id == 2">
+                        {{-- <div class="mt-4" x-show="role_id == 2">
                             <x-label for="age" value="{{ __('Age') }}" />
                             <x-input id="age" class="block mt-1 w-full" type="text" name="age"  :value="old('age')" required   />
-                        </div>
+                        </div> --}}
 
-                        <div class="mt-4">
+                        {{-- <div class="mt-4">
                             <x-label for="ville" value="{{ __('Ville') }}" />
                             <x-input id="ville" class="block mt-1 w-full" type="text" :value="old('ville')"  name="ville" />
-                        </div>
+                        </div> --}}
                 
-                        <div class="mt-4">
+                        {{-- <div class="mt-4">
                             <x-label for="address" value="{{ __('Address') }}" />
                             <x-input id="address" class="block mt-1 w-full" type="text" :value="old('address')" name="address"   />
-                        </div>
+                        </div> --}}
                 
 
                         

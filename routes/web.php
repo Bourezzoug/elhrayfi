@@ -48,16 +48,15 @@ Route::get('/contact',function() {
 Route::get('/404',function() {
     return view('pages.error');
 });
-Route::get('/blog/{id}',function() {
-    return view('pages.post');
-});
+// Route::get('/blog/{id}',function() {
+//     return view('pages.post');
+// });
 Route::get('/jobdetail',function() {
     return view('pages.jobdetail');
 });
 // Route::get('/postjob',function() {
 //     return view('pages.postjob');
 // });
-
 
 // Route for customers
 Route::middleware(['auth:sanctum', 'verified','authclient'])->group(function () {
@@ -69,6 +68,7 @@ Route::middleware(['auth:sanctum', 'verified','authclient'])->group(function () 
     // })->name('client.dashboard');
     Route::get('/offre',\App\Http\Livewire\Client\Offre\OffreIndex::class)->name('offre.index');
     Route::get('/offre/create',\App\Http\Livewire\Client\Offre\OffreCreate::class)->name('offre.create');
+    Route::get('/offre/update/{id}',\App\Http\Livewire\Client\Offre\OffreUpdate::class)->name('offre.update');
     Route::get('/client/profile',\App\Http\Livewire\Client\Profile\ProfileIndex::class)->name('client.profile');
     Route::get('/client/messages',\App\Http\Livewire\Client\Message\MessagdeIndex::class)->name('client.message');
 
@@ -113,3 +113,5 @@ Route::get('/artisans-liste',[ArtisanController::class,'display'])->name('artisa
 Route::get('/company/{name}',[CompanyController::class,'index']);
 
 // Route::get('/offre/{id}',[OfferController::class,'index']);
+
+Route::get('/blog/{slug}',[BlogController::class,'show'])->name('blog.post');

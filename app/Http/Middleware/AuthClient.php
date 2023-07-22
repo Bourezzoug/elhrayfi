@@ -15,7 +15,7 @@ class AuthClient
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(session('user_type') === 3) {
+        if(session('user_type') == 3) {
             return $next($request);
         }
         else{

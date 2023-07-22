@@ -1,7 +1,7 @@
 <div class="flex bg-white">
-  @include('artisan.components.sidebar')
+  @include('client.components.sidebar')
   <div class="w-full flex flex-col h-screen ml-56">
-      @include('artisan.components.header')
+      @include('client.components.header')
       <!-- component -->
 <div class="flex h-screen antialiased text-gray-800 ml-8 mt-14">
   <div class="flex flex-row h-full w-full overflow-x-hidden">
@@ -10,35 +10,38 @@
 
       <div class="flex flex-col mt-8">
         <div class="flex flex-row items-center justify-between text-xs">
-          <span class="font-bold">Active Conversations</span>
-          <span
-            class="flex items-center justify-center bg-gray-300 h-4 w-4 rounded-full"
-            >{{ $messages->count() }}</span
-          >
+            <span class="font-bold">Active Conversations</span>
+            {{-- Use a different CSS class for the message count --}}
+            <span class="bg-gray-300 h-4 w-4 rounded-full text-center" wire:poll.3000ms>{{ $messages->count() }}</span>
         </div>
         <div class="flex flex-col space-y-1 mt-4 -mx-2 h-full overflow-y-auto">
-          @foreach ($messages as $contactId => $conversation)
-          @php
-              // Find the user model for the contact (sender or receiver)
-              $contactUser = $conversation->first()->sender_id == Auth::user()->id
-                  ? $conversation->first()->receiver
-                  : $conversation->first()->sender;
-          @endphp
-          <button wire:click="$set('selectedContact', {{ $contactId }})" class="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
-              <div class="flex items-center justify-center h-8 w-8  rounded-full bg-cover" style="background-image: url('http://127.0.0.1:8000/storage/{{ $contactUser->profile_photo_path }}')">
-              </div>
-              <div class="ml-2 text-sm font-semibold">{{ $contactUser->name }}</div>
-          </button>
-      @endforeach
-      
-        </div>
+<!-- ... (your existing code) -->
 
-      </div>
+@foreach ($formattedMessages as $messageData)
+    @php
+        $contactId = $messageData['contactId'];
+        $contactUser = $messageData['contactUser'];
+        $newMessageCount = $messageData['unreadCount'];
+    @endphp
+    <button wire:click="selectConversationAndMarkAsSeen({{ $contactId }})" class="flex flex-row items-center hover:bg-gray-100 rounded-xl p-2">
+        <div class="flex items-center justify-center h-8 w-8  rounded-full bg-cover" style="background-image: url('http://127.0.0.1:8000/storage/{{ $contactUser->profile_photo_path }}')">
+        </div>
+        <div class="ml-2 text-sm font-semibold">{{ $contactUser->name }}</div>
+        {{-- Display the new message count here --}}
+        @if ($newMessageCount > 0)
+            <span class="ml-2 bg-red-500 text-white text-xs py-[4px] px-[8px] rounded-full" >{{ $newMessageCount }}</span>
+        @endif
+    </button>
+@endforeach
+
+<!-- ... (your existing code) -->
+
+        </div>
+    </div>
+    
     </div>
     <div class="flex flex-col flex-auto h-full p-6">
-      <div
-        class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-full p-4"
-      >
+      <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-full p-4">
         <div class="flex flex-col h-full overflow-x-auto mb-4">
           <div class="flex flex-col h-full">
             <div class="grid grid-cols-12 gap-y-2">
@@ -84,6 +87,12 @@
                       </div>
                   </div>
               @endforelse
+              <script>
+                // Start polling for updates every 3 seconds (adjust the interval as needed)
+                setInterval(function () {
+                    @this.call('refreshComponent');
+                }, 1000);
+            </script>
           @endif
 
           
