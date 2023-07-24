@@ -3,6 +3,7 @@
 @section('meta_description', 'description')
 @section('content')
 @include('components.header')
+@guest
 <section id="hero" class="w-full md:h-screen bg-cover bg-center relative">
     <div class="flex flex-col items-center justify-center h-full space-y-10">
         <div>
@@ -52,6 +53,110 @@
         
     </div>
 </section>
+@endguest
+@if(Auth::check())
+@if (Auth::user()->user_type == 3)
+<section id="hero" class="w-full md:h-screen bg-cover bg-center relative">
+    <div class="flex flex-col items-center justify-center h-full space-y-10">
+        <div>
+            <h1 class="text-6xl text-white font-semibold">Découvrez <span class="text-emerald-600">Elhrayfi</span> qui vous convient</h1>
+            <p class="text-xl text-white font-normal text-center">Emplois, opportunités professionnelles et carrières futures.</p>
+        </div>
+        <form action="{{ Route('artisan.liste') }}" method="GET" class="grid grid-cols-10 bg-black w-10/12 h-20 rounded-full overflow-hidden content relative" style=" border: 10px solid rgba(255, 255, 255, 0.5)">
+            <div class="col-span-3 relative">
+                <input name="name" type="text" placeholder="Nom" class="h-full pl-10 w-full border-none">
+
+                <i class="fa-solid fa-magnifying-glass  text-emerald-600 absolute right-5 top-1/2 -translate-y-1/2 text-xl icon"></i>
+
+            </div>
+            <div class="col-span-3 relative">
+                <select name="ville" id="" class="h-full pl-10 w-full border border-[#eee]">
+                    <option value="" readonly="true" hidden="true"
+                    selected>Choisir votre ville</option>
+                    @foreach ($cities as $ville)
+                    <option value="{{ $ville['ville'] }}">{{ $ville['ville'] }}</option>
+                    @endforeach
+                </select>
+                <i class="fa-solid fa-location-dot text-emerald-600  absolute right-[13px] top-1/2 -translate-y-1/2 text-xl icon"></i>
+            </div>
+            <div class="col-span-3 relative">
+                {{-- <input type="text" placeholder="Categorie" class="h-full pl-10 w-full border-none"> --}}
+                <x-select name="catégorie" class="h-full pl-10 w-full border-none rounded-none">
+                    <option value="" readonly="true" hidden="true"
+                    selected>Catégorie que vous cherchez</option>
+                    <option value="Plombier">Plombier</option>
+                    <option value="Electricien">Electricien</option>
+                    <option value="Jardinier">Jardinier</option>
+                    <option value="Mécanicien">Mécanicien</option>
+                    <option value="Menuisier">Menuisier</option>
+                    <option value="Peintre">Peintre</option>
+                    <option value="Constructeur">Constructeur</option>
+                    <option value="Forgeron">Forgeron</option>
+                </x-select>
+                <i class="fa-solid fa-tag  text-emerald-600 absolute right-2.5 top-1/2 -translate-y-1/2 text-xl icon"></i>
+            </div>
+            {{-- <div class="col-span-1 flex items-center justify-center bg-emerald-600"> --}}
+                <button aria-label="send" class="text-white col-span-1 flex items-center justify-center bg-emerald-600">Envoyer</button>
+            {{-- </div> --}}
+        </form>
+        <div class="md:pt-10">
+            <a href="{{ Route('register') }}" class="bg-emerald-600 text-white py-3 px-4 rounded text-xl hover:scale-110 transition-transform inline-block">Créer votre profil</a>
+        </div>
+        
+    </div>
+</section>
+@else
+<section id="hero" class="w-full md:h-screen bg-cover bg-center relative">
+    <div class="flex flex-col items-center justify-center h-full space-y-10">
+        <div>
+            <h1 class="text-6xl text-white font-semibold">Découvrez <span class="text-emerald-600">L'offre</span> qui vous convient</h1>
+            <p class="text-xl text-white font-normal text-center">Emplois, opportunités professionnelles et carrières futures.</p>
+        </div>
+        <form action="{{ Route('joblist.index') }}" method="GET" class="grid grid-cols-10 bg-black w-10/12 h-20 rounded-full overflow-hidden content relative" style=" border: 10px solid rgba(255, 255, 255, 0.5)">
+            <div class="col-span-3 relative">
+                <input name="name" type="text" placeholder="Nom" class="h-full pl-10 w-full border-none">
+
+                <i class="fa-solid fa-magnifying-glass  text-emerald-600 absolute right-5 top-1/2 -translate-y-1/2 text-xl icon"></i>
+
+            </div>
+            <div class="col-span-3 relative">
+                <select name="ville" id="" class="h-full pl-10 w-full border border-[#eee]">
+                    <option value="" readonly="true" hidden="true"
+                    selected>Choisir votre ville</option>
+                    @foreach ($cities as $ville)
+                    <option value="{{ $ville['ville'] }}">{{ $ville['ville'] }}</option>
+                    @endforeach
+                </select>
+                <i class="fa-solid fa-location-dot text-emerald-600  absolute right-[13px] top-1/2 -translate-y-1/2 text-xl icon"></i>
+            </div>
+            <div class="col-span-3 relative">
+                {{-- <input type="text" placeholder="Categorie" class="h-full pl-10 w-full border-none"> --}}
+                <x-select name="catégorie" class="h-full pl-10 w-full border-none rounded-none">
+                    <option value="" readonly="true" hidden="true"
+                    selected>Catégorie que vous cherchez</option>
+                    <option value="Plombier">Plombier</option>
+                    <option value="Electricien">Electricien</option>
+                    <option value="Jardinier">Jardinier</option>
+                    <option value="Mécanicien">Mécanicien</option>
+                    <option value="Menuisier">Menuisier</option>
+                    <option value="Peintre">Peintre</option>
+                    <option value="Constructeur">Constructeur</option>
+                    <option value="Forgeron">Forgeron</option>
+                </x-select>
+                <i class="fa-solid fa-tag  text-emerald-600 absolute right-2.5 top-1/2 -translate-y-1/2 text-xl icon"></i>
+            </div>
+            {{-- <div class="col-span-1 flex items-center justify-center bg-emerald-600"> --}}
+                <button aria-label="send" class="text-white col-span-1 flex items-center justify-center bg-emerald-600">Envoyer</button>
+            {{-- </div> --}}
+        </form>
+        <div class="md:pt-10">
+            <a href="{{ Route('register') }}" class="bg-emerald-600 text-white py-3 px-4 rounded text-xl hover:scale-110 transition-transform inline-block">Créer votre profil</a>
+        </div>
+        
+    </div>
+</section>
+@endif
+@endif
 
 <section id="features" class="relative md:py-24 py-16">
     <div class="container mx-auto p-6">
@@ -204,9 +309,8 @@
         </div>
     </div>
 </section>
-{{-- @if (Route::has('login'))
-@auth
-@if (Auth::user()->user_type == 2) --}}
+
+@guest
 <section id="annoce">
     <div class="grid grid-cols-1 pb-8 text-center">
         <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Des nouveaux offres</h3>
@@ -247,7 +351,7 @@
                         <span class="inline-block me-1 text-slate-400"><i class="fa-solid fa-location-dot text-[18px] text-slate-900 me-1"></i>{{ $offre->ville }}</span>
                     </div>
 
-                    <a href="/offre/{{ $offre->id }}" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Apply Now</a>
+                    <a href="/offre/{{ $offre->id }}" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Postulez</a>
                 </div>
 
             </div><!--end content-->
@@ -263,9 +367,68 @@
         <a href="{{ Route('liste.offre') }}" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Voir tous les annonces</a>
     </div> 
 </section>
-{{-- @endif
-@endauth
-@endif --}}
+@endguest
+
+@if(Auth::check())
+@if (Auth::user()->user_type == 2)
+<section id="annoce">
+    <div class="grid grid-cols-1 pb-8 text-center">
+        <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Des nouveaux offres</h3>
+
+        <p class="text-slate-400 max-w-xl mx-auto">Elhrayfi : Découvrez chaque jour une multitude d'offres d'emploi postées par des entreprises et des particuliers passionnés</p>
+    </div>
+    <div class="container mx-auto p-6">
+        <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
+
+
+            @forelse ($offres as $offre)
+            <div class="group relative overflow-hidden bg-white shadow hover:shadow-md hover:-mt-2 rounded-md transition-all duration-500 h-fit">
+                <div class="p-6">
+                    <div class="flex items-center">
+                        <div class="w-14 h-14 min-w-[56px] flex items-center justify-center bg-white shadow rounded-md">
+                            <a href="/company/{{ $offre->client->name }}">
+                                <img src="http://127.0.0.1:8000/storage/{{ $offre->client->profile_photo_path }}" class="h-8 w-8" alt="">
+                            </a>
+                        </div>
+
+                        <div class="ms-3">
+                            <a href="/offre/{{ $offre->id }}" class="inline-block text-[16px] font-semibold hover:text-emerald-600 transition-all duration-500 me-1">{{ $offre->catégorie }}</a>
+                            <span class="inline-block text-sm text-slate-400">{{ $offre->formattedTime }}</span>
+                            <div>
+                                <span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">Temps {{ $offre->type_travail }}</span>
+                                <span class="text-sm font-medium inline-block me-1">Durée: <span class="text-slate-400">{{ $offre->travail_periode }}</span></span>
+                                {{-- <span class="text-sm font-medium inline-block me-1">Type: <span class="text-slate-400">Personnel</span></span> --}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-400 py-3">{{ $offre->title }}</p>
+
+                </div>
+
+                <div class="px-6 py-2 bg-slate-50 lg:flex justify-between items-center">
+                    <div class="lg:inline-block flex justify-between">
+                        <span class="inline-block me-1 text-slate-400"><i class="fa-solid fa-location-dot text-[18px] text-slate-900 me-1"></i>{{ $offre->ville }}</span>
+                    </div>
+
+                    <a href="/offre/{{ $offre->id }}" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Postulez</a>
+                </div>
+
+            </div><!--end content-->
+            @empty
+                
+            @endforelse
+
+
+        </div>
+
+    </div>
+    <div class="flex justify-center lg:my-10">
+        <a href="{{ Route('liste.offre') }}" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Voir tous les annonces</a>
+    </div> 
+</section>
+@endif
+@endif
 
 
 <section id="stats" class="bg-emerald-600 my-10">
@@ -298,46 +461,44 @@
 
       </div>
     </div>
-  </section>
-  
-  <script>
-    function animateCounters() {
-      const counters = document.querySelectorAll('[data-target]');
-      const windowHeight = window.innerHeight;
-  
-      function animateCounter(counter) {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const duration = 1000; // Duration in milliseconds
-        let current = 0;
-        const step = Math.ceil(target / (duration / 10));
-  
-        const timer = setInterval(function() {
-          current += step;
-          counter.textContent = current;
-  
-          if (current >= target) {
-            clearInterval(timer);
+    <script>
+        function animateCounters() {
+          const counters = document.querySelectorAll('[data-target]');
+          const windowHeight = window.innerHeight;
+      
+          function animateCounter(counter) {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 1000; // Duration in milliseconds
+            let current = 0;
+            const step = Math.ceil(target / (duration / 10));
+      
+            const timer = setInterval(function() {
+              current += step;
+              counter.textContent = current;
+      
+              if (current >= target) {
+                clearInterval(timer);
+              }
+            }, 10);
           }
-        }, 10);
-      }
-  
-      function handleScroll() {
-        counters.forEach(counter => {
-          const counterPosition = counter.getBoundingClientRect().top;
-          if (counterPosition <= windowHeight * 0.8) { // Adjust the threshold as needed
-            animateCounter(counter);
-            window.removeEventListener('scroll', handleScroll); // Remove the scroll listener after counting once
+      
+          function handleScroll() {
+            counters.forEach(counter => {
+              const counterPosition = counter.getBoundingClientRect().top;
+              if (counterPosition <= windowHeight * 0.8) { // Adjust the threshold as needed
+                animateCounter(counter);
+                window.removeEventListener('scroll', handleScroll); // Remove the scroll listener after counting once
+              }
+            });
           }
-        });
-      }
-  
-      window.addEventListener('scroll', handleScroll);
-    }
-  
-    animateCounters();
-  </script>
-  
-  
+      
+          window.addEventListener('scroll', handleScroll);
+        }
+      
+        animateCounters();
+      </script>
+</section>
+@guest
 <section id="artisans" class="py-10">
     <div class="grid grid-cols-1 pb-8 text-center">
         <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Candidats</h3>
@@ -396,6 +557,72 @@
             </div><!--end container-->
     </div>
 </section>
+@endguest
+@if(Auth::check())
+@if (Auth::user()->user_type == 3)
+<section id="artisans" class="py-10">
+    <div class="grid grid-cols-1 pb-8 text-center">
+        <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Candidats</h3>
+
+        <p class="text-slate-400 max-w-xl mx-auto">Elhrayfi : Découvrez nos artisans talentueux et passionnés pour des réalisations exceptionnelles</p>
+    </div><!--end grid-->
+    <div class="container mx-auto p-6">
+
+                <div class="container mx-auto p-6 ">
+                <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[30px]">
+
+
+
+                    @forelse ($artisans as $artisan)
+                                            
+                    <div class="group bg-white relative overflow-hidden rounded-md shadow-lg text-center p-6">
+                        <img src="storage/{{ $artisan->profile_photo_path }}" class="h-20 w-20 rounded-full shadow mx-auto" alt="">
+                        
+                        <div class="mt-2">
+                            <a href="/artisan/{{ $artisan->name }}" class="hover:text-emerald-600 font-semibold text-lg">{{ $artisan->name }}</a>
+                            <p class="text-sm text-slate-400">{{ $artisan->artisan_job_category }}</p>
+                        </div>
+
+
+                        <div class="flex items-center justify-center ml-2 my-2">
+                            <svg aria-hidden="true" class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Rating star</title><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            <p class="ml-1 text-sm font-bold text-gray-900">4.95</p>
+                            <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full"></span>
+                            <a href="#" class="text-sm font-medium text-gray-900 underline hover:no-underline">73 reviews</a>
+                        </div>
+
+                        <div class="flex flex-col space-y-2 justify-between my-2">
+                            <div class="block">
+                                <span class="text-slate-400">Lieu</span>
+                                <span class="block text-sm font-semibold">{{ $artisan->ville }}</span>
+                            </div>
+                            <div class="block">
+                                <span class="text-slate-400">Experience:</span>
+                                <span class="block text-sm font-semibold">{{ $artisan->artisan_experience }}</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <a href="/artisan/{{ $artisan->name }}" class="btn btn-sm bg-emerald-600 hover:bg-emerald-700 border-emerald-600 text-white rounded-md p-2">Profile</a>
+                        </div>
+                        
+                        <span class="absolute top-[10px] end-4">
+                            <a href="javascript:void(0)" class="text-slate-100 focus:text-red-600 hover:text-red-600 text-2xl"><i class="mdi mdi-heart"></i></a>
+                        </span>
+                    </div><!--end content-->
+                    @empty
+                        
+                    @endforelse
+
+                </div><!--end grid-->
+            </div><!--end container-->
+    </div>
+</section>
+@endif
+@endif
+
+
+@guest
 <div id="price" class="py-10">
     <div class="grid grid-cols-1 pb-8 text-center">
         <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Nos Tarifs</h3>
@@ -466,6 +693,7 @@
         </div>
     </div>
 </div>
+@endguest
 <section id="blogs">
     <div class="grid grid-cols-1 pb-8 text-center">
         <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Nos Articles</h3>

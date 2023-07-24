@@ -15,63 +15,12 @@
 <section class="relative md:py-24 py-16">
     <div class="container mx-auto p-6">
         <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[30px]">
-            <div class="group relative overflow-hidden bg-white rounded-md shadow">
-                <div class="relative overflow-hidden">
-                    <img src="https://artisansofmorocco.files.wordpress.com/2014/04/artisans-2048-shot-2-1.jpg" class="scale-110 group-hover:scale-100 transition-all duration-500" alt="">
-                </div>
 
-                <div class="relative p-6">
-                    <div class="absolute start-6 -top-4">
-                        <span class="bg-emerald-600 text-white text-[12px] px-2.5 py-1 font-semibold rounded-full h-5">Arts</span>
-                    </div>
-
-                    <div class="">
-                        <div class="flex mb-4">
-                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 me-2"></i>20th February, 2023</span>
-                            <span class="text-slate-400 text-sm ms-3"><i class="uil uil-clock text-slate-900 me-2"></i>5 min read</span>
-                        </div>
-
-                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">11 Tips to Help You Get New Clients Through Cold Calling</a>
-                        
-                        <div class="flex justify-between items-center mt-3">
-                            <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
-                            <span class="text-slate-400 text-sm">by <a href="" class="text-slate-900 hover:text-emerald-600 font-medium">Google</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end content-->
             
+            @forelse ($blogs as $blog)
             <div class="group relative overflow-hidden bg-white rounded-md shadow">
-                <div class="relative overflow-hidden">
-                    <img src="https://artisansofmorocco.files.wordpress.com/2014/04/artisans-2048-shot-2-1.jpg" class="scale-110 group-hover:scale-100 transition-all duration-500" alt="">
-                </div>
-
-                <div class="relative p-6">
-                    <div class="absolute start-6 -top-4">
-                        <span class="bg-emerald-600 text-white text-[12px] px-2.5 py-1 font-semibold rounded-full h-5">Illustration</span>
-                    </div>
-
-                    <div class="">
-                        <div class="flex mb-4">
-                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 me-2"></i>20th February, 2023</span>
-                            <span class="text-slate-400 text-sm ms-3"><i class="uil uil-clock text-slate-900 me-2"></i>5 min read</span>
-                        </div>
-
-                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">DigitalOcean launches first Canadian data centre in Toronto</a>
-                        
-                        <div class="flex justify-between items-center mt-3">
-                            <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
-                            <span class="text-slate-400 text-sm">by <a href="" class="text-slate-900 hover:text-emerald-600 font-medium">Facebook</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end content-->
-            
-            <div class="group relative overflow-hidden bg-white rounded-md shadow">
-                <div class="relative overflow-hidden">
-                    <img src="https://artisansofmorocco.files.wordpress.com/2014/04/artisans-2048-shot-2-1.jpg" class="scale-110 group-hover:scale-100 transition-all duration-500" alt="">
+                <div class="relative overflow-hidden h-72 bg-cover">
+                    <img src="{{ $blog->image }}" class="h-full bg-cover scale-110 group-hover:scale-100 transition-all duration-500" alt="">
                 </div>
 
                 <div class="relative p-6">
@@ -81,185 +30,27 @@
 
                     <div class="">
                         <div class="flex mb-4">
-                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 me-2"></i>20th February, 2023</span>
-                            <span class="text-slate-400 text-sm ms-3"><i class="uil uil-clock text-slate-900 me-2"></i>5 min read</span>
+                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 me-2"></i>{{ strftime('%A %e %B %Y', strtotime($blog->created_at)) }} </span>
                         </div>
 
-                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">Using Banner Stands To Increase Trade Show Traffic</a>
+                        <a href="/blog/{{ $blog->slug }}" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">{{ $blog->title }}</a>
                         
-                        <div class="flex justify-between items-center mt-3">
+                        {{-- <div class="flex justify-between items-center mt-3">
                             <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
-                            <span class="text-slate-400 text-sm">by <a href="" class="text-slate-900 hover:text-emerald-600 font-medium">Linkedin</a></span>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
             <!--end content-->
-            
-            <div class="group relative overflow-hidden bg-white rounded-md shadow">
-                <div class="relative overflow-hidden">
-                    <img src="https://artisansofmorocco.files.wordpress.com/2014/04/artisans-2048-shot-2-1.jpg" class="scale-110 group-hover:scale-100 transition-all duration-500" alt="">
-                </div>
-
-                <div class="relative p-6">
-                    <div class="absolute start-6 -top-4">
-                        <span class="bg-emerald-600 text-white text-[12px] px-2.5 py-1 font-semibold rounded-full h-5">Arts</span>
-                    </div>
-
-                    <div class="">
-                        <div class="flex mb-4">
-                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 me-2"></i>20th February, 2023</span>
-                            <span class="text-slate-400 text-sm ms-3"><i class="uil uil-clock text-slate-900 me-2"></i>5 min read</span>
-                        </div>
-
-                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">11 Tips to Help You Get New Clients Through Cold Calling</a>
-                        
-                        <div class="flex justify-between items-center mt-3">
-                            <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
-                            <span class="text-slate-400 text-sm">by <a href="" class="text-slate-900 hover:text-emerald-600 font-medium">Google</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end content-->
-            
-            <div class="group relative overflow-hidden bg-white rounded-md shadow">
-                <div class="relative overflow-hidden">
-                    <img src="https://artisansofmorocco.files.wordpress.com/2014/04/artisans-2048-shot-2-1.jpg" class="scale-110 group-hover:scale-100 transition-all duration-500" alt="">
-                </div>
-
-                <div class="relative p-6">
-                    <div class="absolute start-6 -top-4">
-                        <span class="bg-emerald-600 text-white text-[12px] px-2.5 py-1 font-semibold rounded-full h-5">Illustration</span>
-                    </div>
-
-                    <div class="">
-                        <div class="flex mb-4">
-                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 me-2"></i>20th February, 2023</span>
-                            <span class="text-slate-400 text-sm ms-3"><i class="uil uil-clock text-slate-900 me-2"></i>5 min read</span>
-                        </div>
-
-                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">DigitalOcean launches first Canadian data centre in Toronto</a>
-                        
-                        <div class="flex justify-between items-center mt-3">
-                            <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
-                            <span class="text-slate-400 text-sm">by <a href="" class="text-slate-900 hover:text-emerald-600 font-medium">Facebook</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end content-->
-            
-            <div class="group relative overflow-hidden bg-white rounded-md shadow">
-                <div class="relative overflow-hidden">
-                    <img src="https://artisansofmorocco.files.wordpress.com/2014/04/artisans-2048-shot-2-1.jpg" class="scale-110 group-hover:scale-100 transition-all duration-500" alt="">
-                </div>
-
-                <div class="relative p-6">
-                    <div class="absolute start-6 -top-4">
-                        <span class="bg-emerald-600 text-white text-[12px] px-2.5 py-1 font-semibold rounded-full h-5">Music</span>
-                    </div>
-
-                    <div class="">
-                        <div class="flex mb-4">
-                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 me-2"></i>20th February, 2023</span>
-                            <span class="text-slate-400 text-sm ms-3"><i class="uil uil-clock text-slate-900 me-2"></i>5 min read</span>
-                        </div>
-
-                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">Using Banner Stands To Increase Trade Show Traffic</a>
-                        
-                        <div class="flex justify-between items-center mt-3">
-                            <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
-                            <span class="text-slate-400 text-sm">by <a href="" class="text-slate-900 hover:text-emerald-600 font-medium">Linkedin</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end content-->
-            
-            <div class="group relative overflow-hidden bg-white rounded-md shadow">
-                <div class="relative overflow-hidden">
-                    <img src="https://artisansofmorocco.files.wordpress.com/2014/04/artisans-2048-shot-2-1.jpg" class="scale-110 group-hover:scale-100 transition-all duration-500" alt="">
-                </div>
-
-                <div class="relative p-6">
-                    <div class="absolute start-6 -top-4">
-                        <span class="bg-emerald-600 text-white text-[12px] px-2.5 py-1 font-semibold rounded-full h-5">Arts</span>
-                    </div>
-
-                    <div class="">
-                        <div class="flex mb-4">
-                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 me-2"></i>20th February, 2023</span>
-                            <span class="text-slate-400 text-sm ms-3"><i class="uil uil-clock text-slate-900 me-2"></i>5 min read</span>
-                        </div>
-
-                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">11 Tips to Help You Get New Clients Through Cold Calling</a>
-                        
-                        <div class="flex justify-between items-center mt-3">
-                            <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
-                            <span class="text-slate-400 text-sm">by <a href="" class="text-slate-900 hover:text-emerald-600 font-medium">Google</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end content-->
-            
-            <div class="group relative overflow-hidden bg-white rounded-md shadow">
-                <div class="relative overflow-hidden">
-                    <img src="https://artisansofmorocco.files.wordpress.com/2014/04/artisans-2048-shot-2-1.jpg" class="scale-110 group-hover:scale-100 transition-all duration-500" alt="">
-                </div>
-
-                <div class="relative p-6">
-                    <div class="absolute start-6 -top-4">
-                        <span class="bg-emerald-600 text-white text-[12px] px-2.5 py-1 font-semibold rounded-full h-5">Illustration</span>
-                    </div>
-
-                    <div class="">
-                        <div class="flex mb-4">
-                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 me-2"></i>20th February, 2023</span>
-                            <span class="text-slate-400 text-sm ms-3"><i class="uil uil-clock text-slate-900 me-2"></i>5 min read</span>
-                        </div>
-
-                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">DigitalOcean launches first Canadian data centre in Toronto</a>
-                        
-                        <div class="flex justify-between items-center mt-3">
-                            <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
-                            <span class="text-slate-400 text-sm">by <a href="" class="text-slate-900 hover:text-emerald-600 font-medium">Facebook</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end content-->
-            
-            <div class="group relative overflow-hidden bg-white rounded-md shadow">
-                <div class="relative overflow-hidden">
-                    <img src="https://artisansofmorocco.files.wordpress.com/2014/04/artisans-2048-shot-2-1.jpg" class="scale-110 group-hover:scale-100 transition-all duration-500" alt="">
-                </div>
-
-                <div class="relative p-6">
-                    <div class="absolute start-6 -top-4">
-                        <span class="bg-emerald-600 text-white text-[12px] px-2.5 py-1 font-semibold rounded-full h-5">Music</span>
-                    </div>
-
-                    <div class="">
-                        <div class="flex mb-4">
-                            <span class="text-slate-400 text-sm"><i class="uil uil-calendar-alt text-slate-900 me-2"></i>20th February, 2023</span>
-                            <span class="text-slate-400 text-sm ms-3"><i class="uil uil-clock text-slate-900 me-2"></i>5 min read</span>
-                        </div>
-
-                        <a href="blog-detail.html" class="title text-lg font-semibold hover:text-emerald-600 duration-500 ease-in-out">Using Banner Stands To Increase Trade Show Traffic</a>
-                        
-                        <div class="flex justify-between items-center mt-3">
-                            <a href="blog-detail.html" class="btn btn-link hover:text-emerald-600 after:bg-emerald-600 duration-500 ease-in-out">Read More <i class="uil uil-arrow-right"></i></a>
-                            <span class="text-slate-400 text-sm">by <a href="" class="text-slate-900 hover:text-emerald-600 font-medium">Linkedin</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--end content-->
+            @empty
+                
+            @endforelse
         </div><!--end grid-->
-
-        <div class="grid md:grid-cols-12 grid-cols-1 mt-8">
+        <div class="pt-10">
+            {{ $blogs->links() }}
+        </div>
+        
+        {{-- <div class="grid md:grid-cols-12 grid-cols-1 mt-8">
             <div class="md:col-span-12 text-center">
                 <nav aria-label="Page navigation example">
                     <ul class="inline-flex items-center -space-x-px">
@@ -291,7 +82,7 @@
                     </ul>
                 </nav>
             </div><!--end col-->
-        </div><!--end grid-->
+        </div><!--end grid--> --}}
     </div><!--end container-->
 </section>
 @include('components.footer')

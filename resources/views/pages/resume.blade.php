@@ -9,9 +9,9 @@
 <section class="container mx-auto px-6 relative mb:pb-24 pb-16 -mt-16 z-1">
     <div class="container mt-5">
         <div class="grid grid-cols-1">
-            <div class="md:flex justify-between items-center shadow dark:shadow-gray-700 rounded-md p-6 bg-white dark:bg-slate-900">
+            <div class="md:flex justify-between items-center shadow  rounded-md p-6 bg-white ">
                 <div class="flex items-center">
-                    <img src="http://127.0.0.1:8000/storage/{{ $artisan->profile_photo_path }}" class="h-24 w-24  shadow dark:shadow-gray-700 rounded-full bg-slate-50 dark:bg-slate-800" alt="">
+                    <img src="http://127.0.0.1:8000/storage/{{ $artisan->profile_photo_path }}" class="h-24 w-24  shadow  rounded-full bg-slate-50 " alt="">
 
                     <div class="ms-4">
                         <h5 class="text-xl font-bold">{{ $artisan->name }}</h5>

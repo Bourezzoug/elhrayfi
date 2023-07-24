@@ -2,8 +2,10 @@
 
 namespace App\Actions\Fortify;
 
+use App\Mail\EmailVerify;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
@@ -26,22 +28,18 @@ class CreateNewUser implements CreatesNewUsers
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
+        $otp = strval(random_int(100000, 999999));
 
         $user =  User::create([
             'name' => $input['name'],
             'email' => $input['email'],
-            // 'age' =>  $input['age'] ?? null,
             'password' => Hash::make($input['password']),
             'user_type' =>  $input['role_id'],
-            // 'addresse' =>  $input['address'] ?? null,
-            // 'ville' =>  $input['ville'] ?? null,
-            // 'client_type'  =>  $input['client_type'] ?? null,
+            'code_verification' =>  $otp
         ]);
-        // if (!empty($input['profile_photo_path'])) {
-        //     $url = $input['profile_photo_path']->store('images','public');
-        //     $user['profile_photo_path'] = '/storage/' . $url;
-        // }
+        // session()->put('otp', $otp);
         session(['user_type' => $input['role_id']]);
+        Mail::to($input['email'])->send(new EmailVerify($input['email'],'Elhrayfi - Confirmez votre compte',$otp));
         return $user;
     }
 }

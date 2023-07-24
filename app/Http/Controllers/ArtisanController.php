@@ -12,6 +12,7 @@ class ArtisanController extends Controller
         $cities = json_decode(file_get_contents($url), true);
         $artisans = User::orderBy('created_at', 'desc')
                     ->where('user_type','2')
+                    ->where('status','1')
                     ->with('experiences')->get();
         return view('pages.artisans',[
             'cities'  =>  $cities,
@@ -29,7 +30,7 @@ class ArtisanController extends Controller
     public function display(Request $request)
     {
         $query = User::query();
-        $query->orderBy('created_at', 'desc')->where('user_type', '2')->with('experiences');
+        $query->orderBy('created_at', 'desc')->where('user_type', '2')->where('status','1')->with('experiences');
     
         // Filter by name
         $name = $request->input('name');

@@ -11,7 +11,7 @@ use Livewire\WithFileUploads;
 class ProfileIndex extends Component
 {
     use WithFileUploads;
-    public $name,$email,$profile_photo_path,$profile_photo_path_url,$age,$addresse,$client_website,$description,$cities,$ville,$artisan_job_category,$artisan_experience,$artisan_portfolio,$cover,$cover_path,$artisan_cv,$artisan_portfolio_images;
+    public $name,$email,$profile_photo_path,$profile_photo_path_url,$age,$addresse,$client_website,$description,$cities,$ville,$artisan_job_category,$artisan_experience,$artisan_portfolio,$cover,$cover_path,$artisan_cv,$artisan_portfolio_images,$status;
     public function mount() {
         $url = 'https://raw.githubusercontent.com/alaouy/sql-moroccan-cities/master/json/ville.json';
         $cities = json_decode(file_get_contents($url), true);
@@ -29,8 +29,10 @@ class ProfileIndex extends Component
         $this->artisan_experience = $users->artisan_experience;
         $this->artisan_cv = $users->artisan_cv;
         $this->artisan_portfolio = $users->artisan_portfolio;
-
-
+        
+        $this->cover_path = $users->cover_photo;
+        $this->status   =   $users->status;    
+        // dd($this->artisan_portfolio);
     }
     public function update() {
         $id = Auth::user()->id;
@@ -43,6 +45,7 @@ class ProfileIndex extends Component
             'description' => $this->description,
             'artisan_job_category' => $this->artisan_job_category,
             'artisan_experience' => $this->artisan_experience,
+            'status' => $this->status,
         ];
 
         if (!empty($this->profile_photo_path)) {
@@ -72,6 +75,23 @@ class ProfileIndex extends Component
 
         User::where('id',$id)->update($data);
         return Redirect::to('/artisan/profile')->with('success', 'Post created successfully');
+    }
+    public function deleteImage($imageName)
+    {
+        // Remove the image from the array
+        $imagesArray = explode(',', $this->artisan_portfolio);
+        $filteredImages = array_filter($imagesArray, function ($image) use ($imageName) {
+            return trim($image) !== trim($imageName);
+        });
+    
+        // Update the $artisan_portfolio property with the new images list
+        $this->artisan_portfolio = implode(',', $filteredImages);
+
+        $data = [
+            'artisan_portfolio' =>  $this->artisan_portfolio
+        ];
+        $id = Auth::user()->id;
+        User::where('id',$id)->update($data);
     }
     public function render()
     {

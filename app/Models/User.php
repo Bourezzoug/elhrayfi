@@ -10,7 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable 
 {
     use HasApiTokens;
     use HasFactory;
@@ -34,7 +34,9 @@ class User extends Authenticatable
         'artisan_job_category',
         'profile_photo_path',
         'client_type',
-        'client_website'
+        'client_website',
+        'code_verification',
+        'verified'
     ];
 
     /**

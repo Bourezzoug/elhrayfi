@@ -3,12 +3,8 @@
 @section('meta_description', 'description')
 @section('content')
 @include('components.header')
-<section class="relative table w-full py-36 bg-[url('https://img.freepik.com/premium-vector/people-group-different-occupation-profession-set-international-labor-day-flat-banner_180264-14.jpg')] bg-top bg-no-repeat bg-cover">
-    <div class="absolute inset-0 bg-emerald-900/90"></div>
-
-    <div class="absolute text-center z-10 top-1/2 start-0 end-0 mx-3">
-        <p class="inline breadcrumb-item  font-semibold duration-500 ease-in-out text-white text-4xl">Liste des travaux</p>
-    </div>
+<section class="relative table w-full py-40 bg-top bg-no-repeat bg-cover" style="background-image: url('https://www.fairwork.gov.au/sites/default/files/styles/banner/public/2022-08/young-workers-banner2.png?itok=4yxB5D0e');height:320px">
+    <div class="absolute top-0 h-full w-full left-0 inset-0 bg-emerald-700" style="opacity: .6"></div>
 </section>
 
 <section class="relative md:py-24 py-16 ">
@@ -53,59 +49,7 @@
                                 </select>
                             </div>
                             
-                            <div class="my-2">
-                                <label class="font-semibold">Job Types</label>
-                                <div class="block mt-2">
-                                    <div class="flex justify-between">
-                                        <div class="inline-flex items-center mb-0">
-                                            <input class="form-checkbox rounded border-gray-200 text-emerald-600 focus:border-emerald-300 focus:ring focus:ring-offset-0 focus:ring-emerald-200 focus:ring-opacity-50 me-2" type="checkbox" value="" id="fulltime">
-                                            <label class="form-checkbox-label text-slate-400" for="fulltime">Full Time</label>
-                                        </div>
 
-                                        <span class="bg-emerald-600/10 text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full h-5">3</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <div class="inline-flex items-center mb-0">
-                                            <input class="form-checkbox rounded border-gray-200 text-emerald-600 focus:border-emerald-300 focus:ring focus:ring-offset-0 focus:ring-emerald-200 focus:ring-opacity-50 me-2" type="checkbox" value="" id="parttime">
-                                            <label class="form-checkbox-label text-slate-400" for="parttime">Part Time</label>
-                                        </div>
-
-                                        <span class="bg-emerald-600/10 text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full h-5">7</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <div class="inline-flex items-center mb-0">
-                                            <input class="form-checkbox rounded border-gray-200 text-emerald-600 focus:border-emerald-300 focus:ring focus:ring-offset-0 focus:ring-emerald-200 focus:ring-opacity-50 me-2" type="checkbox" value="" id="Freelancing">
-                                            <label class="form-checkbox-label text-slate-400" for="Freelancing">Freelancing</label>
-                                        </div>
-
-                                        <span class="bg-emerald-600/10 text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full h-5">4</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <div class="inline-flex items-center mb-0">
-                                            <input class="form-checkbox rounded border-gray-200 text-emerald-600 focus:border-emerald-300 focus:ring focus:ring-offset-0 focus:ring-emerald-200 focus:ring-opacity-50 me-2" type="checkbox" value="" id="fixedprice">
-                                            <label class="form-checkbox-label text-slate-400" for="fixedprice">Fixed Price</label>
-                                        </div>
-
-                                        <span class="bg-emerald-600/10 text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full h-5">6</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <div class="inline-flex items-center mb-0">
-                                            <input class="form-checkbox rounded border-gray-200 text-emerald-600 focus:border-emerald-300 focus:ring focus:ring-offset-0 focus:ring-emerald-200 focus:ring-opacity-50 me-2" type="checkbox" value="" id="Remote">
-                                            <label class="form-checkbox-label text-slate-400" for="Remote">Remote</label>
-                                        </div>
-
-                                        <span class="bg-emerald-600/10 text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full h-5">7</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <div class="inline-flex items-center mb-0">
-                                            <input class="form-checkbox rounded border-gray-200 text-emerald-600 focus:border-emerald-300 focus:ring focus:ring-offset-0 focus:ring-emerald-200 focus:ring-opacity-50 me-2" type="checkbox" value="" id="hourlybasis">
-                                            <label class="form-checkbox-label text-slate-400" for="hourlybasis">Hourly Basis</label>
-                                        </div>
-
-                                        <span class="bg-emerald-600/10 text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full h-5">44</span>
-                                    </div>
-                                </div>
-                            </div>
                             
 
 

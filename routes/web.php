@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobDetailController;
 use App\Http\Controllers\JoblistController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\VerifyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,7 @@ Route::get('/', function () {
 Route::get('/',[HomeController::class,'index']);
 // Route::post('/search-artisan',[HomeController::class,'searchArtisan'])->name('search.artisan');
 Route::post('/',[HomeController::class,'store'])->name('email.store');
-Route::get('/blog',[BlogController::class,'index'])->name('blog.index');
+Route::get('/blog',[BlogController::class,'index'])->name('blogPage.index');
 Route::get('/joblist',[JoblistController::class,'display'])->name('joblist.index');
 Route::get('/artisans-listes',[ArtisanController::class,'index'])->name('artisans.index');
 
@@ -59,7 +60,7 @@ Route::get('/jobdetail',function() {
 // });
 
 // Route for customers
-Route::middleware(['auth:sanctum', 'verified','authclient'])->group(function () {
+Route::middleware(['auth:sanctum', 'verifyEmail','authclient'])->group(function () {
     Route::get('/client/dashboard', function () {
         return view('Client.dashboard');
     })->name('Client.dashboard');
@@ -77,7 +78,7 @@ Route::middleware(['auth:sanctum', 'verified','authclient'])->group(function () 
 
 
 // Route for Artisan
-Route::middleware(['auth:sanctum', 'verified','authartisan'])->group(function () {
+Route::middleware(['auth:sanctum', 'verifyEmail','authartisan'])->group(function () {
     Route::get('/artisan/dashboard', function () {
         return view('artisan.dashboard');
     })->name('artisan.dashboard');
@@ -90,10 +91,16 @@ Route::middleware(['auth:sanctum', 'verified','authartisan'])->group(function ()
     Route::get('/artisan/educations',\App\Http\Livewire\Artisan\Education\EducationIndex::class)->name('education.index');
     Route::get('/artisan/educations/create',\App\Http\Livewire\Artisan\Education\EducationCreate::class)->name('education.create');
     Route::get('/artisan/messages',\App\Http\Livewire\Artisan\Message\MessageIndex::class)->name('message.index');
-
 });
+
+// Route for artisan and clients
+
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/verification_code/{verification_code}', [VerifyController::class , 'verification_code'])->name('verification_code');
+});
+
 // Route for Admin
-Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function () {
+Route::middleware(['auth:sanctum','authadmin'])->group(function () {
     Route::get('/admin/dashboard', function () {
         return view('admin.dashboard');
     })->name('dashboard');

@@ -12,7 +12,7 @@ class ProfileIndex extends Component
 {
     use WithFileUploads;
 
-    public $name,$email,$profile_photo_path,$addresse,$client_website,$description,$cities,$ville,$client_responsable_name,$date_creation,$profile_photo_path_url,$cover,$cover_path;
+    public $name,$email,$profile_photo_path,$addresse,$client_website,$description,$cities,$ville,$client_responsable_name,$date_creation,$profile_photo_path_url,$cover,$cover_path,$status;
     public function mount() {
         $url = 'https://raw.githubusercontent.com/alaouy/sql-moroccan-cities/master/json/ville.json';
         $cities = json_decode(file_get_contents($url), true);
@@ -29,6 +29,7 @@ class ProfileIndex extends Component
         $this->client_responsable_name = $users->client_responsable_name;
         $this->date_creation = $users->date_creation;
         $this->cover_path = $users->cover_photo;
+        $this->status   =   $users->status;    
     }
     public function update() {
         $id = Auth::user()->id;
@@ -42,6 +43,7 @@ class ProfileIndex extends Component
             'ville' => $this->ville,
             'client_responsable_name' => $this->client_responsable_name,
             'date_creation' => $this->date_creation,
+            'status' => $this->status,
         ];
 
         if (!empty($this->profile_photo_path)) {

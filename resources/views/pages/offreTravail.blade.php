@@ -9,9 +9,9 @@
 <section class="container mx-auto px-6 relative mb:pb-24 pb-16 -mt-16 z-1">
     <div class="container mt-5">
         <div class="grid grid-cols-1">
-            <div class="md:flex justify-between items-center shadow dark:shadow-gray-700 rounded-md p-6 bg-white dark:bg-slate-900">
+            <div class="md:flex justify-between items-center shadow  rounded-md p-6 bg-white ">
                 <div class="flex items-center">
-                    <img src="http://127.0.0.1:8000/storage/{{ $offers->client->profile_photo_path }}" class="h-20 w-20 p-3 shadow dark:shadow-gray-700 rounded-md bg-slate-50 dark:bg-slate-800" alt="">
+                    <img src="http://127.0.0.1:8000/storage/{{ $offers->client->profile_photo_path }}" class="h-20 w-20 p-3 shadow  rounded-md bg-slate-50 " alt="">
 
                     <div class="ms-4">
                         <h5 class="text-xl font-bold">{{ $offers->client->name }}</h5>
@@ -33,13 +33,13 @@
                 <p class="text-slate-400 mt-4">{{ $offers->description }}</p>
                 <div class="grid grid-cols-12 gap-6 mt-6">
                     <div class="col-span-12">
-                        <img src="assets/images/company/1.jpg" class="rounded-md shadow dark:shadow-gray-700" alt="">
+                        <img src="assets/images/company/1.jpg" class="rounded-md shadow " alt="">
                     </div>
                     <div class="col-span-6">
-                        <img src="assets/images/company/2.jpg" class="rounded-md shadow dark:shadow-gray-700" alt="">
+                        <img src="assets/images/company/2.jpg" class="rounded-md shadow " alt="">
                     </div>
                     <div class="col-span-6">
-                        <img src="assets/images/company/3.jpg" class="rounded-md shadow dark:shadow-gray-700" alt="">
+                        <img src="assets/images/company/3.jpg" class="rounded-md shadow " alt="">
                     </div>
                 </div>
 
@@ -47,7 +47,7 @@
 
                 <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-6">
                     @foreach($relatedOffers as $offer)
-                    <div class="group relative overflow-hidden rounded-md shadow dark:shadow-gray-800">
+                    <div class="group relative overflow-hidden rounded-md shadow ">
                         <div class="p-6">
                             <a href="" class="title h5 text-lg font-semibold hover:text-emerald-600">{{ $offer->catégorie }}</a>
                             <p class="text-slate-400 mt-2"><i class="fa-regular fa-clock text-emerald-600"></i> Il y'a  {{ $offer->created_at->diffForHumans(null, true) }}</p>
@@ -59,9 +59,9 @@
                             </div>
                         </div>
                 
-                        <div class="flex items-center justify-between p-6 border-t border-gray-100 dark:border-gray-700">
+                        <div class="flex items-center justify-between p-6 border-t border-gray-100 ">
                             <div class="flex items-center ">
-                                <img src="http://127.0.0.1:8000/storage/{{ $offer->client->profile_photo_path }}" class="h-12 w-12 shadow-md dark:shadow-gray-800 rounded-md p-2 bg-white dark:bg-slate-900" alt="">
+                                <img src="http://127.0.0.1:8000/storage/{{ $offer->client->profile_photo_path }}" class="h-12 w-12 shadow-md  rounded-md p-2 bg-white" alt="">
                 
                                 <div class="ms-3">
                                     <h6 class="mb-0 font-semibold text-base">{{ $offer->client->name }}</h6>
@@ -77,7 +77,7 @@
                 </div>
                 @if(Auth::check())
                 @if(Auth::user()->user_type == 2)
-                <div class="p-6 rounded-md shadow dark:shadow-gray-800 mt-8">
+                <div class="p-6 rounded-md shadow  mt-8">
                     <h5 class="text-xl font-semibold">Contactez:</h5>
 
                     <form action="{{ Route('contact.client') }}" method="POST" class="mt-8">
@@ -101,7 +101,7 @@
             </div><!--end col-->
             
             <div class="lg:col-span-4 md:col-span-5">
-                <div class="bg-slate-50 dark:bg-slate-800 rounded-md shadow dark:shadow-gray-700 p-6 sticky top-20">
+                <div class="bg-slate-50  rounded-md shadow  p-6 sticky top-20">
 
                     <ul class="list-none mt-4">
                         <li class="flex justify-between mt-2">
@@ -145,7 +145,7 @@
         <div class="grid grid-cols-1 pb-8 text-center">
             <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Entreprises associées</h3>
 
-            <p class="text-slate-400 dark:text-slate-300 max-w-xl mx-auto">Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over 30000+ companies worldwide.</p>
+            <p class="text-slate-400  max-w-xl mx-auto">Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over 30000+ companies worldwide.</p>
         </div><!--end grid-->
 
         <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-[30px] mt-8">

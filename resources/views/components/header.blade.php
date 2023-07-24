@@ -24,7 +24,7 @@
                     <a href="{{ route('artisans.index') }}" class="text-p-color">Artisans</a>
                 @endif
             
-                <a href="{{ Route('blog.index') }}" class="text-p-color">Blog</a>
+                <a href="{{ Route('blogPage.index') }}" class="text-p-color">Blog</a>
                 <a href="{{ Route('contact.index') }}" class="text-p-color">Contact</a>
             </div>
             <!-- Button -->
@@ -95,7 +95,7 @@
                                     </div>
                     
                                     <x-dropdown-link href="{{ route('artisan.dashboard') }}">
-                                        {{ __('Profile') }}
+                                        {{ __('Tableau de bord') }}
                                     </x-dropdown-link>
                     
                                     @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -104,6 +104,12 @@
                                         </x-dropdown-link>
                                     @endif
                     
+                                    <div class="border-t border-gray-200"></div>
+                    
+                                    <!-- Authentication -->
+                                    <x-dropdown-link href="/artisan/{{ Auth::user()->name }}">
+                                        {{ __('Mon Profile') }}
+                                    </x-dropdown-link>
                                     <div class="border-t border-gray-200"></div>
                     
                                     <!-- Authentication -->

@@ -13,8 +13,15 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('pages.blog');
+        setlocale(LC_TIME, 'fr_FR');
+    
+        $blogs = Blog::orderBy('created_at', 'desc')->paginate(9);
+    
+        return view('pages.blog', [
+            'blogs' => $blogs
+        ]);
     }
+    
 
     /**
      * Show the form for creating a new resource.

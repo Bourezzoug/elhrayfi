@@ -31,7 +31,7 @@ class HomeController extends Controller
         return view('pages.homepage', [
             'cities' => $cities,
             'offres' => $offres,
-            'artisans'  =>  User::where('user_type','2')->where('actif','1')->orderBy('created_at','desc')->take(4)->get(),
+            'artisans'  =>  User::where('user_type','2')->where('status','1')->orderBy('created_at','desc')->take(4)->get(),
             'artisansCount'  =>  User::where('user_type','2')->count(),
             'clientsCount'  =>  User::where('user_type','3')->count(),
             'offresCount'  =>  OffreTravail::all()->count(),
