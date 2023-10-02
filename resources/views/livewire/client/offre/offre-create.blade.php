@@ -14,13 +14,84 @@
 
                                 <div class="grid grid-cols-12 gap-4 mt-4">
                                     <div class="col-span-12 ltr:text-left rtl:text-right">
-                                        <label class="font-semibold" for="RegisterName">Titre du poste<span class="text-red-600 inline-block ml-1">*</span> :</label>
+                                        <label class="font-semibold" for="RegisterName">Titre d'offre<span class="text-red-600 inline-block ml-1">*</span> :</label>
                                         <x-input id="RegisterName" wire:model.defer="title" type="text" class=" block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]" placeholder="Titre du poste" />
                                     </div>
+                                    <div  x-data="{photoName: null, photoPreview: null}" class="w-full col-span-12">
+                                        <label class="font-semibold" for="RegisterName">Image d'offre<span class="text-red-600 inline-block ml-1">*</span> :</label>
+                                        {{-- <div class="py-5 mr-5 pl-3"> --}}
+                                                <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
+                                                    <!--Profile Photo File Input -->
+                                                    <input type="file" class="hidden input-field"
+                                                                wire:model="image_offre"
+                                                                
+                                                                x-ref="image_offre"
+                                                                x-on:change="
+                                                                        photoName = $refs.image_offre.files[0].name;
+                                                                        const reader = new FileReader();
+                                                                        reader.onload = (e) => {
+                                                                            photoPreview = e.target.result;
+                                                                        };
+                                                                        reader.readAsDataURL($refs.image_offre.files[0]);
+                                                                " />
+                                
+                                
+                                                <!--Current Profile Photo -->
+                                                <div class="mt-2 w-full  xl:h-80 bg-gray-100" x-show="! photoPreview">
+                                                    {{-- <img src="{{ $photo }}" alt="{{ $photo }}" class="h-full w-full object-cover"> --}}
+                                                </div>
+                                
+                                                <!--New Profile Photo Preview -->
+                                                <div class="mt-2 w-full xl:h-80" x-show="photoPreview" style="display: none;">
+                                                    <span class="block w-full h-full bg-cover bg-no-repeat bg-center"
+                                                            x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
+                                                    </span>
+                                                </div>
 
+                                                <x-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.image_offre.click()">
+                                                    {{ __('Select A New Photo') }}
+                                                </x-secondary-button>
+                                
+                                
+                                                <x-input-error for="photo" class="mt-2 input-error" />
+                                            </div>
+                                      {{-- </div> --}}
+                                    </div>
                                     <div class="col-span-12 ltr:text-left">
-                                        <label for="description" class="font-semibold block">Description du poste<span class="text-red-600 inline-block ml-1">*</span> :</label>
-                                        <textarea wire:model.defer="description" id="description" class="h-32 w-full rounded border-gray-300 px-2 py-2 text-[14px] shadow-sm mt-2" placeholder="Description du poste"></textarea>
+                                        <label for="description" class="font-semibold block">Description d'offre<span class="text-red-600 inline-block ml-1">*</span> :</label>
+                                        <div class="">
+                                            <div wire:ignore>
+                                              <div class="form-control" wire:model.defer="description" id="summary-ckeditor-2"></div>
+                                          </div>
+                                          
+                                              <script>
+                                                  document.addEventListener('livewire:load', function () {
+                                                      initEditor();
+                                          
+                                                      window.livewire.on('render', function () {
+                                                          initEditor();
+                                                      });
+                                                  });
+                                          
+                                                  function initEditor() {
+                                                    tinymce.init({
+                                                        selector: '#summary-ckeditor-2',
+                                                        plugins: 'lists link image charmap print preview hr anchor pagebreak',
+                                                        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                                                        height: 300,
+                                                        setup: function (editor) {
+                                                            editor.on('change', function () {
+                                                                window.livewire.emit('bodyUpdated', editor.getContent());
+                                                            });
+
+                                                        },
+                                                        paste_data_images: true,
+                                                        // auto_focus: true
+                                                    });
+                                                }
+        
+                                              </script>
+                                    </div>
                                     </div>
 
                                     <div class="md:col-span-6 col-span-12 ltr:text-left rtl:text-right">
@@ -39,7 +110,7 @@
                                         </x-select>
                                     </div>
 
-                                    <div class="md:col-span-6 col-span-12 ltr:text-left rtl:text-right">
+                                    {{-- <div class="md:col-span-6 col-span-12 ltr:text-left rtl:text-right">
                                         <label class="font-semibold">Type du travail<span class="text-red-600 inline-block ml-1">*</span> :</label>
                                         <x-select wire:model.defer="type_travail"  class="block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]">
                                             <option value="" readonly="true" hidden="true"
@@ -47,10 +118,10 @@
                                             <option value="Plein">Temps Plein</option>
                                             <option value="Partiel">Temps partiel</option>
                                         </x-select>
-                                    </div>
+                                    </div> --}}
 
 
-                                    <div class="md:col-span-6 col-span-12 ltr:text-left rtl:text-right">
+                                    {{-- <div class="md:col-span-6 col-span-12 ltr:text-left rtl:text-right">
                                         <label class="font-semibold">Type du paiment:</label>
                                         <x-select wire:model.defer="salaire_type" class="block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]">
                                             <option value="" readonly="true" hidden="true"
@@ -60,18 +131,18 @@
                                             <option value="par mois">Par Mois</option>
                                             <option value="prix fixe">Prix fixe</option>
                                         </x-select>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="md:col-span-6 col-span-12 ltr:text-left rtl:text-right">
                                         <label class="font-semibold md:invisible md:block hidden">Min:</label>
                                         <div class="relative mt-1">
-                                            <span class="w-10 h-10 bg-slate-50 border border-slate-100 absolute top-0 start-0 overflow-hidden rounded">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign w-4 h-4 absolute top-3 start-3"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                            <span class="w-10 h-10 bg-slate-50 border border-slate-100 absolute top-0 start-0 overflow-hidden rounded flex justify-center items-center text-xs">
+                                                DHS
                                             </span>
                                             <input type="number" wire:model.defer="salaire_montant" class="border border-slate-100 block w-full mt-1  h-[2.5rem] rounded pr-2 pl-12 py-2 text-[14px]" placeholder="Le salaire que vous proposez" name="minsalary">
                                         </div>
                                     </div>
-                                    <div class="md:col-span-6 col-span-12 ltr:text-left rtl:text-right">
+                                    {{-- <div class="md:col-span-6 col-span-12 ltr:text-left rtl:text-right">
                                         <label class="font-semibold">Durée:<span class="text-red-600 inline-block ml-1">*</span> </label>
                                         <x-select wire:model.defer="travail_periode" class="block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]">
                                             <option value="" readonly="true" hidden="true"
@@ -80,9 +151,10 @@
                                             <option value="Entre 1 et 3 mois">Entre 1 et 3 mois</option>
                                             <option value="3 mois ou plus">3 mois ou plus</option>
                                         </x-select>
-                                    </div>
+                                    </div> --}}
 
                                 </div>
+                                
 
 
 

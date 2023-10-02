@@ -11,7 +11,7 @@ use Livewire\WithFileUploads;
 class ProfileIndex extends Component
 {
     use WithFileUploads;
-    public $name,$email,$profile_photo_path,$profile_photo_path_url,$age,$addresse,$client_website,$description,$cities,$ville,$artisan_job_category,$artisan_experience,$artisan_portfolio,$cover,$cover_path,$artisan_cv,$artisan_portfolio_images,$status;
+    public $name,$email,$profile_photo_path,$profile_photo_path_url,$age,$addresse,$client_website,$description,$cities,$ville,$artisan_job_category,$artisan_experience,$artisan_portfolio,$cover,$cover_path,$artisan_cv,$artisan_portfolio_images,$status,$artisan_cv_name;
     public function mount() {
         $url = 'https://raw.githubusercontent.com/alaouy/sql-moroccan-cities/master/json/ville.json';
         $cities = json_decode(file_get_contents($url), true);
@@ -27,8 +27,8 @@ class ProfileIndex extends Component
         $this->ville = $users->ville;
         $this->artisan_job_category = $users->artisan_job_category;
         $this->artisan_experience = $users->artisan_experience;
-        $this->artisan_cv = $users->artisan_cv;
-        $this->artisan_portfolio = $users->artisan_portfolio;
+        $this->artisan_cv_name = $users->artisan_cv;
+        $this->artisan_portfolio_images = $users->artisan_portfolio;
         
         $this->cover_path = $users->cover_photo;
         $this->status   =   $users->status;    
@@ -62,6 +62,7 @@ class ProfileIndex extends Component
                 $url = $this->artisan_cv->storeAs('cv-photos', $filename);
                 $data['artisan_cv'] = $url;
         }
+
         
 
         if (!empty($this->artisan_portfolio)) {

@@ -44,17 +44,7 @@
                         <option value="desc">{{ __('DESC') }}</option>
                     </x-select>
                 </div>
-                {{-- <div class="col-span-3 md:col-span-2 lg:col-span-1 mr-3">
-                    <x-label class="text-xs" for="select" value="{{ __('SortBy Catégorie') }}"/>
-                    <x-select wire:model="categories" class="mt-1">
-                        <option value="" readonly="true" hidden="true"
-                                selected>{{ __('Catégorie') }}</option>
-                        @forelse($categorie as $key => $value)
-                        <option value="{{ $key }}">{{ $value }}</option>
-                        @empty
-                        @endforelse
-                    </x-select>
-                </div> --}}
+
             
                 <div class="col-span-3 md:col-span-2 lg:col-span-2">
                     <label class="text-xs" for="search" value="{{ __('Chercher') }}">
@@ -74,10 +64,9 @@
                             Titre
                         </th>
                         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Catégories</th>
-                        <th scope="col" class="px-6 py-4 font-medium text-gray-900">Type du travail</th>
-                        <th scope="col" class="px-6 py-4 font-medium text-gray-900">Type du paiment</th>
+
                         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Montant</th>
-                        <th scope="col" class="px-6 py-4 font-medium text-gray-900">Durée</th>
+
                         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Crée en</th>
                         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Actions</th>
                     </tr>
@@ -107,22 +96,7 @@
                         {{ $offres->catégorie }}
                         </span>
                     </td>
-                    <td class="px-6 py-4">
-                        <span
-                        class="inline-flex items-center gap-1 rounded-full bg-gray-50 w-full px-2 py-1 text-md font-semibold text-gray-600"
-                        >
-                        <span class="h-1.5 w-1.5 rounded-full bg-gray-600"></span>
-                        {{ $offres->type_travail }}
-                        </span>
-                    </td>
-                    <td class="px-6 py-4">
-                        <span
-                        class="inline-flex items-center gap-1 rounded-full bg-gray-50 w-full px-2 py-1 text-md font-semibold text-gray-600"
-                        >
-                        <span class="h-1.5 w-1.5 rounded-full bg-gray-600"></span>
-                        {{ $offres->salaire_type }}
-                        </span>
-                    </td>
+
                     <td class="px-6 py-4">
                         <span
                         class="inline-flex items-center gap-1 rounded-full bg-gray-50 w-full px-2 py-1 text-md font-semibold text-gray-600"
@@ -131,14 +105,7 @@
                         {{ $offres->salaire_montant }}
                         </span>
                     </td>
-                    <td class="px-6 py-4">
-                        <span
-                        class="inline-flex items-center gap-1 rounded-full bg-gray-50 w-full px-2 py-1 text-md font-semibold text-gray-600"
-                        >
-                        <span class="h-1.5 w-1.5 rounded-full bg-gray-600"></span>
-                        {{ $offres->travail_periode }}
-                        </span>
-                    </td>
+
 
                     <td class="px-6 py-4">
                         <span

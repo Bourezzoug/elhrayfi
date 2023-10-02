@@ -68,7 +68,7 @@
 
                         @forelse ($artisans as $artisan)
                         <div class="group bg-white relative overflow-hidden rounded-md shadow-lg text-center p-6">
-                            <img src="http://127.0.0.1:8000/storage/{{ $artisan->profile_photo_path }}" class="h-20 w-20 rounded-full shadow mx-auto" alt="">
+                            <img src="http://127.0.0.1:8001/storage/{{ $artisan->profile_photo_path }}" class="h-20 w-20 rounded-full shadow mx-auto" alt="">
                             
                             <div class="mt-2">
                                 <a href="candidate-detail.html" class="hover:text-emerald-600 font-semibold text-lg">{{ $artisan->name }}</a>

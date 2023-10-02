@@ -26,15 +26,15 @@
                               <div x-data="{photoName: null, photoPreview: null}" class="w-full">
                                   <!-- Profile Photo File Input -->
                                   <input type="file" class="hidden"
-                                              wire:model="cover"
-                                              x-ref="cover"
+                                              wire:model="profile_photo_path"
+                                              x-ref="profile_photo_path"
                                               x-on:change="
-                                                      photoName = $refs.cover.files[0].name;
+                                                      photoName = $refs.profile_photo_path.files[0].name;
                                                       const reader = new FileReader();
                                                       reader.onload = (e) => {
                                                           photoPreview = e.target.result;
                                                       };
-                                                      reader.readAsDataURL($refs.cover.files[0]);
+                                                      reader.readAsDataURL($refs.profile_photo_path.files[0]);
                                               " />
                                   <div class="rounded-full  w-24 h-24 bg-gray-200" x-show="! photoPreview">
                                       @if(!empty($profile_photo_path))
@@ -47,24 +47,24 @@
                                            class="object-cover w-full h-full rounded-full">
                                   @endif
                                   </div>
-                                  <div class="w-full h-56 bg-gray-200" x-show="photoPreview" style="display: none;">
-                                      <span class="block w-full h-full bg-cover bg-no-repeat bg-center"
+                                  <div class="rounded-full  w-24 h-24 bg-gray-200" x-show="photoPreview" style="display: none;">
+                                      <span class="block w-full h-full bg-cover bg-no-repeat bg-center rounded-full"
                                             x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
                                       </span>
                                   </div>
-                                  <button class="-mt-10 mr-2 p-3 rounded-full bg-emerald-500" type="button" x-on:click.prevent="$refs.cover.click()">
-                                      <svg wire:target="cover" wire:loading.class="animate-bounce" class="w-4 h-4 text-white " xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                  <button class="-mt-10 mr-2 p-3 rounded-full bg-emerald-500" type="button" x-on:click.prevent="$refs.profile_photo_path.click()">
+                                      <svg wire:target="profile_photo_path" wire:loading.class="animate-bounce" class="w-4 h-4 text-white " xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                           <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
                                           <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
                                       </svg>
                                   </button>
                   
-                                  <x-input-error for="cover" class="mt-2" />
+                                  <x-input-error for="profile_photo_path" class="mt-2" />
                               </div>
                           </div>
                       </div>
                         <div class="col-span-6 sm:col-span-5">
-                          <label for="name" class="block text-sm font-medium text-gray-700">Nom d'entreprise</label>
+                          <label for="name" class="block text-sm font-medium text-gray-700">Nom Complet</label>
                           <input type="text" wire:model.defer="name" id="name" autocomplete="name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
           
@@ -89,7 +89,7 @@
                           <input type="text" wire:model.defer="addresse" id="addresse" autocomplete="addresse" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
           
-                        <div class="col-span-4">
+                        {{-- <div class="col-span-4">
                           <label for="client_responsable_name" class="block text-sm font-medium text-gray-700">Responsable</label>
                           <input type="text" wire:model.defer="client_responsable_name" id="client_responsable_name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
@@ -102,7 +102,7 @@
                         <div class="col-span-4">
                           <label for="client_website" class="block text-sm font-medium text-gray-700">Site web</label>
                           <input type="text" wire:model.defer="client_website" id="client_website" autocomplete="client_website" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                        </div>
+                        </div> --}}
 
                         <div class="col-span-12">
                             <label for="description" class="block text-sm font-medium text-gray-700">Description</label>

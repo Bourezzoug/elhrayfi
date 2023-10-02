@@ -5,27 +5,29 @@
         <div class="flex items-center justify-between">
             <!-- Logo -->
             <div class="pt-2 ">
-                <img src="{{ asset('images/elhrayfi-logo.png') }}" class="block" width="180" height="100" alt="">
+                <a href="/">
+                    <img src="{{ asset('images/elhrayfi-logo.png') }}" class="block" width="180" height="100" alt="">
+                </a>
             </div>
             <!-- Menu Item -->
-            <div class="hidden md:flex space-x-6">
+            <div class="hidden md:flex ">
                 <a href="/" class="text-p-color">Acceuill</a>
-                <a href="{{ Route('about.index') }}" class="text-p-color">À propos</a>
+                <a href="{{ Route('about.index') }}" class="text-p-color mx-4">À propos</a>
                 @if (Auth::check()) <!-- Check if user is logged in -->
                 @if (Auth::user()->user_type == 2)
-                    <a href="{{ route('joblist.index') }}" class="text-p-color">Jobs List</a>
+                    <a href="{{ route('joblist.index') }}" class="text-p-color mx-4">Jobs List</a>
                 @endif
                 @if (Auth::user()->user_type == 3)
-                    <a href="{{ route('artisans.index') }}" class="text-p-color">Artisans</a>
+                    <a href="{{ route('artisans.index') }}" class="text-p-color mx-4">Artisans</a>
                 @endif
                 @else
                     <!-- Display both options for users who are not logged in -->
-                    <a href="{{ route('joblist.index') }}" class="text-p-color">Jobs List</a>
-                    <a href="{{ route('artisans.index') }}" class="text-p-color">Artisans</a>
+                    <a href="{{ route('joblist.index') }}" class="text-p-color mx-4">Jobs List</a>
+                    <a href="{{ route('artisans.index') }}" class="text-p-color mx-4">Artisans</a>
                 @endif
             
-                <a href="{{ Route('blogPage.index') }}" class="text-p-color">Blog</a>
-                <a href="{{ Route('contact.index') }}" class="text-p-color">Contact</a>
+                <a href="{{ Route('blogPage.index') }}" class="text-p-color mx-4">Blog</a>
+                <a href="{{ Route('contact.index') }}" class="text-p-color mx-4">Contact</a>
             </div>
             <!-- Button -->
             <button aria-label="theme-toggle" id="theme-toggle" type="button" class="text-gray-500  hover:bg-gray-100  focus:outline-none focus:ring-4 focus:ring-gray-200  rounded-lg text-sm p-2.5">
@@ -46,28 +48,7 @@
                         @if (Auth::user()->user_type === 1) 
                         {{-- Admin --}}
                         @elseif (Auth::user()->user_type === 2)
-                        {{-- Artisan --}}
-                        {{-- <div x-data="{ open: false }" @click.away="open = false">
-                            <button @click="open = !open" class="hover:underline">
-                              {{ Auth::user()->name }}
-                            </button>
-                            
-                            <ul x-show="open" class="absolute bg-white shadow-md z-[99999] top-8 right-16">
-                              <li>
-                                <a href="{{ route('dashboard') }}" class="block px-4 py-2 text-black hover:bg-gray-100 ">Dashboard</a>
-                              </li>
 
-                                                          <!-- Authentication -->
-                                                          <form method="POST" action="{{ route('logout') }}" x-data>
-                                                            @csrf
-
-                                                            <a href="{{ route('logout') }}"
-                                                            @click.prevent="$root.submit();" class ='block px-4 py-2 text-black hover:bg-gray-100 '>Logout</a>
-            
-                                                        </form>
-                              <!-- Add other dropdown items here -->
-                            </ul>
-                          </div> --}}
                           <div class="ml-3 relative mr-2">
                             <x-dropdown align="right" width="48">
                                 <x-slot name="trigger">
@@ -178,8 +159,7 @@
                       </div>
                         @endif
                     @else
-                        <a href="{{ Route('register') }}"  class="border-2 border-emerald-600 p-3 rounded hover:bg-emerald-600 hover:text-white transition-all">Sign Up</a>
-                        <a href="{{ Route('login') }}"  class="bg-emerald-600 border-2 border-green-600 p-3 rounded text-white hover:scale-110 transition-all ">Login</a>
+                        <a href="{{ Route('login') }}"  class="bg-emerald-600 border-2 border-green-600 p-3 rounded text-white  hidden md:block mx-4 w-[130px]">Se connecter</a>
                     @endif
                 
                 @endif
@@ -194,6 +174,9 @@
                 <a href="{{ Route('artisans.index') }}" class="text-p-color">Artisans</a>
                 <a href="{{ Route('blog.index') }}" class="text-p-color">Blog</a>
                 <a href="{{ Route('contact.index') }}" class="text-p-color">Contact</a>
+                @if (!Auth::check())
+                <a href="{{ Route('login') }}" class="text-p-color">Se connecter</a>
+                @endif
             </div>
         </div>
         {{-- Sign Up & Login Btn --}}

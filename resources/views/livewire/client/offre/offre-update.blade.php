@@ -18,6 +18,48 @@
                                         <x-input id="RegisterName" wire:model.defer="title" type="text" class=" block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]" placeholder="Titre du poste" />
                                     </div>
 
+
+                                        <div x-data="{photoName: null, photoPreview: null}" class="col-span-12">
+                                        <label class="font-semibold" for="RegisterName">Image d'offre<span class="text-red-600 inline-block ml-1">*</span> :</label>
+
+                                          <!-- Profile Photo File Input -->
+                                          <input type="file" class="hidden"
+                                                      wire:model="image"
+                                                      x-ref="image"
+                                                      x-on:change="
+                                                              photoName = $refs.image.files[0].name;
+                                                              const reader = new FileReader();
+                                                              reader.onload = (e) => {
+                                                                  photoPreview = e.target.result;
+                                                              };
+                                                              reader.readAsDataURL($refs.image.files[0]);
+                                                      " />
+                                          <div class="w-full  xl:h-80 bg-gray-200 " x-show="! photoPreview">
+                                              @if(!empty($image))
+                                              <img src="{{ $image }}" alt="{{ $image }}" class="h-full w-full object-cover">
+                                              @elseif(!empty($image_path))
+                                              <img src="{{ asset($image_path)  }}"
+                                                   class="object-cover w-full xl:h-80 ">
+                                              @endif
+                                          </div>
+                                          <div class="w-full xl:w-80 h-56 bg-gray-200 " x-show="photoPreview" style="display: none;">
+                                              <span class="block w-full h-full bg-cover bg-no-repeat bg-center "
+                                                    x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
+                                              </span>
+                                          </div>
+                                          <button class="-mt-10 mr-2 p-3 rounded-full bg-indigo-500" type="button" x-on:click.prevent="$refs.image.click()">
+                                              <svg wire:target="image" wire:loading.class="animate-bounce" class="w-4 h-4 text-white " xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                                  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                                  <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                                              </svg>
+                                          </button>
+                          
+                                          <x-input-error for="image" class="mt-2" />
+                                      </div>
+
+
+
+
                                     <div class="col-span-12 ltr:text-left">
                                         <label for="description" class="font-semibold block">Description du poste<span class="text-red-600 inline-block ml-1">*</span> :</label>
                                         <textarea wire:model.defer="description" id="description" class="h-32 w-full rounded border-gray-300 px-2 py-2 text-[14px] shadow-sm mt-2" placeholder="Description du poste"></textarea>
@@ -39,28 +81,7 @@
                                         </x-select>
                                     </div>
 
-                                    <div class="md:col-span-6 col-span-12 ltr:text-left rtl:text-right">
-                                        <label class="font-semibold">Type du travail<span class="text-red-600 inline-block ml-1">*</span> :</label>
-                                        <x-select wire:model.defer="type_travail"  class="block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]">
-                                            <option value="" readonly="true" hidden="true"
-                                            selected>Type du travail</option>
-                                            <option value="Plein">Temps Plein</option>
-                                            <option value="Partiel">Temps partiel</option>
-                                        </x-select>
-                                    </div>
 
-
-                                    <div class="md:col-span-6 col-span-12 ltr:text-left rtl:text-right">
-                                        <label class="font-semibold">Type du paiment:</label>
-                                        <x-select wire:model.defer="salaire_type" class="block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]">
-                                            <option value="" readonly="true" hidden="true"
-                                            selected>Type du paiment:</option>
-                                            <option value="par heure">Par Heure</option>
-                                            <option value="par semaine">Par Semaine</option>
-                                            <option value="par mois">Par Mois</option>
-                                            <option value="prix fixe">Prix fixe</option>
-                                        </x-select>
-                                    </div>
 
                                     <div class="md:col-span-6 col-span-12 ltr:text-left rtl:text-right">
                                         <label class="font-semibold md:invisible md:block hidden">Min:</label>
@@ -70,16 +91,6 @@
                                             </span>
                                             <input type="number" wire:model.defer="salaire_montant" class="border border-slate-100 block w-full mt-1  h-[2.5rem] rounded pr-2 pl-12 py-2 text-[14px]" placeholder="Le salaire que vous proposez" name="minsalary">
                                         </div>
-                                    </div>
-                                    <div class="md:col-span-6 col-span-12 ltr:text-left rtl:text-right">
-                                        <label class="font-semibold">Durée:<span class="text-red-600 inline-block ml-1">*</span> </label>
-                                        <x-select wire:model.defer="travail_periode" class="block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]">
-                                            <option value="" readonly="true" hidden="true"
-                                            selected>Durée:</option>
-                                            <option value="moins d'un mois">moins d'un mois</option>
-                                            <option value="Entre 1 et 3 mois">Entre 1 et 3 mois</option>
-                                            <option value="3 mois ou plus">3 mois ou plus</option>
-                                        </x-select>
                                     </div>
 
                                 </div>

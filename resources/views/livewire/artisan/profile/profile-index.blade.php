@@ -130,8 +130,8 @@
                             <label class="block mb-2 text-sm font-medium text-gray-900 " for="file_input">Mon CV</label>
                             <input wire:model.defer="artisan_cv" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none   p-2" id="file_input" type="file">   
 
-                                @if ($artisan_cv)
-                                    <p>{{ basename($artisan_cv) }}</p>
+                                @if ($artisan_cv_name)
+                                    <p>{{ basename($artisan_cv_name) }}</p>
                                 @endif
 
                             
@@ -286,9 +286,9 @@
                             <input class="block w-full mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 p-2" id="default_size" type="file" wire:model.defer="artisan_portfolio" multiple>
                         </div> 
                         <div class="col-span-12">
-                            @if (!empty($artisan_portfolio) && is_string($artisan_portfolio))
+                            @if (!empty($artisan_portfolio_images) && is_string($artisan_portfolio_images))
                                 <div class="grid grid-cols-12 gap-5">
-                                    @forelse (explode(',', $artisan_portfolio) as $image)
+                                    @forelse (explode(',', $artisan_portfolio_images) as $image)
                                         <div class="col-span-4 relative">
                                             <img src="http://127.0.0.1:8000/storage/{{ $image }}" class="h-40 w-full object-cover" alt="">
                                             <x-svg.svg-close

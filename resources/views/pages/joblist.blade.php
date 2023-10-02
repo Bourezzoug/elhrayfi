@@ -1,6 +1,6 @@
 @extends('layout.frontend')
-@section('title', 'Elhrayfi.ma - ')
-@section('meta_description', 'description')
+@section('title', 'Elhrayfi.ma - Listes des offres')
+@section('meta_description', 'Découvrez les différents offres de la plateforme Elhrayfi')
 @section('content')
 @include('components.header')
 <section class="relative table w-full py-40 bg-top bg-no-repeat bg-cover" style="background-image: url('https://www.fairwork.gov.au/sites/default/files/styles/banner/public/2022-08/young-workers-banner2.png?itok=4yxB5D0e');height:320px">
@@ -62,32 +62,38 @@
             </div><!--end col-->
 
             <div class="lg:col-span-8 md:col-span-6">
-                <div class="grid grid-cols-1 gap-[30px]">
+                <div class="grid grid-cols-2 gap-[30px]">
                     @forelse ($offres as $offre)
-                    <div class="group relative overflow-hidden lg:flex justify-between items-center rounded shadow hover:shadow-md transition-all duration-500 p-5">
-                        <div class="flex items-center">
-                            <div class="w-14 h-14 flex items-center justify-center bg-white shadow rounded-md">
-                                <a href="/company/{{ $offre->client->name }}">
-                                    <img src="http://127.0.0.1:8000/storage/{{ $offre->client->profile_photo_path }}" class="h-8 w-8" alt="">
+                    <div class="card w-[25rem] col-span-1 bg-white shadow hover:shadow-md hover:-mt-2 rounded-md transition-all duration-500">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center py-2 px-4">
+                                <div class="w-14 h-14 min-w-[56px] flex items-center justify-center bg-white shadow rounded-md">
+                                    <a href="/company/{{ $offre->client->name }}">
+                                        <img src="http://127.0.0.1:8000/storage/{{ $offre->client->profile_photo_path }}" class="h-14 w-14 rounded" alt="">
+                                    </a>
+                                </div>
+            
+                                <div class="ms-3 flex flex-col">
+                                    <span class="inline-block text-base text-gray-600">{{ $offre->client->name }}</span>
+                                    <span class="inline-block text-sm text-slate-400">{{ $offre->formattedTime }}</span>
+                                </div>
+                            </div>
+                            <div class="mr-2">
+                                <a href="/offre/{{ $offre->id }}">
+                                    <i class="fa-solid fa-eye rounded-full p-3 border border-emerald-600 text-emerald-600 hover:text-white hover:bg-emerald-600 transition-all"></i>
                                 </a>
                             </div>
-                            <a href="/offre/{{ $offre->id }}" class="text-lg hover:text-emerald-600 font-semibold transition-all duration-500 ms-3 min-w-[150px]">{{ $offre->catégorie }}</a>
                         </div>
-
-                        <div class="lg:block flex justify-between lg:mt-0 mt-4 text-center">
-                            <span class="block"><span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full">{{ $offre->travail_periode }}</span></span>
-                            <span class="block text-slate-400 text-sm md:mt-1 mt-0"><i class="uil uil-clock"></i>Il y a {{ $offre->created_at->diffForHumans(null, true) }}</span>
+                        <div class="card-title">
+                            <h3 class="inline-block text-lg py-5 px-4  font-medium">{{ $offre->title }}</h3>
                         </div>
-
-                        <div class="lg:block flex justify-between lg:mt-0 mt-2">
-                            <span class="text-emerald-600 bg-emerald-600/10 p-2 rounded-full"><i class="uil uil-map-marker"></i> {{ $offre->ville }}</span>
+                        <div class="card-img">
+                            <img src="{{ $offre->image_offre }}" class="w-full h-[300px] object-cover" alt="">
                         </div>
-
-                        <div class="lg:mt-0 mt-4">
-                            <a href="/offre/{{ $offre->id }}" class="btn rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full md:w-auto p-2">Apply Now</a>
+                        <div class="card-body inline-block text-base text-gray-600 py-3 px-4">
+                            {!! \Illuminate\Support\Str::words($offre->description, 20, '...') !!}
                         </div>
-
-                    </div><!--end content-->
+                    </div>
                     @empty
                         
                     @endforelse

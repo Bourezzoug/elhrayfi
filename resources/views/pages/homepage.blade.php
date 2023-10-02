@@ -1,5 +1,5 @@
 @extends('layout.frontend')
-@section('title', 'Elhrayfi.ma - ')
+@section('title', 'Elhrayfi.ma - Touvez Elhrayfi qui vous convient')
 @section('meta_description', 'description')
 @section('content')
 @include('components.header')
@@ -318,43 +318,41 @@
         <p class="text-slate-400 max-w-xl mx-auto">Elhrayfi : Découvrez chaque jour une multitude d'offres d'emploi postées par des entreprises et des particuliers passionnés</p>
     </div>
     <div class="container mx-auto p-6">
-        <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px] ">
 
 
             @forelse ($offres as $offre)
-            <div class="group relative overflow-hidden bg-white shadow hover:shadow-md hover:-mt-2 rounded-md transition-all duration-500 h-fit">
-                <div class="p-6">
-                    <div class="flex items-center">
+            <div class="card col-span-3 md:col-span-2 lg:col-span-1 bg-white shadow hover:shadow-md hover:-mt-2 rounded-md transition-all duration-500">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center py-2 px-4">
                         <div class="w-14 h-14 min-w-[56px] flex items-center justify-center bg-white shadow rounded-md">
                             <a href="/company/{{ $offre->client->name }}">
-                                <img src="http://127.0.0.1:8000/storage/{{ $offre->client->profile_photo_path }}" class="h-8 w-8" alt="">
+                                <img src="http://127.0.0.1:8000/storage/{{ $offre->client->profile_photo_path }}" class="h-14 w-14 rounded" alt="">
                             </a>
                         </div>
-
-                        <div class="ms-3">
-                            <a href="/offre/{{ $offre->id }}" class="inline-block text-[16px] font-semibold hover:text-emerald-600 transition-all duration-500 me-1">{{ $offre->catégorie }}</a>
+    
+                        <div class="ms-3 flex flex-col">
+                            <span class="inline-block text-base text-gray-600">{{ $offre->client->name }}</span>
                             <span class="inline-block text-sm text-slate-400">{{ $offre->formattedTime }}</span>
-                            <div>
-                                <span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">Temps {{ $offre->type_travail }}</span>
-                                <span class="text-sm font-medium inline-block me-1">Durée: <span class="text-slate-400">{{ $offre->travail_periode }}</span></span>
-                                {{-- <span class="text-sm font-medium inline-block me-1">Type: <span class="text-slate-400">Personnel</span></span> --}}
-                            </div>
                         </div>
                     </div>
-
-                    <p class="text-slate-400 py-3">{{ $offre->title }}</p>
-
-                </div>
-
-                <div class="px-6 py-2 bg-slate-50 lg:flex justify-between items-center">
-                    <div class="lg:inline-block flex justify-between">
-                        <span class="inline-block me-1 text-slate-400"><i class="fa-solid fa-location-dot text-[18px] text-slate-900 me-1"></i>{{ $offre->ville }}</span>
+                    <div class="mr-2">
+                        <a href="/offre/{{ $offre->id }}">
+                            <i class="fa-solid fa-eye rounded-full p-3 border border-emerald-600 text-emerald-600 hover:text-white hover:bg-emerald-600 transition-all"></i>
+                        </a>
                     </div>
-
-                    <a href="/offre/{{ $offre->id }}" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Postulez</a>
+                </div>
+                <div class="card-title">
+                    <h3 class="inline-block text-lg py-5 px-4  font-medium">{{ $offre->title }}</h3>
+                </div>
+                <div class="card-img">
+                    <img src="{{ $offre->image_offre }}" class="w-full h-[300px] object-cover" alt="">
+                </div>
+                <div class="card-body inline-block text-base text-gray-600 py-3 px-4">
+                    {!! \Illuminate\Support\Str::words($offre->description, 20, '...') !!}
                 </div>
 
-            </div><!--end content-->
+            </div>
             @empty
                 
             @endforelse
@@ -378,43 +376,41 @@
         <p class="text-slate-400 max-w-xl mx-auto">Elhrayfi : Découvrez chaque jour une multitude d'offres d'emploi postées par des entreprises et des particuliers passionnés</p>
     </div>
     <div class="container mx-auto p-6">
-        <div class="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px]">
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 mt-8 gap-[30px] ">
 
 
             @forelse ($offres as $offre)
-            <div class="group relative overflow-hidden bg-white shadow hover:shadow-md hover:-mt-2 rounded-md transition-all duration-500 h-fit">
-                <div class="p-6">
-                    <div class="flex items-center">
+            <div class="card col-span-3 md:col-span-2 lg:col-span-1 bg-white shadow hover:shadow-md hover:-mt-2 rounded-md transition-all duration-500">
+                <div class="flex justify-between items-center">
+                    <div class="flex items-center py-2 px-4">
                         <div class="w-14 h-14 min-w-[56px] flex items-center justify-center bg-white shadow rounded-md">
                             <a href="/company/{{ $offre->client->name }}">
-                                <img src="http://127.0.0.1:8000/storage/{{ $offre->client->profile_photo_path }}" class="h-8 w-8" alt="">
+                                <img src="http://127.0.0.1:8000/storage/{{ $offre->client->profile_photo_path }}" class="h-14 w-14 rounded" alt="">
                             </a>
                         </div>
-
-                        <div class="ms-3">
-                            <a href="/offre/{{ $offre->id }}" class="inline-block text-[16px] font-semibold hover:text-emerald-600 transition-all duration-500 me-1">{{ $offre->catégorie }}</a>
+    
+                        <div class="ms-3 flex flex-col">
+                            <span class="inline-block text-base text-gray-600">{{ $offre->client->name }}</span>
                             <span class="inline-block text-sm text-slate-400">{{ $offre->formattedTime }}</span>
-                            <div>
-                                <span class="bg-emerald-600/10 inline-block text-emerald-600 text-xs px-2.5 py-0.5 font-semibold rounded-full me-1">Temps {{ $offre->type_travail }}</span>
-                                <span class="text-sm font-medium inline-block me-1">Durée: <span class="text-slate-400">{{ $offre->travail_periode }}</span></span>
-                                {{-- <span class="text-sm font-medium inline-block me-1">Type: <span class="text-slate-400">Personnel</span></span> --}}
-                            </div>
                         </div>
                     </div>
-
-                    <p class="text-slate-400 py-3">{{ $offre->title }}</p>
-
-                </div>
-
-                <div class="px-6 py-2 bg-slate-50 lg:flex justify-between items-center">
-                    <div class="lg:inline-block flex justify-between">
-                        <span class="inline-block me-1 text-slate-400"><i class="fa-solid fa-location-dot text-[18px] text-slate-900 me-1"></i>{{ $offre->ville }}</span>
+                    <div class="mr-2">
+                        <a href="/offre/{{ $offre->id }}">
+                            <i class="fa-solid fa-eye rounded-full p-3 border border-emerald-600 text-emerald-600 hover:text-white hover:bg-emerald-600 transition-all"></i>
+                        </a>
                     </div>
-
-                    <a href="/offre/{{ $offre->id }}" class="btn btn-sm rounded-md bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white md:ms-2 w-full lg:w-auto lg:mt-0 mt-4 p-2">Postulez</a>
+                </div>
+                <div class="card-title">
+                    <h3 class="inline-block text-lg py-5 px-4  font-medium">{{ $offre->title }}</h3>
+                </div>
+                <div class="card-img">
+                    <img src="{{ $offre->image_offre }}" class="w-full h-[300px] object-cover" alt="">
+                </div>
+                <div class="card-body inline-block text-base text-gray-600 py-3 px-4">
+                    {!! \Illuminate\Support\Str::words($offre->description, 20, '...') !!}
                 </div>
 
-            </div><!--end content-->
+            </div>
             @empty
                 
             @endforelse
@@ -630,7 +626,7 @@
         <p class="text-slate-400 max-w-xl mx-auto">Elhrayfi : Profitez de tarifs avantageux. Solutions abordables, adaptées à vos besoins. Premier mois gratuit, sans carte de crédit requise.</p>
     </div>
     <div class="container mx-auto p-6">
-        <div class="grid md:grid-cols-2 grid-cols-1 gap-[30px] justify-center">
+        <div class="grid md:grid-cols-3 grid-cols-1 gap-[30px] justify-center">
             {{-- <div class="group border border-transparent relative shadow hover:shadow-md rounded-md bg-white transition-all duration-500">
                 <div class="p-6 py-8">
                     <h6 class="text-lg font-bold uppercase mb-5 text-emerald-600">Particuliers</h6>
@@ -653,11 +649,11 @@
 
             <div class="group border border-emerald-600 relative shadow hover:shadow-md rounded-md z-2 bg-gray-50 transition-all duration-500">
                 <div class="p-6 py-8">
-                    <h6 class="text-lg font-bold uppercase mb-5 text-emerald-600">Artisans</h6>
+                    <h6 class="text-lg font-bold uppercase mb-5 text-emerald-600">Plan Essentiel</h6>
 
                     <div class="flex mb-5">
                         <span class="text-xl font-semibold">Dhs</span>
-                        <span class="price text-4xl font-semibold mb-0">50</span>
+                        <span class="price text-4xl font-semibold mb-0">100</span>
                         <span class="text-xl font-semibold self-end mb-1">/mois</span>
                     </div>
 
@@ -665,6 +661,7 @@
                         <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Visibilité accrue auprès des entreprises.</li>
                         <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Offres régulièrement mises à jour.</li>
                         <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Assistance 24H/7J</li>
+                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Paiement mensuel à un prix fixe.</li>
                         {{-- <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Enhanced Security</li> --}}
                     </ul>
                     <a href="" class="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white rounded-md block w-fit mt-5 p-2">S'inscrire</a>
@@ -673,18 +670,40 @@
 
             <div class="group border border-transparent relative shadow hover:shadow-md rounded-md z-2 bg-white transition-all duration-500">
                 <div class="p-6 py-8">
-                    <h6 class="text-lg font-bold uppercase mb-5 text-emerald-600">Entreprises</h6>
+                    <h6 class="text-lg font-bold uppercase mb-5 text-emerald-600">Preferred Plan</h6>
 
                     <div class="flex mb-5">
                         <span class="text-sm font-semibold">Dhs</span>
-                        <span class="price text-4xl font-semibold mb-0">100</span>
-                        <span class="text-xl font-semibold self-end mb-1">/mois</span>
+                        <span class="price text-4xl font-semibold mb-0">570</span>
+                        <span class="text-xl font-semibold self-end mb-1">/6 mois</span>
                     </div>
 
                     <ul class="list-none text-slate-400 border-t border-gray-100 pt-5">
                         <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Accès facile à des artisans qualifiés.</li>
                         <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Artisans régulièrement mises à jour.</li>
                         <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Assistance 24H/7J</li>
+                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Paiement tous les 6 mois avec une réduction de 5%.</li>
+                        {{-- <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Enhanced Security</li> --}}
+                    </ul>
+                    <a href="" class="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white rounded-md mt-5 block w-fit p-2">S'inscrire</a>
+                </div>
+            </div>
+
+            <div class="group border border-transparent relative shadow hover:shadow-md rounded-md z-2 bg-white transition-all duration-500">
+                <div class="p-6 py-8">
+                    <h6 class="text-lg font-bold uppercase mb-5 text-emerald-600">Ultimate Plan</h6>
+
+                    <div class="flex mb-5">
+                        <span class="text-sm font-semibold">Dhs</span>
+                        <span class="price text-4xl font-semibold mb-0">1080</span>
+                        <span class="text-xl font-semibold self-end mb-1">/an</span>
+                    </div>
+
+                    <ul class="list-none text-slate-400 border-t border-gray-100 pt-5">
+                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Accès facile à des artisans qualifiés.</li>
+                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Artisans régulièrement mises à jour.</li>
+                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Assistance 24H/7J</li>
+                        <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Paiement annuel avec une réduction de 10%.</li>
                         {{-- <li class="my-2 flex"><i class="fa-solid fa-check text-emerald-600 text-lg me-2"></i> Enhanced Security</li> --}}
                     </ul>
                     <a href="" class="btn bg-emerald-600 hover:bg-emerald-700 border-emerald-600 hover:border-emerald-700 text-white rounded-md mt-5 block w-fit p-2">S'inscrire</a>
@@ -775,9 +794,9 @@
                 </div>
 
                 <div class="relative p-6">
-                    <div class="absolute start-6 -top-4">
+                    {{-- <div class="absolute start-6 -top-4">
                         <span class="bg-emerald-600 text-white text-[12px] px-2.5 py-1 font-semibold rounded-full h-5">Music</span>
-                    </div>
+                    </div> --}}
 
                     <div class="">
                         <div class="flex mb-4">

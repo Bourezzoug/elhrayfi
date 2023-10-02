@@ -10,7 +10,7 @@ use Livewire\Component;
 class OffreUpdate extends Component
 {
     public $itemId;
-    public $title,$description,$catégorie,$type_travail,$salaire_type,$travail_periode,$salaire_montant,$ville,$address;
+    public $title,$description,$catégorie,$type_travail,$salaire_type,$travail_periode,$salaire_montant,$ville,$address,$image,$image_path;
     public function mount($id) {
         $this->itemId = $id;
         // $user = OffreTravail::findOrFail($id);
@@ -19,13 +19,10 @@ class OffreUpdate extends Component
             $this->title = $item->title;
             $this->description = $item->description;
             $this->catégorie = $item->catégorie;
-            $this->type_travail = $item->type_travail;
-            $this->salaire_type = $item->salaire_type;
-            $this->travail_periode = $item->travail_periode;
             $this->salaire_montant = $item->salaire_montant;
             $this->ville = $item->ville;
             $this->address = $item->address;
-
+            $this->image_path = $item->image_offre;
         }
     }
     public function edit(){
@@ -42,6 +39,11 @@ class OffreUpdate extends Component
             'ville'             => $this->ville,
             'address'           => $this->address,
         ];
+
+        if (!empty($this->image)) {
+            $url = $this->image->store('images', 'public');
+            $data['image_offre'] = '/storage/' . $url;
+        }
 
 
 

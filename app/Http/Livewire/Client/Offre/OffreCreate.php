@@ -6,10 +6,13 @@ use App\Models\OffreTravail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class OffreCreate extends Component
 {
-    public $title,$description,$catégorie,$type_travail,$salaire_type,$travail_periode,$salaire_montant,$ville,$address;
+    use WithFileUploads;
+    public $title,$description,$catégorie,$type_travail,$salaire_type,$travail_periode,$salaire_montant,$ville,$address,$image_offre;
+    protected $listeners = ['bodyUpdated'];
     protected function rules()
     {
         
@@ -26,6 +29,10 @@ class OffreCreate extends Component
 
     return $rules;
     }
+    public function bodyUpdated($value)
+    {
+        $this->description = $value;
+    }
     public function create(){
         // $this->validate();
         // $publicationDate = date('Y-m-d H:i:s', strtotime($this->publication_date));
@@ -34,13 +41,18 @@ class OffreCreate extends Component
             'title'             =>  $this->title,
             'description'       =>  $this->description,
             'catégorie'         =>  $this->catégorie,
-            'type_travail'      =>  $this->type_travail,
-            'salaire_type'      =>  $this->salaire_type,
-            'travail_periode'   =>  $this->travail_periode,
+            // 'type_travail'      =>  $this->type_travail,
+            // 'salaire_type'      =>  $this->salaire_type,
+            // 'travail_periode'   =>  $this->travail_periode,
             'salaire_montant'   =>  $this->salaire_montant,
             'ville'             =>  $this->ville,
             'address'           =>  $this->address,
         ];
+
+        if (!empty($this->image_offre)) {
+            $url = $this->image_offre->store('images','public');
+            $data['image_offre'] = '/storage/' . $url;
+        }
 
         OffreTravail::create($data);
         $this->emit('refreshParent');

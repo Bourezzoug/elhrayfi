@@ -20,7 +20,7 @@ class HomeController extends Controller
         $url = 'https://raw.githubusercontent.com/alaouy/sql-moroccan-cities/master/json/ville.json';
         $cities = json_decode(file_get_contents($url), true);
     
-        $offres = OffreTravail::orderBy('created_at','desc')->take(4)->get();
+        $offres = OffreTravail::orderBy('created_at','desc')->take(3)->get();
     
         foreach ($offres as $offre) {
             $offre->formattedTime = Carbon::parse($offre->created_at)->diffForHumans();

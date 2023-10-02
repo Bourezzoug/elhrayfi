@@ -24,9 +24,9 @@
                 </div>
 
                 <div class="relative p-6">
-                    <div class="absolute start-6 -top-4">
+                    {{-- <div class="absolute start-6 -top-4">
                         <span class="bg-emerald-600 text-white text-[12px] px-2.5 py-1 font-semibold rounded-full h-5">Music</span>
-                    </div>
+                    </div> --}}
 
                     <div class="">
                         <div class="flex mb-4">

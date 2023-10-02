@@ -28,21 +28,9 @@
     <div class="container mt-12">
         <div class="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
             <div class="lg:col-span-8 md:col-span-7">
-                <h5 class="text-xl font-semibold">Description</h5>
-                <p class="text-slate-400 mt-4">{{ $client->description }}</p>
-                <div class="grid grid-cols-12 gap-6 mt-6">
-                    <div class="col-span-12">
-                        <img src="assets/images/company/1.jpg" class="rounded-md shadow dark:shadow-gray-700" alt="">
-                    </div>
-                    <div class="col-span-6">
-                        <img src="assets/images/company/2.jpg" class="rounded-md shadow dark:shadow-gray-700" alt="">
-                    </div>
-                    <div class="col-span-6">
-                        <img src="assets/images/company/3.jpg" class="rounded-md shadow dark:shadow-gray-700" alt="">
-                    </div>
-                </div>
 
-                <h5 class="text-xl font-semibold mt-6">Emploi associé:</h5>
+
+                <h5 class="text-xl font-semibold mt-6">Emploi publié par {{ $client->name }}:</h5>
 
                 <div class="grid lg:grid-cols-2 grid-cols-1 gap-6 mt-6">
                     @foreach($offers as $offer)
@@ -108,30 +96,22 @@
 
                     <ul class="list-none mt-4">
                         <li class="flex justify-between mt-2">
-                            <span class="text-slate-400 font-medium">Fondé:</span>
-                            <span class="font-medium">{{ $client->date_creation }}</span>
+                            <span class="text-slate-400 font-medium">Nom:</span>
+                            <span class="font-medium">{{ $client->name }}</span>
                         </li>
 
-                        <li class="flex justify-between mt-2">
-                            <span class="text-slate-400 font-medium">Dirécteur:</span>
-                            <span class="font-medium">{{ $client->client_responsable_name }}</span>
-                        </li>
 
                         <li class="flex justify-between mt-2">
-                            <span class="text-slate-400 font-medium">Siège social:</span>
+                            <span class="text-slate-400 font-medium">Ville:</span>
                             <span class="font-medium">{{ $client->ville }}</span>
                         </li>
 
-                        <li class="flex justify-between mt-2 space-x-5">
+                        <li class="flex justify-between mt-2">
                             <span class="text-slate-400 font-medium">Addresse:</span>
                             <span class="font-medium">{{ $client->addresse }}</span>
                         </li>
 
 
-                        <li class="flex justify-between mt-2">
-                            <span class="text-slate-400 font-medium">Site web:</span>
-                            <a href="{{ $client->client_website }}" target="_blank" class="font-medium">{{ $client->client_website }}</a>
-                        </li>
                         
                     </ul>
 
@@ -141,37 +121,7 @@
         </div><!--end grid-->
     </div><!--end container-->
 
-    <div class="container lg:mt-24 mt-16">
-        <div class="grid grid-cols-1 pb-8 text-center">
-            <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Entreprises associées</h3>
 
-            <p class="text-slate-400 dark:text-slate-300 max-w-xl mx-auto">Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over 30000+ companies worldwide.</p>
-        </div><!--end grid-->
-
-        <div class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-[30px] mt-8">
-
-            
-
-            @forelse ($companies as $companie)
-            <div class="group relative p-6 rounded-md shadow dark:shadow-gray-700 mt-6">
-                <div class="w-14 h-14 flex items-center justify-center bg-white dark:bg-slate-900 shadow-md dark:shadow-gray-700 rounded-md relative -mt-12">
-                    <img src="http://127.0.0.1:8000/storage/{{ $companie->profile_photo_path }}" class="h-8 w-8" alt="">
-                </div>
-
-                <div class="mt-4">
-                    <a href="" class="text-lg hover:text-emerald-600 font-semibold">{{ $companie->name }}</a>
-                </div>
-
-                <div class="mt-4 pt-4 border-t border-gray-100 dark:border-gray-700 flex justify-between">
-                    <span class="text-slate-400"><i class="uil uil-map-marker"></i> {{ $companie->ville }}</span>
-                    <span class="block font-semibold text-emerald-600">{{ $companie->offers->count() }} Offers</span>
-                </div>
-            </div><!--end content-->
-            @empty
-                
-            @endforelse
-        </div><!--end grid-->
-    </div><!--end container-->
 
 
 </section>
