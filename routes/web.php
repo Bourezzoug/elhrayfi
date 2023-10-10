@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArtisanController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobDetailController;
 use App\Http\Controllers\JoblistController;
@@ -43,9 +44,8 @@ Route::get('/artisans-listes',[ArtisanController::class,'index'])->name('artisan
 Route::get('/about',function() {
     return view('pages.about');
 })->name('about.index');
-Route::get('/contact',function() {
-    return view('pages.contact');
-})->name('contact.index');
+Route::get('/contact',[ContactController::class,'index'])->name('contact.index');
+Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
 Route::get('/404',function() {
     return view('pages.error');
 });

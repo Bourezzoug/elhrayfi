@@ -150,3 +150,12 @@ html{
 #portfolio .group:hover .group-hover\:text-blue-800 {
     color: #2b6cb0;
 }
+
+@media screen and (max-width:768px) {
+    .filtre-home-search{
+        display: block;
+    }
+    .filtre-home{
+        display: none;
+    }
+}

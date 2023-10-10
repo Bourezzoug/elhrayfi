@@ -4,10 +4,10 @@
 @section('content')
 @include('components.header')
 @guest
-<section id="hero" class="w-full md:h-screen bg-cover bg-center relative">
+<section id="hero" class="w-full h-screen bg-cover bg-center relative">
     <div class="flex flex-col items-center justify-center h-full space-y-10">
         <div>
-            <h1 class="text-6xl text-white font-semibold">Découvrez <span class="text-emerald-600">Elhrayfi</span> qui vous convient</h1>
+            <h1 class="text-5xl mb-2 text-center lg:text-left lg:text-6xl text-white font-semibold">Découvrez <span class="text-emerald-600">Elhrayfi</span> qui vous convient</h1>
             <p class="text-xl text-white font-normal text-center">Emplois, opportunités professionnelles et carrières futures.</p>
         </div>
         <form action="{{ Route('artisan.liste') }}" method="GET" class="grid grid-cols-10 bg-black w-10/12 h-20 rounded-full overflow-hidden content relative" style=" border: 10px solid rgba(255, 255, 255, 0.5)">
@@ -18,9 +18,9 @@
 
             </div>
             <div class="col-span-3 relative">
-                <select name="ville" id="" class="h-full pl-10 w-full border border-[#eee]">
+                <select name="ville" id="" class="h-full pl-2 md:pl-10 w-full border border-[#eee]">
                     <option value="" readonly="true" hidden="true"
-                    selected>Choisir votre ville</option>
+                    selected>Filtrez par ville</option>
                     @foreach ($cities as $ville)
                     <option value="{{ $ville['ville'] }}">{{ $ville['ville'] }}</option>
                     @endforeach
@@ -30,8 +30,8 @@
             <div class="col-span-3 relative">
                 {{-- <input type="text" placeholder="Categorie" class="h-full pl-10 w-full border-none"> --}}
                 <x-select name="catégorie" class="h-full pl-10 w-full border-none rounded-none">
-                    <option value="" readonly="true" hidden="true"
-                    selected>Catégorie que vous cherchez</option>
+                    <option class="" value="" readonly="true" hidden="true"
+                    selected>Filtrez par Catégorie</option>
                     <option value="Plombier">Plombier</option>
                     <option value="Electricien">Electricien</option>
                     <option value="Jardinier">Jardinier</option>
@@ -40,11 +40,14 @@
                     <option value="Peintre">Peintre</option>
                     <option value="Constructeur">Constructeur</option>
                     <option value="Forgeron">Forgeron</option>
+                    <option value="Autres">Autres</option>
                 </x-select>
                 <i class="fa-solid fa-tag  text-emerald-600 absolute right-2.5 top-1/2 -translate-y-1/2 text-xl icon"></i>
             </div>
             {{-- <div class="col-span-1 flex items-center justify-center bg-emerald-600"> --}}
-                <button aria-label="send" class="text-white col-span-1 flex items-center justify-center bg-emerald-600">Envoyer</button>
+                <button aria-label="send" class="filtre-home text-white col-span-1 flex items-center justify-center bg-emerald-600">Envoyer</button>
+                <button aria-label="send" class="filtre-home-search hidden text-white col-span-1 flex items-center justify-center bg-emerald-600">                <i class="fa-solid fa-magnifying-glass text-white"></i>
+                </button>
             {{-- </div> --}}
         </form>
         <div class="md:pt-10">
@@ -80,9 +83,8 @@
                 <i class="fa-solid fa-location-dot text-emerald-600  absolute right-[13px] top-1/2 -translate-y-1/2 text-xl icon"></i>
             </div>
             <div class="col-span-3 relative">
-                {{-- <input type="text" placeholder="Categorie" class="h-full pl-10 w-full border-none"> --}}
                 <x-select name="catégorie" class="h-full pl-10 w-full border-none rounded-none">
-                    <option value="" readonly="true" hidden="true"
+                    <option class="" value="" readonly="true" hidden="true"
                     selected>Catégorie que vous cherchez</option>
                     <option value="Plombier">Plombier</option>
                     <option value="Electricien">Electricien</option>
@@ -95,9 +97,10 @@
                 </x-select>
                 <i class="fa-solid fa-tag  text-emerald-600 absolute right-2.5 top-1/2 -translate-y-1/2 text-xl icon"></i>
             </div>
-            {{-- <div class="col-span-1 flex items-center justify-center bg-emerald-600"> --}}
-                <button aria-label="send" class="text-white col-span-1 flex items-center justify-center bg-emerald-600">Envoyer</button>
-            {{-- </div> --}}
+            <button aria-label="send" class="filtre-home text-white col-span-1 flex items-center justify-center bg-emerald-600">Envoyer</button>
+            <button aria-label="send" class="filtre-home-search hidden text-white col-span-1 flex items-center justify-center bg-emerald-600">                <i class="fa-solid fa-magnifying-glass text-white"></i>
+            </button>
+
         </form>
         <div class="md:pt-10">
             <a href="{{ Route('register') }}" class="bg-emerald-600 text-white py-3 px-4 rounded text-xl hover:scale-110 transition-transform inline-block">Créer votre profil</a>
@@ -146,7 +149,9 @@
                 <i class="fa-solid fa-tag  text-emerald-600 absolute right-2.5 top-1/2 -translate-y-1/2 text-xl icon"></i>
             </div>
             {{-- <div class="col-span-1 flex items-center justify-center bg-emerald-600"> --}}
-                <button aria-label="send" class="text-white col-span-1 flex items-center justify-center bg-emerald-600">Envoyer</button>
+                <button aria-label="send" class="filtre-home text-white col-span-1 flex items-center justify-center bg-emerald-600">Envoyer</button>
+                <button aria-label="send" class="filtre-home-search hidden text-white col-span-1 flex items-center justify-center bg-emerald-600">                <i class="fa-solid fa-magnifying-glass text-white"></i>
+                </button>
             {{-- </div> --}}
         </form>
         <div class="md:pt-10">
@@ -262,27 +267,27 @@
     </div><!--end grid-->
     <div class="container mx-auto p-6">
         <div class="grid grid-cols-2 gap-7">
-            <div class="col-span-1">
+            <div class="col-span-2 md:col-span-1">
                 <div class="grid grid-cols-2 gap-4">
                     <div class="col-span-1  space-y-4 ">
                         <div>
-                            <img src="{{ asset('images/about-01.jpeg') }}" class="" alt="">
+                            <img src="{{ asset('images/about-01.jpeg') }}" class="w-full" alt="">
                         </div>
                         <div>
-                            <img src="{{ asset('images/about-03.jpeg') }}" alt="">
+                            <img src="{{ asset('images/about-03.jpeg') }}" class="w-full" alt="">
                         </div>
                     </div>
                     <div class="col-span-1  space-y-4 ">
                         <div>
-                            <img src="{{ asset('images/about-04.jpeg') }}" class="" alt="">
+                            <img src="{{ asset('images/about-04.jpeg') }}"class="w-full" alt="">
                         </div>
                         <div >
-                            <img src="{{ asset('images/about-02.jpeg') }}" alt="">
+                            <img src="{{ asset('images/about-02.jpeg') }}" class="w-full" alt="">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-span-1 flex items-center">
+            <div class="col-span-2 md:col-span-1 flex items-center">
                 <div>
                     <h2 class="text-3xl text-center font-semibold">Pourquoi sommes-nous les plus populaires ?</h2>
                     <p class="py-5 pl-2 text-[#808192] text-justify">Avec Elhrayfi, vous bénéficiez d'une communication transparente et d'une expérience client exceptionnelle. Simplifiez vos recherches, gagnez du temps et trouvez le professionnel idéal pour concrétiser vos projets. </p>

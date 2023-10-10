@@ -107,6 +107,7 @@
                                             <option value="Peintre">Peintre</option>
                                             <option value="Constructeur">Constructeur</option>
                                             <option value="Forgeron">Forgeron</option>
+                                            <option value="Autres">Autres</option>
                                         </x-select>
                                     </div>
 

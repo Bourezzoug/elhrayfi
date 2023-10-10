@@ -1,6 +1,6 @@
 @extends('layout.frontend')
-@section('title', 'Elhrayfi.ma - ')
-@section('meta_description', 'description')
+@section('title', 'Elhrayfi.ma - Page de contact')
+@section('meta_description', 'Téléphone: +212 625 53 07 80 ; Email: elhrayfi00@gmail.com ; Address: 1, Boulevard khoribgua, rue latifi elmaki 1er étage.  Ext ; Horaire: 09:00 am to 17:00 pm.')
 @section('content')
 @include('components.header')
 <div class="container-fluid relative mt-20">
@@ -22,13 +22,14 @@
                     <div class="bg-white rounded-md shadow p-6">
                         <h3 class="mb-6 text-2xl leading-normal font-semibold">Get in touch !</h3>
 
-                        <form method="post" name="myForm" id="myForm" onsubmit="return validateForm()">
+                        <form action="{{ Route('contact.sendEmail') }}"  method="POST" >
+                            @csrf
                             <p class="mb-0" id="error-msg"></p>
                             <div id="simple-msg"></div>
                             <div class="grid lg:grid-cols-12 lg:gap-6">
                                 <div class="lg:col-span-6 mb-5">
                                     <label for="name" class="font-semibold">Nom Complet :</label>
-                                    <input name="name" id="name" type="text" class="border border-slate-100 block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]" placeholder="Name :">
+                                    <input name="nom_complet" id="name" type="text" class="border border-slate-100 block w-full mt-1  h-[2.5rem] rounded px-2 py-2 text-[14px]" placeholder="Name :">
                                 <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div></div>
 
                                 <div class="lg:col-span-6 mb-5">
@@ -44,8 +45,8 @@
                                 </div>
 
                                 <div class="mb-5">
-                                    <label for="comments" class="font-semibold">Message :</label>
-                                    <textarea name="comments" id="comments" class="h-32 w-full rounded border border-slate-100 bg-transparent py-2 px-3 text-[14px] mt-2" placeholder="Message :"></textarea>
+                                    <label for="body" class="font-semibold">Message :</label>
+                                    <textarea name="body" id="body" class="h-32 w-full rounded border border-slate-100 bg-transparent py-2 px-3 text-[14px] mt-2" placeholder="Message :"></textarea>
                                 </div>
                             </div>
                             <button type="submit" id="submit" name="send" class="btn bg-emerald-600 hover:bg-emerald-700 text-white rounded-md p-3">Send Message</button>

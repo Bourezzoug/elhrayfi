@@ -1,6 +1,6 @@
 @extends('layout.frontend')
-@section('title', 'Elhrayfi.ma - ')
-@section('meta_description', 'description')
+@section('title', 'Elhrayfi.ma - Blog')
+@section('meta_description', 'Blog. Nous offrons des conseils utils et pratiques pour vous aidez ')
 @section('content')
 @include('components.header')
 
