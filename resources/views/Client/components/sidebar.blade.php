@@ -1,10 +1,12 @@
 <div class="top-0 left-0 fixed z-[100]">
     <aside class="relative bg-white h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-6">
-            <img src="{{ asset('images/elhrayfi-logo.png') }}" alt="">
+            <a href="/">
+                <img src="{{ asset('images/elhrayfi-logo.png') }}" alt="Elhrayfi Logo">
+            </a>
         </div>
         <nav class="text-white text-base font-semibold pt-3">
-            <a href="{{ Route('dashboard') }}" class="flex items-center  py-4 text-black pl-6 nav-item">
+            <a href="{{ Route('client.dashboard') }}" class="flex items-center  py-4 text-black pl-6 nav-item">
                 <i class="fas fa-tachometer-alt mr-3"></i>
                 Dashboard
             </a>
@@ -17,10 +19,7 @@
                     <i class="fa-solid fa-users mr-3"></i>
                     Offres du travail
                 </a>
-                <a href="{{ Route('offre.index') }}" class="flex items-center  opacity-75 text-black hover:opacity-100 py-4 pl-6 nav-item">
-                    <i class="fa-regular fa-credit-card mr-3"></i>
-                    Abonnement
-                </a>
+
                 <a href="{{ Route('client.profile') }}" class="flex items-center  opacity-75 text-black hover:opacity-100 py-4 pl-6 nav-item">
                     <i class="fa-solid fa-user mr-3"></i>
                     Mon Profile

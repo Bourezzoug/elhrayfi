@@ -38,7 +38,7 @@ class CreateNewUser implements CreatesNewUsers
             'code_verification' =>  $otp
         ]);
         // session()->put('otp', $otp);
-        session(['user_type' => $input['role_id']]);
+        // session(['user_type' => $input['role_id']]);
         Mail::to($input['email'])->send(new EmailVerify($input['email'],'Elhrayfi - Confirmez votre compte',$otp));
         return $user;
     }

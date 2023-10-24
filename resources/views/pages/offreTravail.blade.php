@@ -1,6 +1,6 @@
 @extends('layout.frontend')
-@section('title', 'Elhrayfi.ma - ' . {{ $offers->title }})
-@section('meta_description',{!! Illuminate\Support\Str::limit(strip_tags($offres->description), 220, ' [...]') !!})
+@section('title', 'Elhrayfi.ma - ' . $offers->title )
+@section('meta_description', Illuminate\Support\Str::limit(strip_tags($offers->description), 220, ' [...]'))
 @include('components.header')
 @section('content')
 <section class="relative table w-full py-40 bg-center bg-no-repeat bg-cover" style="background-image: url('http://127.0.0.1:8000/storage/{{ $offers->client->cover_photo }}');height:320px">

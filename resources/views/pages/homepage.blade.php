@@ -102,9 +102,7 @@
             </button>
 
         </form>
-        <div class="md:pt-10">
-            <a href="{{ Route('register') }}" class="bg-emerald-600 text-white py-3 px-4 rounded text-xl hover:scale-110 transition-transform inline-block">Créer votre profil</a>
-        </div>
+
         
     </div>
 </section>
@@ -154,10 +152,11 @@
                 </button>
             {{-- </div> --}}
         </form>
+        @guest
         <div class="md:pt-10">
             <a href="{{ Route('register') }}" class="bg-emerald-600 text-white py-3 px-4 rounded text-xl hover:scale-110 transition-transform inline-block">Créer votre profil</a>
         </div>
-        
+        @endguest
     </div>
 </section>
 @endif
@@ -626,7 +625,7 @@
 @guest
 <div id="price" class="py-10">
     <div class="grid grid-cols-1 pb-8 text-center">
-        <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Nos Tarifs</h3>
+        <h3 class="mb-4 md:text-[26px] md:leading-normal text-2xl leading-normal font-semibold">Elhrayfi Tarifs</h3>
 
         <p class="text-slate-400 max-w-xl mx-auto">Elhrayfi : Profitez de tarifs avantageux. Solutions abordables, adaptées à vos besoins. Premier mois gratuit, sans carte de crédit requise.</p>
     </div>

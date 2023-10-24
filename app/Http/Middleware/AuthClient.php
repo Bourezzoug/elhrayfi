@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthClient
@@ -15,7 +16,7 @@ class AuthClient
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(session('user_type') == 3) {
+        if(Auth::user()->user_type == 3) {
             return $next($request);
         }
         else{

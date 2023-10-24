@@ -103,7 +103,9 @@
                 @endif
                 @if(Auth::check())
                 <div class="py-6 my-6">
-                    <form method="post" name="myForm" id="myForm" class="mt-4" onsubmit="return validateForm()">
+                    <form action="{{ Route('contact.artisan') }}" method="POST" class="mt-4" onsubmit="return validateForm()">
+                        @csrf
+                        <input type="hidden" name="artisan_id" value="{{ $artisan->id }}"> 
                         <p class="mb-0" id="error-msg"></p>
                         <h5 class="text-xl font-semibold mb-4">Message:</h5>
                         <div class="grid grid-cols-12 gap-2">

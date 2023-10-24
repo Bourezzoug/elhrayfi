@@ -1,6 +1,6 @@
 <div class="flex bg-white">
     @include('artisan.components.sidebar')
-    <div class="w-full flex flex-col h-screen ml-56">
+    <div class="w-full flex flex-col h-screen md:ml-56">
         @include('artisan.components.header')
         <div class="ml-8 mt-20" wire:init="loadItems">
 

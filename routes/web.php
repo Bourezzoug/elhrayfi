@@ -8,6 +8,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobDetailController;
 use App\Http\Controllers\JoblistController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\VerifyController;
 use Illuminate\Support\Facades\Route;
 
@@ -62,8 +64,8 @@ Route::get('/jobdetail',function() {
 // Route for customers
 Route::middleware(['auth:sanctum', 'verifyEmail','authclient'])->group(function () {
     Route::get('/client/dashboard', function () {
-        return view('Client.dashboard');
-    })->name('Client.dashboard');
+        return view('client.dashboard');
+    })->name('client.dashboard');
     // Route::get('/dashboard',function() {
     //     return view('Client.clientDashboard');
     // })->name('client.dashboard');
@@ -72,7 +74,7 @@ Route::middleware(['auth:sanctum', 'verifyEmail','authclient'])->group(function 
     Route::get('/offre/update/{id}',\App\Http\Livewire\Client\Offre\OffreUpdate::class)->name('offre.update');
     Route::get('/client/profile',\App\Http\Livewire\Client\Profile\ProfileIndex::class)->name('client.profile');
     Route::get('/client/messages',\App\Http\Livewire\Client\Message\MessagdeIndex::class)->name('client.message');
-
+    Route::post('/contact-artisan',[OfferController::class,'contactArtisan'])->name('contact.artisan');
 
 });
 
@@ -91,6 +93,13 @@ Route::middleware(['auth:sanctum', 'verifyEmail','authartisan'])->group(function
     Route::get('/artisan/educations',\App\Http\Livewire\Artisan\Education\EducationIndex::class)->name('education.index');
     Route::get('/artisan/educations/create',\App\Http\Livewire\Artisan\Education\EducationCreate::class)->name('education.create');
     Route::get('/artisan/messages',\App\Http\Livewire\Artisan\Message\MessageIndex::class)->name('message.index');
+    Route::get('/artisan/payments',\App\Http\Livewire\Artisan\Payment\PaymentIndex::class)->name('payment.index');
+    Route::post('paypal/payment',[PaypalController::class,'payment'])->name('paypal');
+    Route::get('paypal/success',[PaypalController::class,'success'])->name('paypal_success');
+    Route::get('paypal/cancel',[PaypalController::class,'cancel'])->name('paypal_cancel');
+    Route::post('stripe/payment',[StripeController::class,'payment'])->name('stripe');
+    Route::get('stripe/success',[StripeController::class,'success'])->name('stripe_success');
+    Route::get('stripe/cancel',[StripeController::class,'cancel'])->name('stripe_cancel');
 });
 
 // Route for artisan and clients

@@ -6,24 +6,24 @@
             <!-- Logo -->
             <div class="pt-2 ">
                 <a href="/">
-                    <img src="{{ asset('images/elhrayfi-logo.png') }}" class="block" width="180" height="100" alt="">
+                    <img src="{{ asset('images/elhrayfi-logo.png') }}" class="block w-56" alt="">
                 </a>
             </div>
             <!-- Menu Item -->
             <div class="hidden md:flex ">
-                <a href="/" class="text-p-color">Acceuill</a>
+                <a href="/" class="text-p-color mx-4">Acceuill</a>
                 <a href="{{ Route('about.index') }}" class="text-p-color mx-4">À propos</a>
                 @if (Auth::check()) <!-- Check if user is logged in -->
                 @if (Auth::user()->user_type == 2)
                     <a href="{{ route('joblist.index') }}" class="text-p-color mx-4">Jobs List</a>
                 @endif
                 @if (Auth::user()->user_type == 3)
-                    <a href="{{ route('artisans.index') }}" class="text-p-color mx-4">Artisans</a>
+                    <a href="{{ route('artisan.liste') }}" class="text-p-color mx-4">Artisans</a>
                 @endif
                 @else
                     <!-- Display both options for users who are not logged in -->
                     <a href="{{ route('joblist.index') }}" class="text-p-color mx-4">Jobs List</a>
-                    <a href="{{ route('artisans.index') }}" class="text-p-color mx-4">Artisans</a>
+                    <a href="{{ route('artisan.liste') }}" class="text-p-color mx-4">Artisans</a>
                 @endif
             
                 <a href="{{ Route('blogPage.index') }}" class="text-p-color mx-4">Blog</a>
@@ -171,7 +171,7 @@
                 <a href="/" class="text-p-color">Acceuill</a>
                 <a href="{{ Route('about.index') }}" class="text-p-color">À propos</a>
                 <a href="{{ Route('joblist.index') }}" class="text-p-color">Jobs List</a>
-                <a href="{{ Route('artisans.index') }}" class="text-p-color">Artisans</a>
+                <a href="{{ Route('artisan.liste') }}" class="text-p-color">Artisans</a>
                 <a href="{{ Route('blog.index') }}" class="text-p-color">Blog</a>
                 <a href="{{ Route('contact.index') }}" class="text-p-color">Contact</a>
                 @if (!Auth::check())

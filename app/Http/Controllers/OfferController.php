@@ -57,6 +57,25 @@ class OfferController extends Controller
         ]);
     
         // Redirect back to the job offer page or wherever you want after sending the message
-        return redirect()->back();
+        return redirect('/artisan/messages');
+    }
+
+    public function contactArtisan(Request $request) {
+        $request->validate([
+            'comments' => 'required|string',
+        ]);
+
+        $senderId = Auth::id();
+
+        $receiverId = $request->input('artisan_id');
+    
+
+        Message::create([
+            'sender_id' => $senderId,
+            'receiver_id' => $receiverId,
+            'message' => $request->input('comments'),
+        ]);
+    
+        return redirect('/client/messages');
     }
 }
